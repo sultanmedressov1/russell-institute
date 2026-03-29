@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Russell Institute — Documents</title>
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink:       #1a1610;
+    --ivory:     #f7f2e8;
+    --ivory-deep:#ede6d4;
+    --gold:      #b8922a;
+    --gold-light:#d4aa4a;
+    --gold-pale: #e8d49a;
+    --midnight:  #0f1a2e;
+    --slate:     #2d3a4a;
+    --silver:    #8a9aaa;
+    --silver-lt: #c2cdd8;
+    --cream:     #faf6ed;
+  }
+
+  body {
+    background: #13110e;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 24px;
+    font-family: 'Montserrat', sans-serif;
+    gap: 0;
+  }
+
+  .page-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: .35em;
+    color: #4a4438;
+    text-transform: uppercase;
+    margin-bottom: 48px;
+  }
+
+  .documents {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* ─── SHARED DOCUMENT BASE ─── */
+  .doc {
+    width: 620px;
+    position: relative;
+    background: var(--ivory);
+    padding: 56px 60px 64px;
+    /* Paper texture via layered backgrounds */
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    box-shadow:
+      0 2px 4px rgba(0,0,0,.06),
+      0 8px 24px rgba(0,0,0,.12),
+      0 32px 64px rgba(0,0,0,.18),
+      inset 0 0 0 1px rgba(184,146,42,.12);
+  }
+
+  /* Deckled left edge */
+  .doc::before {
+    content: '';
+    position: absolute;
+    left: -2px; top: 0; bottom: 0;
+    width: 6px;
+    background: var(--ivory);
+    clip-path: polygon(0 0%,100% 1%,98% 4%,100% 7%,97% 11%,100% 15%,98% 19%,100% 23%,97% 27%,100% 31%,98% 35%,100% 39%,97% 43%,100% 47%,98% 51%,100% 55%,97% 59%,100% 63%,98% 67%,100% 71%,97% 75%,100% 79%,98% 83%,100% 87%,97% 91%,100% 95%,98% 99%,0 100%);
+    z-index: 2;
+  }
+
+  /* ─── DIPLOMA (dark + gold) ─── */
+  .diploma {
+    background: var(--midnight);
+    background-image:
+      radial-gradient(ellipse at 20% 20%, rgba(184,146,42,.06) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 80%, rgba(184,146,42,.04) 0%, transparent 60%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    box-shadow:
+      0 2px 4px rgba(0,0,0,.2),
+      0 8px 24px rgba(0,0,0,.4),
+      0 32px 80px rgba(0,0,0,.5),
+      inset 0 0 0 1px rgba(184,146,42,.2);
+  }
+
+  .diploma::before {
+    background: var(--midnight);
+    clip-path: polygon(0 0%,100% 1%,98% 4%,100% 7%,97% 11%,100% 15%,98% 19%,100% 23%,97% 27%,100% 31%,98% 35%,100% 39%,97% 43%,100% 47%,98% 51%,100% 55%,97% 59%,100% 63%,98% 67%,100% 71%,97% 75%,100% 79%,98% 83%,100% 87%,97% 91%,100% 95%,98% 99%,0 100%);
+  }
+
+  /* Thin gold border, inset */
+  .diploma-border {
+    position: absolute;
+    inset: 18px;
+    border: 0.5px solid rgba(184,146,42,.25);
+    pointer-events: none;
+  }
+  .diploma-border::after {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    border: 0.5px solid rgba(184,146,42,.1);
+  }
+
+  /* ─── CERTIFICATE (ivory) ─── */
+  .certificate {
+    background: var(--cream);
+  }
+
+  /* Single ruled line — unexpected structural element */
+  .cert-rule {
+    position: absolute;
+    left: 0; right: 0;
+    top: 120px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(45,58,74,.12) 20%, rgba(45,58,74,.12) 80%, transparent 100%);
+  }
+
+  /* ─── TYPOGRAPHY ─── */
+  .inst-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: .45em;
+    text-transform: uppercase;
+  }
+  .diploma .inst-name { color: var(--gold); }
+  .certificate .inst-name { color: var(--slate); }
+
+  .doc-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .shield {
+    width: 44px;
+    height: 50px;
+    margin: 0 auto 16px;
+    display: block;
+  }
+
+  .doc-type {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 13px;
+    letter-spacing: .2em;
+    margin-top: 10px;
+  }
+  .diploma .doc-type { color: rgba(212,170,74,.6); }
+  .certificate .doc-type { color: rgba(45,58,74,.5); }
+
+  .doc-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 28px;
+    letter-spacing: .06em;
+    line-height: 1.2;
+    margin-top: 4px;
+  }
+  .diploma .doc-title { color: var(--gold-light); }
+  .certificate .doc-title { color: var(--slate); }
+
+  .divider-line {
+    width: 48px;
+    height: 0.5px;
+    margin: 20px auto;
+  }
+  .diploma .divider-line { background: rgba(184,146,42,.4); }
+  .certificate .divider-line { background: rgba(45,58,74,.25); }
+
+  /* Recipient block */
+  .recipient-block {
+    text-align: center;
+    margin: 32px 0 28px;
+  }
+
+  .presented-to {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8.5px;
+    font-weight: 400;
+    letter-spacing: .35em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .diploma .presented-to { color: rgba(212,170,74,.45); }
+  .certificate .presented-to { color: rgba(45,58,74,.4); }
+
+  .recipient-name {
+    font-family: 'IM Fell English', serif;
+    font-size: 38px;
+    font-weight: 400;
+    line-height: 1.1;
+  }
+  .diploma .recipient-name { color: #f0e8d0; }
+  .certificate .recipient-name { color: var(--midnight); }
+
+  .recipient-rule {
+    width: 180px;
+    height: 0.5px;
+    margin: 14px auto 0;
+  }
+  .diploma .recipient-rule { background: rgba(184,146,42,.3); }
+  .certificate .recipient-rule { background: rgba(45,58,74,.2); }
+
+  /* Body text */
+  .body-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.8;
+    text-align: center;
+    padding: 0 16px;
+    margin-bottom: 28px;
+  }
+  .diploma .body-text { color: rgba(240,232,208,.65); }
+  .certificate .body-text { color: rgba(26,22,16,.6); }
+
+  /* Essay title */
+  .essay-block {
+    text-align: center;
+    margin: 0 0 32px;
+    padding: 20px 24px;
+    position: relative;
+  }
+
+  .diploma .essay-block {
+    border-top: 0.5px solid rgba(184,146,42,.2);
+    border-bottom: 0.5px solid rgba(184,146,42,.2);
+  }
+  .certificate .essay-block {
+    background: rgba(45,58,74,.04);
+    border: 0.5px solid rgba(45,58,74,.12);
+  }
+
+  .essay-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7.5px;
+    font-weight: 500;
+    letter-spacing: .4em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .diploma .essay-label { color: rgba(184,146,42,.5); }
+  .certificate .essay-label { color: rgba(45,58,74,.4); }
+
+  .essay-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .diploma .essay-title { color: #e8d49a; }
+  .certificate .essay-title { color: var(--slate); }
+
+  /* Distinction */
+  .distinction {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+
+  .distinction-badge {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    padding: 6px 18px;
+  }
+  .diploma .distinction-badge {
+    color: var(--gold);
+    border-top: 0.5px solid rgba(184,146,42,.4);
+    border-bottom: 0.5px solid rgba(184,146,42,.4);
+  }
+  .certificate .distinction-badge {
+    color: var(--silver);
+    border-top: 0.5px solid rgba(138,154,170,.4);
+    border-bottom: 0.5px solid rgba(138,154,170,.4);
+  }
+
+  /* Grade box for certificate */
+  .grade-box {
+    margin: 0 auto 28px;
+    width: 160px;
+    text-align: center;
+    padding: 16px 24px;
+    border: 1px solid rgba(45,58,74,.18);
+    position: relative;
+  }
+  .grade-box::before, .grade-box::after {
+    content: '';
+    position: absolute;
+    width: 8px; height: 8px;
+    border-color: rgba(45,58,74,.3);
+    border-style: solid;
+  }
+  .grade-box::before { top: -4px; left: -4px; border-width: 1px 0 0 1px; }
+  .grade-box::after  { bottom: -4px; right: -4px; border-width: 0 1px 1px 0; }
+
+  .grade-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7.5px;
+    letter-spacing: .3em;
+    font-weight: 400;
+    color: rgba(45,58,74,.4);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .grade-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--slate);
+    letter-spacing: .05em;
+    line-height: 1;
+  }
+
+  /* Footer */
+  .doc-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 8px;
+    position: relative;
+  }
+
+  /* Seal */
+  .seal {
+    width: 72px;
+    height: 72px;
+    flex-shrink: 0;
+  }
+
+  /* Signature block */
+  .sig-block {
+    text-align: center;
+    flex: 1;
+  }
+  .sig-line {
+    width: 120px;
+    height: 0.5px;
+    margin: 0 auto 6px;
+  }
+  .diploma .sig-line { background: rgba(184,146,42,.3); }
+  .certificate .sig-line { background: rgba(45,58,74,.2); }
+
+  .sig-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 12px;
+  }
+  .diploma .sig-name { color: rgba(240,232,208,.5); }
+  .certificate .sig-name { color: rgba(26,22,16,.4); }
+
+  .sig-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7px;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+  .diploma .sig-title { color: rgba(184,146,42,.35); }
+  .certificate .sig-title { color: rgba(45,58,74,.3); }
+
+  /* QR placeholder */
+  .qr {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    opacity: .35;
+  }
+
+  /* Year stamp — unexpected element */
+  .year-stamp {
+    position: absolute;
+    right: 60px;
+    top: 56px;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 11px;
+    letter-spacing: .15em;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+  }
+  .diploma .year-stamp { color: rgba(184,146,42,.2); }
+  .certificate .year-stamp { color: rgba(45,58,74,.12); }
+
+  /* Place rank — diploma only */
+  .place-tag {
+    position: absolute;
+    top: 56px;
+    left: 60px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7.5px;
+    letter-spacing: .35em;
+    text-transform: uppercase;
+    color: rgba(184,146,42,.4);
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+  }
+
+  /* Horizontal rule with ornament */
+  .ornament-rule {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 20px 0;
+  }
+  .ornament-rule span {
+    flex: 1;
+    height: 0.5px;
+  }
+  .diploma .ornament-rule span { background: rgba(184,146,42,.2); }
+  .certificate .ornament-rule span { background: rgba(45,58,74,.15); }
+  .ornament-rule i {
+    font-style: normal;
+    font-size: 10px;
+  }
+  .diploma .ornament-rule i { color: rgba(184,146,42,.3); }
+  .certificate .ornament-rule i { color: rgba(45,58,74,.2); }
+</style>
+</head>
+<body>
+
+<p class="page-label">The Russell Institute — Document System — MMXXVI</p>
+
+<div class="documents">
+
+  <!-- ══════════════════════════════════ DIPLOMA ══════════════════════════════════ -->
+  <div class="doc diploma">
+    <div class="diploma-border"></div>
+
+    <span class="place-tag">First Place</span>
+    <span class="year-stamp">MMXXVI · Russell</span>
+
+    <!-- Header -->
+    <div class="doc-header">
+      <!-- Shield SVG -->
+      <svg class="shield" viewBox="0 0 44 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M22 2L42 10V26C42 36 33 44 22 48C11 44 2 36 2 26V10L22 2Z" stroke="#b8922a" stroke-width="0.75" fill="none" opacity="0.6"/>
+        <path d="M22 6L38 12.5V26C38 34.5 31 41 22 44.5C13 41 6 34.5 6 26V12.5L22 6Z" stroke="#b8922a" stroke-width="0.4" fill="none" opacity="0.3"/>
+        <!-- Book -->
+        <rect x="14" y="19" width="16" height="11" rx="0.5" stroke="#b8922a" stroke-width="0.5" fill="none" opacity="0.5"/>
+        <line x1="22" y1="19" x2="22" y2="30" stroke="#b8922a" stroke-width="0.4" opacity="0.5"/>
+        <!-- Quill -->
+        <path d="M28 14 Q30 18 26 22" stroke="#b8922a" stroke-width="0.5" fill="none" opacity="0.5"/>
+        <!-- Stars -->
+        <circle cx="15" cy="15" r="0.8" fill="#b8922a" opacity="0.4"/>
+        <circle cx="22" cy="13" r="0.8" fill="#b8922a" opacity="0.4"/>
+        <circle cx="29" cy="15" r="0.8" fill="#b8922a" opacity="0.4"/>
+      </svg>
+
+      <div class="inst-name">The Russell Institute</div>
+      <div class="doc-type">presents this</div>
+      <div class="doc-title">Diploma of Excellence</div>
+    </div>
+
+    <div class="divider-line"></div>
+
+    <!-- Recipient -->
+    <div class="recipient-block">
+      <div class="presented-to">Awarded to</div>
+      <div class="recipient-name">Alisher Mardanov</div>
+      <div class="recipient-rule"></div>
+    </div>
+
+    <div class="body-text">
+      in recognition of outstanding intellectual achievement<br>
+      and distinguished performance in the national essay competition
+    </div>
+
+    <!-- Essay -->
+    <div class="essay-block">
+      <div class="essay-label">Essay submitted</div>
+      <div class="essay-title">"The Ethics of Algorithmic Justice<br>in Modern Law"</div>
+    </div>
+
+    <!-- Distinction -->
+    <div class="distinction">
+      <span class="distinction-badge">Summa Cum Laude &nbsp;·&nbsp; First Place Laureate</span>
+    </div>
+
+    <!-- Footer -->
+    <div class="doc-footer">
+      <!-- Seal -->
+      <svg class="seal" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="36" cy="36" r="33" stroke="#b8922a" stroke-width="0.5" opacity="0.4"/>
+        <circle cx="36" cy="36" r="28" stroke="#b8922a" stroke-width="0.3" opacity="0.25"/>
+        <!-- Text on circle path -->
+        <path id="c1" d="M36 10 A26 26 0 1 1 35.99 10" fill="none"/>
+        <text font-family="Montserrat, sans-serif" font-size="4.5" letter-spacing="2.8" fill="#b8922a" opacity="0.5">
+          <textPath href="#c1" startOffset="8%">THE RUSSELL INSTITUTE · MMXXVI · EXCELLENCE ·</textPath>
+        </text>
+        <!-- Inner emblem -->
+        <path d="M36 22L40 30H48L42 35L44 43L36 38L28 43L30 35L24 30H32L36 22Z" stroke="#b8922a" stroke-width="0.5" fill="none" opacity="0.35"/>
+      </svg>
+
+      <!-- Sig -->
+      <div class="sig-block">
+        <div class="sig-line"></div>
+        <div class="sig-name">Director of Academic Affairs</div>
+        <div class="sig-title">The Russell Institute</div>
+      </div>
+
+      <!-- QR -->
+      <svg class="qr" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1" y="1" width="12" height="12" rx="1" stroke="#b8922a" stroke-width="0.6" fill="none"/>
+        <rect x="4" y="4" width="6" height="6" fill="#b8922a" opacity="0.3"/>
+        <rect x="19" y="1" width="12" height="12" rx="1" stroke="#b8922a" stroke-width="0.6" fill="none"/>
+        <rect x="22" y="4" width="6" height="6" fill="#b8922a" opacity="0.3"/>
+        <rect x="1" y="19" width="12" height="12" rx="1" stroke="#b8922a" stroke-width="0.6" fill="none"/>
+        <rect x="4" y="22" width="6" height="6" fill="#b8922a" opacity="0.3"/>
+        <rect x="19" y="19" width="3" height="3" fill="#b8922a" opacity="0.25"/>
+        <rect x="24" y="19" width="3" height="3" fill="#b8922a" opacity="0.25"/>
+        <rect x="19" y="24" width="3" height="3" fill="#b8922a" opacity="0.25"/>
+        <rect x="24" y="24" width="7" height="3" fill="#b8922a" opacity="0.25"/>
+        <rect x="19" y="29" width="7" height="2" fill="#b8922a" opacity="0.25"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════ CERTIFICATE ══════════════════════════════════ -->
+  <div class="doc certificate">
+    <div class="cert-rule"></div>
+    <span class="year-stamp">MMXXVI · Russell</span>
+
+    <!-- Header -->
+    <div class="doc-header">
+      <div class="inst-name" style="margin-bottom:14px;">The Russell Institute</div>
+      <div class="doc-title" style="font-size:22px;">Certificate of Academic<br>Accomplishment</div>
+    </div>
+
+    <div class="divider-line"></div>
+
+    <!-- Recipient -->
+    <div class="recipient-block">
+      <div class="presented-to">This certifies that</div>
+      <div class="recipient-name">Dana Smagulova</div>
+      <div class="recipient-rule"></div>
+    </div>
+
+    <div class="body-text">
+      has successfully completed and submitted an essay<br>
+      to the Russell Institute Academic Essay Programme
+    </div>
+
+    <!-- Essay -->
+    <div class="essay-block">
+      <div class="essay-label">Essay submitted</div>
+      <div class="essay-title">"Moral Responsibility in the Age<br>of Artificial Intelligence"</div>
+    </div>
+
+    <!-- Grade box -->
+    <div class="grade-box">
+      <div class="grade-label">Grade Achieved</div>
+      <div class="grade-value">B+</div>
+    </div>
+
+    <div class="ornament-rule">
+      <span></span><i>◇</i><span></span>
+    </div>
+
+    <!-- Distinctions -->
+    <div class="distinction">
+      <span class="distinction-badge">Exceptional Argumentative Clarity &nbsp;·&nbsp; Cum Honore</span>
+    </div>
+
+    <!-- Footer -->
+    <div class="doc-footer">
+      <!-- Dry seal — no color -->
+      <svg class="seal" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="36" cy="36" r="33" stroke="#2d3a4a" stroke-width="0.4" opacity="0.2"/>
+        <circle cx="36" cy="36" r="28" stroke="#2d3a4a" stroke-width="0.3" opacity="0.12"/>
+        <path id="c2" d="M36 10 A26 26 0 1 1 35.99 10" fill="none"/>
+        <text font-family="Montserrat, sans-serif" font-size="4.5" letter-spacing="2.8" fill="#2d3a4a" opacity="0.25">
+          <textPath href="#c2" startOffset="8%">THE RUSSELL INSTITUTE · MMXXVI · VERIFIED ·</textPath>
+        </text>
+        <!-- Logic node — Russell's contribution to logic -->
+        <circle cx="36" cy="36" r="5" stroke="#2d3a4a" stroke-width="0.5" fill="none" opacity="0.2"/>
+        <circle cx="26" cy="36" r="2.5" stroke="#2d3a4a" stroke-width="0.4" fill="none" opacity="0.2"/>
+        <circle cx="46" cy="36" r="2.5" stroke="#2d3a4a" stroke-width="0.4" fill="none" opacity="0.2"/>
+        <line x1="31" y1="36" x2="28.5" y2="36" stroke="#2d3a4a" stroke-width="0.4" opacity="0.2"/>
+        <line x1="41" y1="36" x2="43.5" y2="36" stroke="#2d3a4a" stroke-width="0.4" opacity="0.2"/>
+        <circle cx="36" cy="26" r="2.5" stroke="#2d3a4a" stroke-width="0.4" fill="none" opacity="0.2"/>
+        <line x1="36" y1="31" x2="36" y2="28.5" stroke="#2d3a4a" stroke-width="0.4" opacity="0.2"/>
+        <circle cx="36" cy="46" r="2.5" stroke="#2d3a4a" stroke-width="0.4" fill="none" opacity="0.2"/>
+        <line x1="36" y1="41" x2="36" y2="43.5" stroke="#2d3a4a" stroke-width="0.4" opacity="0.2"/>
+      </svg>
+
+      <!-- Sig -->
+      <div class="sig-block">
+        <div class="sig-line"></div>
+        <div class="sig-name">Director of Academic Affairs</div>
+        <div class="sig-title">The Russell Institute</div>
+      </div>
+
+      <!-- QR -->
+      <svg class="qr" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1" y="1" width="12" height="12" rx="1" stroke="#2d3a4a" stroke-width="0.6" fill="none"/>
+        <rect x="4" y="4" width="6" height="6" fill="#2d3a4a" opacity="0.2"/>
+        <rect x="19" y="1" width="12" height="12" rx="1" stroke="#2d3a4a" stroke-width="0.6" fill="none"/>
+        <rect x="22" y="4" width="6" height="6" fill="#2d3a4a" opacity="0.2"/>
+        <rect x="1" y="19" width="12" height="12" rx="1" stroke="#2d3a4a" stroke-width="0.6" fill="none"/>
+        <rect x="4" y="22" width="6" height="6" fill="#2d3a4a" opacity="0.2"/>
+        <rect x="19" y="19" width="3" height="3" fill="#2d3a4a" opacity="0.15"/>
+        <rect x="24" y="19" width="3" height="3" fill="#2d3a4a" opacity="0.15"/>
+        <rect x="19" y="24" width="3" height="3" fill="#2d3a4a" opacity="0.15"/>
+        <rect x="24" y="24" width="7" height="3" fill="#2d3a4a" opacity="0.15"/>
+        <rect x="19" y="29" width="7" height="2" fill="#2d3a4a" opacity="0.15"/>
+      </svg>
+    </div>
+  </div>
+
+</div>
+
+<p class="page-label" style="margin-top:48px;margin-bottom:0;">All text and elements are editable · Export to PDF for print production</p>
+
+</body>
+</html>
