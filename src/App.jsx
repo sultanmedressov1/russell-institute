@@ -25,7 +25,7 @@ const COPY = {
     quote: { en: '"Disciplina cogitationis est fundamentum omnis praestantiae."', ru: '"The discipline of thought is the foundation of all achievement."' },
     body:  { en: "The Russell Institute invites scholars of uncommon ambition to engage with the great questions of philosophy, economics, and political theory — and to have their reasoning evaluated by an independent board of academic experts.", ru: "Russell Institute открывает пространство для тех, кто готов бросить интеллектуальный вызов современности. Мы приглашаем молодых исследователей к осмыслению фундаментальных парадигм философии, экономики и политики — для прохождения строгой экспертизы их суждений независимым международным академическим советом." },
     stats: [
-      { n: "III", en: "Open Essay Competitions", ru: "Открытых конкурса эссе" },
+      { n: "IV", en: "Open Essay Competitions", ru: "Открытых конкурса эссе" },
       { n: "IV",  en: "Expert Reviewers",        ru: "Эксперта-рецензента" },
       { n: "I",   en: "Academic Transcript",     ru: "Академический транскрипт" },
     ],
