@@ -180,7 +180,7 @@ const COPY = {
     errLegal:    { en: "You must accept the terms to proceed.",     ru: "Для продолжения необходимо принять условия." },
     btnPay:      { en: "Proceed to Payment",             ru: "Перейти к оплате" },
     btnDisabled: { en: "Accept terms to continue",       ru: "Примите условия для продолжения" },
-    feeNote:     { en: "Administrative fee: 7,500 KZT (≈ 15 USD) · Non-refundable upon submission.", ru: "Административный взнос: 7,500 KZT (≈ 15 USD) · Не подлежит возврату после подачи." },
+    feeNote:     { en: "Administrative fee: 7,500 KZT (≈ 15 USD) · Non-refundable upon submission. \n Можете", ru: "Административный взнос: 7,500 KZT (≈ 15 USD) · Не подлежит возврату после подачи." },
   },
   modal: {
     title:      { en: "Payment Instructions", ru: "Инструкции по оплате" },
