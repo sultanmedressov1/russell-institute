@@ -875,7 +875,7 @@ function RegistrationForm() {
               </div>
               <p style={{ fontFamily: "'Lora',serif", fontSize: "0.76rem", color: "#5A6A7A", lineHeight: 1.65, marginBottom: 14 }}>
                 {lang === "en"
-                  ? "If you wish to register for more than one competition, please submit each essay separately. Discounted rates apply:"
+                  ? "If you wish 2to register for more than one competition, please submit each essay separately. Discounted rates apply:"
                   : "Если вы хотите участвовать в нескольких конкурсах, регистрируйте каждое эссе отдельно. Действуют скидки:"}
               </p>
               <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
