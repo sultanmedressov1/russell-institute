@@ -180,7 +180,12 @@ const COPY = {
     errLegal:    { en: "You must accept the terms to proceed.",     ru: "Для продолжения необходимо принять условия." },
     btnPay:      { en: "Proceed to Payment",             ru: "Перейти к оплате" },
     btnDisabled: { en: "Accept terms to continue",       ru: "Примите условия для продолжения" },
-    feeNote:     { en: "Administrative fee: 7,500 KZT (≈ 15 USD) · Non-refundable upon submission.\nПривет мир!", ru: "Административный взнос: 7,500 KZT (≈ 15 USD) · Не подлежит возврату после подачи." },
+    feeNote:     { en: "Administrative fee: 7,500 KZT (≈ 15 USD) · Non-refundable upon submission.", ru: "Административный взнос: 7,500 KZT (≈ 15 USD) · Не подлежит возврату после подачи." },
+  discountTitle: { en: "Multi-Essay Discount", ru: "Скидка при регистрации нескольких эссе" },
+  discountNote: {
+    en: "If you wish to register for more than one competition, please submit each essay separately. Discounted rates apply automatically:\n2 essays — 10,500 KZT total (save 4,500)\n3 essays — 15,000 KZT total (save 7,500)\n4 essays — 22,500 KZT total (save 7,500)",
+    ru: "Если вы хотите участвовать в нескольких конкурсах, регистрируйте каждое эссе отдельно. Скидки применяются автоматически:\n2 эссе — 10 500 KZT итого (экономия 4 500)\n3 эссе — 15 000 KZT итого (экономия 7 500)\n4 эссе — 22 500 KZT итого (экономия 7 500)",
+    },
   },
   modal: {
     title:      { en: "Payment Instructions", ru: "Инструкции по оплате" },
@@ -859,9 +864,34 @@ function RegistrationForm() {
               )}
             </div>
 
-            <p style={{ fontFamily: "'Lora',serif", fontSize: "0.76rem", color: "#8A7A66", fontStyle: "italic", marginBottom: 28, lineHeight: 1.65, whiteSpace: "pre-line" }}>
+            <p style={{ fontFamily: "'Lora',serif", fontSize: "0.76rem", color: "#8A7A66", fontStyle: "italic", marginBottom: 20, lineHeight: 1.65 }}>
               {t(c.feeNote, lang)}
             </p>
+
+            {/* Блок со скидкой */}
+            <div style={{ marginBottom: 28, border: "1px solid #C8A87A", background: "#FDFAF3", padding: "20px 24px" }}>
+              <div style={{ fontFamily: "'Cormorant SC',serif", fontSize: "0.6rem", letterSpacing: "0.26em", textTransform: "uppercase", color: "#4A0E0E", marginBottom: 12 }}>
+                {t(c.discountTitle, lang)}
+              </div>
+              <p style={{ fontFamily: "'Lora',serif", fontSize: "0.76rem", color: "#5A6A7A", lineHeight: 1.65, marginBottom: 14 }}>
+                {lang === "en"
+                  ? "If you wish to register for more than one competition, please submit each essay separately. Discounted rates apply:"
+                  : "Если вы хотите участвовать в нескольких конкурсах, регистрируйте каждое эссе отдельно. Действуют скидки:"}
+              </p>
+              <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                {[
+                  { essays: lang === "en" ? "2 essays" : "2 эссе", total: "10,500 KZT", save: lang === "en" ? "save 4,500" : "экономия 4 500" },
+                  { essays: lang === "en" ? "3 essays" : "3 эссе", total: "15,000 KZT", save: lang === "en" ? "save 7,500" : "экономия 7 500" },
+                  { essays: lang === "en" ? "4 essays" : "4 эссе", total: "22,500 KZT", save: lang === "en" ? "save 7,500" : "экономия 7 500" },
+                ].map((row, i) => (
+                  <div key={i} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingBottom: 8, borderBottom: i < 2 ? "1px solid #EEE4D0" : "none" }}>
+                    <span style={{ fontFamily: "'Lora',serif", fontSize: "0.8rem", color: "#1A2B45" }}>{row.essays}</span>
+                    <span style={{ fontFamily: "'EB Garamond',serif", fontSize: "1rem", color: "#1A2B45", fontWeight: 500 }}>{row.total}</span>
+                    <span style={{ fontFamily: "'Lora',serif", fontSize: "0.72rem", color: "#4A0E0E", fontStyle: "italic" }}>{row.save}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
 
             <button
               className={`pay-btn ${legalAccepted ? "active" : "disabled"}`}
