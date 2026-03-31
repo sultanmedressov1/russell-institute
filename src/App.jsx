@@ -10,7 +10,7 @@ const t = (copy, lang) => copy[lang] ?? copy.en;
 const COPY = {
   nav: {
     competitions: { en: "Competitions", ru: "Конкурсы" },
-    experts:      { en: "Experts",      ru: "Эксперты" },
+    experts:      { en: "Experts",      ru: "Эксперты" }, 
     transcript:   { en: "The Transcript", ru: "Транскрипт" },
     about:        { en: "About",        ru: "О нас" },
     register:     { en: "Register",     ru: "Регистрация" },
