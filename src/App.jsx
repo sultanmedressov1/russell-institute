@@ -878,7 +878,7 @@ function RegistrationForm() {
             </p>
 
             <div style={{ marginBottom: 28, border: "1px solid #C8A87A", background: "#FDFAF3", padding: "20px 24px" }}>
-              <div style={{ fontFamily: "'Cormorant SC',serif", fontSize: "0.6rem", letterSpacing: "0.26em", textTransform: "uppercase", color: "#4A0E0E", marginBottom: 12 }}>
+              <div style={{ fontFamily: "'Cormorant SC',serif", fontSize: "0.8rem", letterSpacing: "0.26em", textTransform: "uppercase", color: "#4A0E0E", marginBottom: 12 }}>
                 {t(c.discountTitle, lang)}
               </div>
               <p style={{ fontFamily: "'Lora',serif", fontSize: "0.76rem", color: "#5A6A7A", lineHeight: 1.65, marginBottom: 14 }}>
