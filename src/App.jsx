@@ -21,7 +21,7 @@ const COPY = {
   hero: {
     est:   { en: "Astana, Kazakhstan", ru: "Астана, Казахстан" },
     line1: { en: "The Discipline of Thought", ru: "Дисциплина Мышления" },
-    line2: { en: "Is the Foundation of All Achievement", ru: "— Основа Всякого Достижения" },
+    line2: { en: "Is the Foundation of All Achievement", ru: "Основа Всякого Достижения" },
     quote: { en: '"Disciplina cogitationis est fundamentum omnis praestantiae."', ru: '"The discipline of thought is the foundation of all achievement."' },
     body:  { en: "The Russell Institute invites scholars of uncommon ambition to engage with the great questions of philosophy, economics, and political theory — and to have their reasoning evaluated by an independent board of academic experts.", ru: "Russell Institute открывает пространство для тех, кто готов бросить интеллектуальный вызов современности. Мы приглашаем молодых исследователей к осмыслению фундаментальных парадигм философии, экономики и политики — для прохождения строгой экспертизы их суждений независимым международным академическим советом." },
     stats: [
@@ -73,7 +73,7 @@ const COPY = {
       num: "III",
       tag:   { en: "Economics, Business and Political Theory", ru: "Экономика, Бизнес и политическая теория" },
       title: { en: "On the Nature of Economic Inequality", ru: "О природе экономического неравенства" },
-      q:     { en: "To what extent is economic inequality an inherent consequence of efficient market systems, and under what conditions—if any—does it indicate failures in their operation rather than their proper functioning?", ru: "В какой мере экономическое неравенство является неизбежным следствием эффективного функционирования рыночных систем, и при каких условиях — если таковые имеются — оно свидетельствует о сбоях в их работе?" },
+      q:     { en: "To what extent is economic inequality an inherent consequence of efficient market systems, and under what conditions, if any, does it indicate failures in their operation rather than their proper functioning?", ru: "В какой мере экономическое неравенство является неизбежным следствием эффективного функционирования рыночных систем, и при каких условиях, если таковые имеются, оно свидетельствует о сбоях в их работе?" },
       due:   { en: "15 April 2026", ru: "15 апреля 2026" },
       wc: "1,000 – 1,500",
     },
@@ -141,16 +141,16 @@ const COPY = {
     verdict:    { en: "Demonstrates High Academic Promise", ru: "Высокий Академический Потенциал" },
   },
   scores: [
-    { en: "Critical Analysis",                       ru: "Критический анализ",                              v: 88 },
-    { en: "Evidentiary Rigor and Use of Sources",    ru: "Доказательная строгость и работа с источниками",  v: 74 },
-    { en: "Architectural Logic",                     ru: "Архитектурная логика",                            v: 92 },
-    { en: "Academic Prose",                          ru: "Академическая проза",                             v: 68 },
-    { en: "Originality of Thought",                  ru: "Оригинальность мысли",                           v: 81 },
+    { en: "Critical Analysis",                    ru: "Критический анализ",                             v: 88 },
+    { en: "Evidentiary Rigor and Use of Sources", ru: "Доказательная строгость и работа с источниками", v: 74 },
+    { en: "Architectural Logic",                  ru: "Архитектурная логика",                           v: 92 },
+    { en: "Academic Prose",                       ru: "Академическая проза",                            v: 68 },
+    { en: "Originality of Thought",               ru: "Оригинальность мысли",                          v: 81 },
   ],
   regForm: {
     sectionLabel:     { en: "Enrolment", ru: "Запись" },
     headline:         { en: "Apply to the Competition", ru: "Подать заявку на конкурс" },
-    sub:              { en: "Complete the form below. Your application will be reviewed by the Institute's admissions office within 24 hours of payment confirmation.", ru: "Заполните форму ниже. Ваша заявка будет рассмотрена приёмной комиссией Института в течение 24 часов после подтверждения оплаты." },
+    sub:              { en: "Complete the form below. Select one or more essay categories. Your application will be reviewed within 24 hours of payment confirmation.", ru: "Заполните форму ниже. Выберите одну или несколько категорий эссе. Ваша заявка будет рассмотрена в течение 24 часов после подтверждения оплаты." },
     nameLabel:        { en: "Full Name",            ru: "Полное имя" },
     namePlaceholder:  { en: "e.g. Aibek Dzhaksybekov", ru: "напр. Айбек Джаксыбеков" },
     emailLabel:       { en: "Email Address",        ru: "Адрес электронной почты" },
@@ -158,8 +158,7 @@ const COPY = {
     phoneLabel:       { en: "Phone Number",         ru: "Номер телефона" },
     phonePlaceholder: { en: "+7 777 123 45 67",     ru: "+7 777 123 45 67" },
     errPhone:         { en: "Please enter a valid phone number.", ru: "Введите корректный номер телефона." },
-    catLabel:         { en: "Competition Category", ru: "Категория конкурса" },
-    catPlaceholder:   { en: "— Select a category —", ru: "— Выберите категорию —" },
+    catLabel:         { en: "Competition Categories (select all that apply)", ru: "Категории конкурса (выберите все подходящие)" },
     cats: [
       { en: "I · Engineering, Technology & IT",     ru: "I · Инженерия, технологии и IT",     val: "I - Engineering, Technology & IT" },
       { en: "II · Life Sciences & Medicine",        ru: "II · Биологические науки и медицина", val: "II - Life Sciences & Medicine" },
@@ -174,35 +173,37 @@ const COPY = {
     legalAnd:    { en: " and the ",                      ru: " и " },
     legalPriv:   { en: "Privacy Policy",                 ru: "Политикой конфиденциальности" },
     legalPost:   { en: " of The Russell Institute.",     ru: " The Russell Institute." },
-    errRequired: { en: "This field is required.",                 ru: "Это поле обязательно для заполнения." },
-    errEmail:    { en: "Please enter a valid email address.",     ru: "Введите корректный адрес электронной почты." },
-    errCat:      { en: "Please select a competition category.",   ru: "Выберите категорию конкурса." },
-    errLegal:    { en: "You must accept the terms to proceed.",   ru: "Для продолжения необходимо принять условия." },
-    btnPay:      { en: "Proceed to Payment",             ru: "Перейти к оплате" },
-    btnDisabled: { en: "Accept terms to continue",       ru: "Примите условия для продолжения" },
-    feeNote:     { en: "Administrative fee: 7,500 KZT (approx. 15 USD) - Non-refundable upon submission.", ru: "Административный взнос: 7 500 KZT (прибл. 15 USD) - Не подлежит возврату после подачи." },
+    errRequired:   { en: "This field is required.",                 ru: "Это поле обязательно для заполнения." },
+    errEmail:      { en: "Please enter a valid email address.",     ru: "Введите корректный адрес электронной почты." },
+    errCat:        { en: "Please select at least one category.",    ru: "Выберите хотя бы одну категорию." },
+    errLegal:      { en: "You must accept the terms to proceed.",   ru: "Для продолжения необходимо принять условия." },
+    btnPay:        { en: "Proceed to Payment",           ru: "Перейти к оплате" },
+    btnDisabled:   { en: "Accept terms to continue",     ru: "Примите условия для продолжения" },
+    feeNote:       { en: "Base fee: 7,500 KZT per essay. Multi-essay discounts apply automatically.", ru: "Базовый взнос: 7 500 KZT за эссе. Скидки при нескольких эссе применяются автоматически." },
     discountTitle: { en: "Multi-Essay Discount", ru: "Скидка при нескольких эссе" },
-    discountSub:   { en: "Register for more than one competition — submit each essay separately. Discounted rates apply:", ru: "Участвуйте в нескольких конкурсах — регистрируйте каждое эссе отдельно. Действуют скидки:" },
+    discountSub:   { en: "Select multiple categories to receive a discount. Each essay is reviewed separately.", ru: "Выберите несколько категорий для получения скидки. Каждое эссе проверяется отдельно." },
     disc2essays:   { en: "2 essays", ru: "2 эссе" },
     disc3essays:   { en: "3 essays", ru: "3 эссе" },
     disc4essays:   { en: "4 essays", ru: "4 эссе" },
     disc2save:     { en: "save 4,500", ru: "экономия 4 500" },
     disc3save:     { en: "save 7,500", ru: "экономия 7 500" },
     disc4save:     { en: "save 7,500", ru: "экономия 7 500" },
+    totalLabel:    { en: "Total", ru: "Итого" },
+    discountApplied: { en: "Discount applied", ru: "Скидка применена" },
   },
   modal: {
     title:      { en: "Payment Instructions", ru: "Инструкции по оплате" },
     sub:        { en: "Please complete your payment via Kaspi Bank to finalise your registration.", ru: "Пожалуйста, завершите оплату через Kaspi Bank для завершения регистрации." },
-    feeLabel:   { en: "Registration Fee",  ru: "Регистрационный взнос" },
-    feeAmount:  { en: "7,500 KZT",         ru: "7 500 KZT" },
+    feeLabel:   { en: "Total Registration Fee", ru: "Итоговый регистрационный взнос" },
     qrLabel:    { en: "Scan with Kaspi to Pay", ru: "Отсканируйте для оплаты через Kaspi" },
-    qrAlt:      { en: "Kaspi QR Code",     ru: "QR-код Kaspi" },
+    qrAlt:      { en: "Kaspi QR Code",          ru: "QR-код Kaspi" },
     orLabel:    { en: "Or transfer manually via phone number (Kaspi, Halyk, Freedom):", ru: "Или переведите вручную по номеру телефона (Kaspi, Halyk, Freedom):" },
     accountNo:  { en: "+7 747 822 5091",   ru: "+7 747 822 5091" },
     reference:  { en: "Comments: Student Full Name", ru: "Комментарий: Полное Имя ученика" },
     confirmBtn: { en: "Confirm Payment and Submit", ru: "Подтвердить оплату и отправить" },
     cancelBtn:  { en: "Cancel",            ru: "Отмена" },
     disclaimer: { en: "Your application will be reviewed within 24 hours of payment confirmation. You will receive an email acknowledgement.", ru: "Ваша заявка будет рассмотрена в течение 24 часов после подтверждения оплаты. Вы получите подтверждение по электронной почте." },
+    essaysLabel:{ en: "Selected competitions", ru: "Выбранные конкурсы" },
   },
   success: {
     headline: { en: "Application Received", ru: "Заявка получена" },
@@ -231,10 +232,13 @@ const COPY = {
       { en: "Assessment Methodology", ru: "Методология оценки",          href: "/methodology.pdf" },
       { en: "Refund Policy",          ru: "Политика возврата",            href: "/refund.pdf" },
     ],
-    copy: { en: "2026 MSM Group (Individual Entrepreneur MSM GROUP). All rights reserved.", ru: "2026 MSM Group (ИП MSM GROUP). Все права защищены." },
+    copy: { en: "2026 MSM Group (Individual Entrepreneur MSM GROUP). All rights reserved.", ru: "2026 MSM Group (IP MSM GROUP). Vse prava zashhishheny." },
     est:  { en: "The Russell Institute", ru: "The Russell Institute" },
   },
 };
+
+/* ── Pricing table ─────────────────────────────────────────────── */
+const FEE_TABLE = { 1: 7500, 2: 10500, 3: 15000, 4: 22500 };
 
 const GF = () => (
   <style>{`
@@ -286,7 +290,7 @@ const GF = () => (
     .cb-box { width:20px; height:20px; border:1.5px solid #C8B898; background:#FFFEF9; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:border-color 0.2s,background 0.2s; }
     .cb-box.checked { border-color:#1A2B45; background:#1A2B45; }
     .cb-box.cb-err { border-color:#8B2020; }
-    .cb-tick { color:#F9F7F2; }
+    .cb-tick { color:#F9F7F2; font-size:12px; }
     .legal-text { font-family:'Lora',serif; font-size:0.82rem; color:#4A5A6A; line-height:1.7; }
     .legal-link { color:#4A0E0E; text-decoration:underline; text-underline-offset:2px; text-decoration-color:rgba(74,14,14,0.4); cursor:pointer; transition:text-decoration-color 0.2s; }
     .legal-link:hover { text-decoration-color:#4A0E0E; }
@@ -294,6 +298,11 @@ const GF = () => (
     .pay-btn.active { background:#1A2B45; color:#F9F7F2; cursor:pointer; }
     .pay-btn.active:hover { background:#4A0E0E; letter-spacing:0.33em; }
     .pay-btn.disabled { background:#C8C0B0; color:#8A8078; cursor:not-allowed; opacity:0.65; }
+    .cat-row { display:flex; align-items:center; gap:14px; cursor:pointer; padding:12px 16px; border:1px solid #D8CEB8; background:#FFFEF9; transition:all 0.2s; }
+    .cat-row:hover { border-color:#1A2B45; }
+    .cat-row.sel { border-color:#1A2B45; background:#F0EEF8; }
+    .cat-chk { width:18px; height:18px; border:1.5px solid #C8B898; background:#FFFEF9; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:all 0.2s; }
+    .cat-chk.sel { border-color:#1A2B45; background:#1A2B45; }
     .modal-overlay { position:fixed; inset:0; z-index:500; background:rgba(10,18,28,0.72); display:flex; align-items:center; justify-content:center; padding:24px; backdrop-filter:blur(3px); animation:fadeIn 0.2s ease; }
     @keyframes fadeIn { from{opacity:0} to{opacity:1} }
     .modal-box { background:#F9F7F2; max-width:520px; width:100%; border:1px solid #D8CEB8; padding:48px; position:relative; animation:slideUp 0.28s cubic-bezier(0.22,1,0.36,1); max-height:90vh; overflow-y:auto; }
@@ -364,10 +373,10 @@ function Header({ lang, setLang }) {
   const col  = sc ? "#1A2B45" : "#C8D8E8";
   const keys = ["competitions", "experts", "transcript", "about"];
   return (
-    <header className={`hdr${sc ? " sc" : ""}`}>
+    <header className={"hdr" + (sc ? " sc" : "")}>
       <div className="hdr-in">
         <a href="#home" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 14 }}>
-          <div style={{ width: 36, height: 36, border: `1px solid ${sc ? "#1A2B45" : "#3A5A7A"}`, display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <div style={{ width: 36, height: 36, border: "1px solid " + (sc ? "#1A2B45" : "#3A5A7A"), display: "flex", alignItems: "center", justifyContent: "center" }}>
             <BookOpen size={15} color={sc ? "#1A2B45" : "#8AAABB"} />
           </div>
           <div>
@@ -381,7 +390,7 @@ function Header({ lang, setLang }) {
         </a>
         <nav className="d-nav" style={{ display: "flex", alignItems: "center", gap: 30 }}>
           {keys.map(k => (
-            <a key={k} href={`#${k}`} className="nav-a" style={{ color: col }}>{t(COPY.nav[k], lang)}</a>
+            <a key={k} href={"#" + k} className="nav-a" style={{ color: col }}>{t(COPY.nav[k], lang)}</a>
           ))}
           <LangToggle lang={lang} setLang={setLang} scrolled={sc} />
           <a href="#registration" className="nav-cta">{t(COPY.nav.register, lang)}</a>
@@ -396,7 +405,7 @@ function Header({ lang, setLang }) {
       {open && (
         <div style={{ background: "#F9F7F2", borderTop: "1px solid #D8CEB8", padding: "20px 24px" }}>
           {[...keys, "register"].map(k => (
-            <a key={k} href={`#${k === "register" ? "registration" : k}`} className="nav-a"
+            <a key={k} href={"#" + (k === "register" ? "registration" : k)} className="nav-a"
               style={{ display: "block", padding: "12px 0", borderBottom: "1px solid #EEE8DA", color: "#1A2B45" }}
               onClick={() => setOpen(false)}>
               {t(COPY.nav[k], lang)}
@@ -482,12 +491,12 @@ function Competitions() {
         <div style={{ maxWidth: 680, marginBottom: 72 }}>
           <div className="slbl rv" style={{ marginBottom: 20 }}>{t(c.label, lang)}</div>
           <h2 className="rv d1" style={{ fontFamily: "'EB Garamond',serif", fontSize: "2.9rem", fontWeight: 400, color: "#1A2B45", lineHeight: 1.12, marginBottom: 28 }}>{t(c.headline, lang)}</h2>
-          <div className="orn rv d2"><span style={{ fontFamily: "'Cormorant SC',serif", fontSize: "0.85rem", letterSpacing: "0.3em", whiteSpace: "nowrap" }}>&#10022; &#10022; &#10022;</span></div>
+          <div className="orn rv d2"><span style={{ fontFamily: "'Cormorant SC',serif", fontSize: "0.85rem", letterSpacing: "0.3em", whiteSpace: "nowrap" }}>* * *</span></div>
           <p className="rv d2" style={{ fontFamily: "'Lora',serif", fontSize: "0.9rem", color: "#5A6A7A", lineHeight: 1.88, marginTop: 24 }}>{t(c.body, lang)}</p>
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
           {COPY.comps.map((comp, i) => (
-            <div key={comp.num} className={`cc rv d${i + 1}`} style={{ padding: "44px 52px" }}>
+            <div key={comp.num} className={"cc rv d" + (i + 1)} style={{ padding: "44px 52px" }}>
               <div style={{ display: "flex", gap: 36, alignItems: "flex-start", flexWrap: "wrap" }}>
                 <div style={{ fontFamily: "'Cormorant SC',serif", fontSize: "2.6rem", color: "#D8CEB8", lineHeight: 1, minWidth: 48, paddingTop: 4 }}>{comp.num}</div>
                 <div style={{ flex: 1, minWidth: 260 }}>
@@ -538,7 +547,7 @@ function Experts() {
         </div>
         <div className="eg" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 2 }}>
           {COPY.expertsData.map((e, i) => (
-            <div key={i} className={`ec rv d${i + 1}`} style={{ padding: "40px 30px" }}>
+            <div key={i} className={"ec rv d" + (i + 1)} style={{ padding: "40px 30px" }}>
               <div style={{ width: 68, height: 68, background: "#1A2B45", marginBottom: 24, display: "flex", alignItems: "center", justifyContent: "center" }}>
                 <span style={{ fontFamily: "'Cormorant SC',serif", fontSize: "1.05rem", color: "#C8A87A" }}>{e.ini}</span>
               </div>
@@ -617,9 +626,9 @@ function Transcript() {
   );
 }
 
-function PaymentModal({ isOpen, onClose, onConfirm, applicantName }) {
-  const lang = useLang();
-  const c    = COPY.modal;
+/* ── Payment Modal ─────────────────────────────────────────────── */
+function PaymentModal({ isOpen, onClose, onConfirm, applicantName, feeDisplay, selectedCategories, lang }) {
+  const c = COPY.modal;
   useEffect(() => {
     if (!isOpen) return;
     const fn = e => { if (e.key === "Escape") onClose(); };
@@ -632,6 +641,7 @@ function PaymentModal({ isOpen, onClose, onConfirm, applicantName }) {
     <div className="modal-overlay" onClick={e => { if (e.target === e.currentTarget) onClose(); }}>
       <div className="modal-box">
         <button className="modal-close" onClick={onClose} aria-label="Close"><X size={20} /></button>
+
         <div style={{ marginBottom: 32, paddingBottom: 24, borderBottom: "1px solid #E8E0D0" }}>
           <div className="slbl" style={{ marginBottom: 12 }}>{t(c.title, lang)}</div>
           <p style={{ fontFamily: "'Lora',serif", fontSize: "0.85rem", color: "#5A6A7A", lineHeight: 1.75 }}>{t(c.sub, lang)}</p>
@@ -644,25 +654,49 @@ function PaymentModal({ isOpen, onClose, onConfirm, applicantName }) {
             </div>
           )}
         </div>
+
+        {/* Selected categories */}
+        {selectedCategories && selectedCategories.length > 0 && (
+          <div style={{ marginBottom: 24, padding: "14px 18px", background: "#F2EEE6", borderLeft: "3px solid #4A0E0E" }}>
+            <div style={{ fontFamily: "'Cormorant SC',serif", fontSize: "0.6rem", letterSpacing: "0.2em", color: "#7A6A58", textTransform: "uppercase", marginBottom: 10 }}>
+              {t(c.essaysLabel, lang)}
+            </div>
+            {selectedCategories.map((cat, i) => (
+              <div key={i} style={{ fontFamily: "'Lora',serif", fontSize: "0.8rem", color: "#1A2B45", marginBottom: 4 }}>
+                {i + 1}. {cat}
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Fee */}
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 32, padding: "16px 20px", border: "1px solid #1A2B45" }}>
           <div>
             <div style={{ fontFamily: "'Cormorant SC',serif", fontSize: "0.6rem", letterSpacing: "0.22em", color: "#7A6A58", textTransform: "uppercase", marginBottom: 4 }}>{t(c.feeLabel, lang)}</div>
-            <div style={{ fontFamily: "'EB Garamond',serif", fontSize: "2rem", color: "#1A2B45", lineHeight: 1 }}>{t(c.feeAmount, lang)}</div>
+            <div style={{ fontFamily: "'EB Garamond',serif", fontSize: "2rem", color: "#1A2B45", lineHeight: 1 }}>{feeDisplay}</div>
           </div>
-          <div style={{ fontFamily: "'Lora',serif", fontSize: "0.72rem", color: "#8A7A66", fontStyle: "italic" }}>approx. 15 USD</div>
+          {selectedCategories && selectedCategories.length > 1 && (
+            <div style={{ fontFamily: "'Lora',serif", fontSize: "0.72rem", color: "#4A0E0E", fontStyle: "italic", textAlign: "right" }}>
+              {lang === "en" ? "Discount applied" : "Скидка применена"}
+            </div>
+          )}
         </div>
+
         <div style={{ marginBottom: 24, textAlign: "center" }}>
           <div style={{ fontFamily: "'Cormorant SC',serif", fontSize: "0.6rem", letterSpacing: "0.22em", color: "#7A8A9A", textTransform: "uppercase", marginBottom: 16 }}>{t(c.qrLabel, lang)}</div>
           <div style={{ width: 200, height: 200, margin: "0 auto" }}>
             <img src="/qr-kaspi.jpg" alt={t(c.qrAlt, lang)} style={{ width: "100%", height: "100%", objectFit: "contain" }} />
           </div>
         </div>
+
         <div style={{ marginBottom: 32, padding: "16px 20px", background: "#F2EEE6", borderLeft: "3px solid #D8CEB8" }}>
           <div style={{ fontFamily: "'Cormorant SC',serif", fontSize: "0.6rem", letterSpacing: "0.2em", color: "#7A6A58", textTransform: "uppercase", marginBottom: 10 }}>{t(c.orLabel, lang)}</div>
           <div style={{ fontFamily: "'Lora',serif", fontSize: "0.82rem", color: "#1A2B45", lineHeight: 1.8 }}>{t(c.accountNo, lang)}</div>
           <div style={{ fontFamily: "'Lora',serif", fontSize: "0.78rem", color: "#5A6A7A", fontStyle: "italic" }}>{t(c.reference, lang)}</div>
         </div>
+
         <p style={{ fontFamily: "'Lora',serif", fontSize: "0.74rem", color: "#7A8A9A", lineHeight: 1.7, marginBottom: 28, fontStyle: "italic" }}>{t(c.disclaimer, lang)}</p>
+
         <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
           <button onClick={onConfirm}
             style={{ flex: 1, background: "#1A2B45", color: "#F9F7F2", fontFamily: "'Cormorant SC',serif", fontSize: "0.68rem", letterSpacing: "0.24em", textTransform: "uppercase", border: "none", padding: "16px 24px", cursor: "pointer", transition: "background 0.3s" }}
@@ -682,6 +716,7 @@ function PaymentModal({ isOpen, onClose, onConfirm, applicantName }) {
   );
 }
 
+/* ── Field wrapper ─────────────────────────────────────────────── */
 function Field({ id, label, children, error }) {
   return (
     <div style={{ marginBottom: 28 }}>
@@ -692,12 +727,14 @@ function Field({ id, label, children, error }) {
   );
 }
 
+/* ── Registration Form ─────────────────────────────────────────── */
 function RegistrationForm() {
   const lang = useLang();
   const ref  = useReveal();
   const c    = COPY.regForm;
 
-  const [fields, setFields]               = useState({ name: "", email: "", phone: "", category: "", school: "" });
+  /* categories is now an array of selected values */
+  const [fields, setFields]               = useState({ name: "", email: "", phone: "", categories: [], school: "" });
   const [errors, setErrors]               = useState({});
   const [legalAccepted, setLegalAccepted] = useState(false);
   const [legalTouched,  setLegalTouched]  = useState(false);
@@ -705,22 +742,37 @@ function RegistrationForm() {
   const [submitted,  setSubmitted]        = useState(false);
   const [refNumber,  setRefNumber]        = useState("");
 
+  /* Dynamic pricing */
+  const selectedCount = fields.categories.length;
+  const totalFee      = FEE_TABLE[selectedCount] || 0;
+  const feeDisplay    = selectedCount > 0 ? totalFee.toLocaleString() + " KZT" : "-";
+
   const handleChange = (field, value) => {
     setFields(f => ({ ...f, [field]: value }));
     if (errors[field]) setErrors(e => ({ ...e, [field]: "" }));
+  };
+
+  /* Toggle a category checkbox */
+  const toggleCategory = (val) => {
+    setFields(f => {
+      const already = f.categories.includes(val);
+      const next    = already ? f.categories.filter(v => v !== val) : [...f.categories, val];
+      return { ...f, categories: next };
+    });
+    if (errors.categories) setErrors(e => ({ ...e, categories: "" }));
   };
 
   const validate = () => {
     const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const phoneRe = /^\+?[0-9\s\-().]{7,20}$/;
     const next = {};
-    if (!fields.name.trim())              next.name     = t(c.errRequired, lang);
-    if (!fields.email.trim())             next.email    = t(c.errRequired, lang);
-    else if (!emailRe.test(fields.email)) next.email    = t(c.errEmail, lang);
-    if (!fields.phone.trim())             next.phone    = t(c.errRequired, lang);
-    else if (!phoneRe.test(fields.phone)) next.phone    = t(c.errPhone, lang);
-    if (!fields.category)                 next.category = t(c.errCat, lang);
-    if (!fields.school.trim())            next.school   = t(c.errRequired, lang);
+    if (!fields.name.trim())              next.name       = t(c.errRequired, lang);
+    if (!fields.email.trim())             next.email      = t(c.errRequired, lang);
+    else if (!emailRe.test(fields.email)) next.email      = t(c.errEmail, lang);
+    if (!fields.phone.trim())             next.phone      = t(c.errRequired, lang);
+    else if (!phoneRe.test(fields.phone)) next.phone      = t(c.errPhone, lang);
+    if (fields.categories.length === 0)   next.categories = t(c.errCat, lang);
+    if (!fields.school.trim())            next.school     = t(c.errRequired, lang);
     setErrors(next);
     return Object.keys(next).length === 0;
   };
@@ -741,14 +793,15 @@ function RegistrationForm() {
       mode: "no-cors",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        timestamp: time,
-        name:      fields.name,
-        email:     fields.email,
-        phone:     fields.phone,
-        category:  fields.category,
-        school:    fields.school,
-        refNumber: ref,
-        lang:      lang,
+        timestamp:  time,
+        name:       fields.name,
+        email:      fields.email,
+        phone:      fields.phone,
+        categories: fields.categories.join("; "),
+        school:     fields.school,
+        fee:        totalFee,
+        refNumber:  ref,
+        lang:       lang,
       }),
     });
 
@@ -758,7 +811,7 @@ function RegistrationForm() {
   };
 
   const handleReset = () => {
-    setFields({ name: "", email: "", phone: "", category: "", school: "" });
+    setFields({ name: "", email: "", phone: "", categories: [], school: "" });
     setErrors({});
     setLegalAccepted(false);
     setLegalTouched(false);
@@ -808,32 +861,45 @@ function RegistrationForm() {
         ) : (
           <div className="rv d2" style={{ background: "#FFFEF9", border: "1px solid #D8CEB8", padding: "52px 56px" }}>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))", gap: "0 48px" }}>
+
               <Field id="name" label={t(c.nameLabel, lang)} error={errors.name}>
                 <input id="name" className={"fi" + (errors.name ? " err" : "")}
                   placeholder={t(c.namePlaceholder, lang)} value={fields.name}
                   onChange={e => handleChange("name", e.target.value)} />
               </Field>
+
               <Field id="email" label={t(c.emailLabel, lang)} error={errors.email}>
                 <input id="email" type="email" className={"fi" + (errors.email ? " err" : "")}
                   placeholder={t(c.emailPlaceholder, lang)} value={fields.email}
                   onChange={e => handleChange("email", e.target.value)} />
               </Field>
+
               <Field id="phone" label={t(c.phoneLabel, lang)} error={errors.phone}>
                 <input id="phone" type="tel" className={"fi" + (errors.phone ? " err" : "")}
                   placeholder={t(c.phonePlaceholder, lang)} value={fields.phone}
                   onChange={e => handleChange("phone", e.target.value)} />
               </Field>
-              <Field id="category" label={t(c.catLabel, lang)} error={errors.category}>
-                <select id="category" className={"fi" + (errors.category ? " err" : "")}
-                  value={fields.category}
-                  onChange={e => handleChange("category", e.target.value)}
-                  style={{ cursor: "pointer" }}>
-                  <option value="">{t(c.catPlaceholder, lang)}</option>
-                  {c.cats.map(cat => (
-                    <option key={cat.val} value={cat.val}>{t(cat, lang)}</option>
-                  ))}
-                </select>
-              </Field>
+
+              <div style={{ gridColumn: "1 / -1", marginBottom: 28 }}>
+                <label className="fi-label">{t(c.catLabel, lang)}</label>
+                <div style={{ display: "flex", flexDirection: "column", gap: 10, marginTop: 4 }}>
+                  {c.cats.map(cat => {
+                    const checked = fields.categories.includes(cat.val);
+                    return (
+                      <div key={cat.val}
+                        className={"cat-row" + (checked ? " sel" : "")}
+                        onClick={() => toggleCategory(cat.val)}>
+                        <div className={"cat-chk" + (checked ? " sel" : "")}>
+                          {checked && <span style={{ color: "#F9F7F2", fontSize: "11px", lineHeight: 1 }}>v</span>}
+                        </div>
+                        <span style={{ fontFamily: "'Lora',serif", fontSize: "0.84rem", color: "#1A2B45" }}>{t(cat, lang)}</span>
+                      </div>
+                    );
+                  })}
+                </div>
+                {errors.categories && <div className="fi-err" style={{ marginTop: 8 }}>{errors.categories}</div>}
+              </div>
+
               <div style={{ gridColumn: "1 / -1" }}>
                 <Field id="school" label={t(c.schoolLabel, lang)} error={errors.school}>
                   <input id="school" className={"fi" + (errors.school ? " err" : "")}
@@ -845,6 +911,7 @@ function RegistrationForm() {
 
             <div style={{ borderTop: "1px solid #E8E0D0", margin: "12px 0 32px" }} />
 
+            {/* Legal checkbox */}
             <div style={{ marginBottom: 32 }}>
               <div className="legal-row">
                 <div className="cb-wrap">
@@ -852,8 +919,8 @@ function RegistrationForm() {
                     checked={legalAccepted}
                     onChange={e => { setLegalAccepted(e.target.checked); setLegalTouched(true); }} />
                   <label htmlFor="legal"
-                    className={"cb-box " + (legalAccepted ? "checked" : "") + " " + (legalTouched && !legalAccepted ? "cb-err" : "")}>
-                    {legalAccepted && <span className="cb-tick">&#10003;</span>}
+                    className={"cb-box " + (legalAccepted ? "checked " : "") + (legalTouched && !legalAccepted ? "cb-err" : "")}>
+                    {legalAccepted && <span className="cb-tick">v</span>}
                   </label>
                 </div>
                 <div className="legal-text">
@@ -877,8 +944,9 @@ function RegistrationForm() {
               {t(c.feeNote, lang)}
             </p>
 
-            <div style={{ marginBottom: 28, border: "1px solid #C8A87A", background: "#FDFAF3", padding: "20px 24px" }}>
-              <div style={{ fontFamily: "'Cormorant SC',serif", fontSize: "0.8rem", letterSpacing: "0.26em", textTransform: "uppercase", color: "#4A0E0E", marginBottom: 12 }}>
+            {/* Discount table */}
+            <div style={{ marginBottom: 24, border: "1px solid #C8A87A", background: "#FDFAF3", padding: "20px 24px" }}>
+              <div style={{ fontFamily: "'Cormorant SC',serif", fontSize: "0.6rem", letterSpacing: "0.26em", textTransform: "uppercase", color: "#4A0E0E", marginBottom: 12 }}>
                 {t(c.discountTitle, lang)}
               </div>
               <p style={{ fontFamily: "'Lora',serif", fontSize: "0.76rem", color: "#5A6A7A", lineHeight: 1.65, marginBottom: 14 }}>
@@ -894,6 +962,25 @@ function RegistrationForm() {
                 ))}
               </div>
             </div>
+
+            {/* Live total — shown only when at least one category selected */}
+            {selectedCount > 0 && (
+              <div style={{ marginBottom: 20, padding: "16px 22px", background: "#1A2B45", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <div>
+                  <div style={{ fontFamily: "'Cormorant SC',serif", fontSize: "0.6rem", letterSpacing: "0.22em", color: "#8A9AB8", textTransform: "uppercase", marginBottom: 4 }}>
+                    {lang === "en"
+                      ? "Total for " + selectedCount + " essay" + (selectedCount > 1 ? "s" : "")
+                      : "Итого за " + selectedCount + " " + (selectedCount === 1 ? "эссе" : selectedCount < 5 ? "эссе" : "эссе")}
+                  </div>
+                  {selectedCount > 1 && (
+                    <div style={{ fontFamily: "'Lora',serif", fontSize: "0.72rem", color: "#C8A87A", fontStyle: "italic" }}>
+                      {lang === "en" ? "Discount applied" : "Скидка применена"}
+                    </div>
+                  )}
+                </div>
+                <div style={{ fontFamily: "'EB Garamond',serif", fontSize: "2rem", color: "#C8A87A", lineHeight: 1 }}>{feeDisplay}</div>
+              </div>
+            )}
 
             <button
               className={"pay-btn " + (legalAccepted ? "active" : "disabled")}
@@ -912,11 +999,15 @@ function RegistrationForm() {
         onClose={() => setShowModal(false)}
         onConfirm={handleConfirmPayment}
         applicantName={fields.name}
+        feeDisplay={feeDisplay}
+        selectedCategories={fields.categories}
+        lang={lang}
       />
     </section>
   );
 }
 
+/* ── Footer ────────────────────────────────────────────────────── */
 function Footer() {
   const lang = useLang();
   const c    = COPY.footer;
@@ -964,7 +1055,7 @@ function Footer() {
           </div>
         </div>
         <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: 14 }}>
-          <div style={{ fontFamily: "'Lora',serif", fontSize: "0.7rem", color: "#3A4A5A" }}>&#169; {t(c.copy, lang)}</div>
+          <div style={{ fontFamily: "'Lora',serif", fontSize: "0.7rem", color: "#3A4A5A" }}>© {t(c.copy, lang)}</div>
           <div style={{ fontFamily: "'Cormorant SC',serif", fontSize: "0.58rem", letterSpacing: "0.22em", color: "#2A3A4A", textTransform: "uppercase" }}>{t(c.est, lang)}</div>
         </div>
       </div>
@@ -972,6 +1063,7 @@ function Footer() {
   );
 }
 
+/* ── App Root ──────────────────────────────────────────────────── */
 export default function App() {
   const [lang, setLang] = useState("en");
   return (
