@@ -166,7 +166,7 @@ const COPY = {
       { en: "IV · Business, Marketing & HR",        ru: "IV · Бизнес, маркетинг и управление", val: "IV - Business, Marketing & HR" },
     ],
     schoolLabel:       { en: "School / University",        ru: "Школа / Университет" },
-    schoolPlaceholder: { en: "e.g. Nazarbayev University", ru: "напр. Назарбаев Университет" },
+    schoolPlaceholder: { en: "e.g. BINOM", ru: "напр. BINOM" },
     legalPre:    { en: "I have read and agree to the ",  ru: "Я ознакомился(-ась) и согласен(-на) с " },
     legalOffer:  { en: "Public Offer,",                  ru: "Публичной офертой," },
     legalRefund: { en: " Refund Policy",                 ru: " Политикой возврата" },
