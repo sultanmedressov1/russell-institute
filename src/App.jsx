@@ -9,6 +9,7 @@ const FEE_TABLE = { 1: 2000, 2: 3500, 3: 5000, 4: 6000, 5: 7000, 6: 8000 };
 const LangCtx = createContext("en");
 const useLang = () => useContext(LangCtx);
 const t = (copy, lang) => copy[lang] ?? copy.en;
+const [sending, setSending] = useState(false);
 
 const COPY = {
   nav: {
@@ -720,6 +721,9 @@ function PaymentModal({ isOpen, onClose, onConfirm, applicantName, feeDisplay, s
             onMouseOut={e  => { e.currentTarget.style.borderColor = "#D8CEB8"; e.currentTarget.style.color = "#5A6A7A"; }}>
             {t(c.cancelBtn, lang)}
           </button>
+          <button onClick={onConfirm} disabled={sending} style={{ ..., opacity: sending ? 0.6 : 1 }}>
+              {sending ? (lang === "en" ? "Sending..." : "Отправка...") : t(c.confirmBtn, lang)}
+          </button>
         </div>
       </div>
     </div>
@@ -818,6 +822,9 @@ function RegistrationForm() {
 
   /* Generate login/password, send to Sheets */
   const handleConfirmPayment = async () => {
+    if (sending) return;           // блокируем повторный клик
+    setSending(true);              // показываем загрузку
+
     const login    = "OL-" + new Date().getFullYear() + "-" + Math.floor(10000 + Math.random() * 90000);
     const password = Math.random().toString(36).slice(2, 8).toUpperCase();
     const time     = new Date().toLocaleString("ru-KZ", { timeZone: "Asia/Almaty" });
@@ -827,21 +834,16 @@ function RegistrationForm() {
       mode: "no-cors",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        timestamp:  time,
-        name:       fields.name,
-        email:      fields.email,
-        phone:      fields.phone,
-        categories: fields.categories.join("; "),
-        fee:        totalFee,
-        login:      login,
-        password:   password,
-        lang:       lang,
+        timestamp: time, name: fields.name, email: fields.email,
+        phone: fields.phone, categories: fields.categories.join("; "),
+        fee: totalFee, login, password, lang,
       }),
     });
 
     setCredentials({ login, password });
     setShowModal(false);
     setSubmitted(true);
+    setSending(false);
   };
 
   const handleReset = () => {
@@ -1057,6 +1059,7 @@ function RegistrationForm() {
         isOpen={showModal}
         onClose={() => setShowModal(false)}
         onConfirm={handleConfirmPayment}
+        sending={sending}
         applicantName={fields.name}
         feeDisplay={feeDisplay}
         selectedCategories={fields.categories}
