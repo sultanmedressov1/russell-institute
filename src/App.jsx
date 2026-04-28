@@ -3,13 +3,11 @@ import { BookOpen, Award, Users, FileText, Menu, X, CheckCircle, AlertCircle, Ca
 
 const SHEETS_URL = "https://script.google.com/macros/s/AKfycbzgeCUChzdk3qNraq6BlBPFoeiQn2VUe_tlhW5Rvmlah0gUBgml31soRyHsv8Cch29t/exec";
 
-/* ── Pricing: 1-6 subjects ─────────────────────────────────────── */
 const FEE_TABLE = { 1: 2000, 2: 3500, 3: 5000, 4: 6000, 5: 7000, 6: 8000 };
 
 const LangCtx = createContext("en");
 const useLang = () => useContext(LangCtx);
 const t = (copy, lang) => copy[lang] ?? copy.en;
-const [sending, setSending] = useState(false);
 
 const COPY = {
   nav: {
@@ -45,8 +43,6 @@ const COPY = {
       { en: "Oxford-Style Assessment",    ru: "Оценка по Оксфордской модели" },
     ],
   },
-
-  /* ── Olympiads section ── */
   olympiadSection: {
     label:      { en: "Open Olympiads",  ru: "Открытые Олимпиады" },
     headline:   { en: "Six Subjects. One Standard.", ru: "Шесть Предметов. Один Стандарт." },
@@ -55,8 +51,6 @@ const COPY = {
     timeLabel:  { en: "Time",     ru: "Время" },
     registerBtn:{ en: "Register", ru: "Участвовать" },
   },
-
-  /* ── 6 olympiad subjects ── */
   olympiads: [
     { key: "math", en: "Mathematics",      ru: "Математика",   dateEn: "10 May 2026", dateRu: "10 мая 2026", time: "10:00 – 11:30" },
     { key: "phys", en: "Physics",          ru: "Физика",       dateEn: "10 May 2026", dateRu: "10 мая 2026", time: "12:00 – 13:30" },
@@ -65,7 +59,6 @@ const COPY = {
     { key: "econ", en: "Economics",        ru: "Экономика",    dateEn: "12 May 2026", dateRu: "12 мая 2026", time: "10:00 – 11:30" },
     { key: "biz",  en: "Business",         ru: "Бизнес",       dateEn: "12 May 2026", dateRu: "12 мая 2026", time: "12:00 – 13:30" },
   ],
-
   experts: {
     label:    { en: "The Expert Board", ru: "Совет Экспертов" },
     headline: { en: ["Reviewed by Those", "Who Know the Standard"], ru: ["Оценивают Те,", "Кто Знает Стандарт"] },
@@ -127,7 +120,6 @@ const COPY = {
     { en: "Academic Prose",                       ru: "Академическая проза",                            v: 68 },
     { en: "Originality of Thought",               ru: "Оригинальность мысли",                          v: 81 },
   ],
-
   regForm: {
     sectionLabel:     { en: "Enrolment",  ru: "Регистрация" },
     headline:         { en: "Register for the Olympiad", ru: "Зарегистрироваться на олимпиаду" },
@@ -177,23 +169,21 @@ const COPY = {
     subjectsWord24:  { en: "subjects", ru: "предмета" },
     subjectsWord56:  { en: "subjects", ru: "предметов" },
   },
-
   modal: {
-    title:      { en: "Payment Instructions", ru: "Инструкции по оплате" },
-    sub:        { en: "Please complete your payment via Kaspi Bank to finalise your registration.", ru: "Завершите оплату через Kaspi Bank для завершения регистрации." },
-    feeLabel:   { en: "Total Registration Fee", ru: "Итоговый регистрационный взнос" },
-    qrLabel:    { en: "Scan with Kaspi to Pay", ru: "Отсканируйте для оплаты через Kaspi" },
-    qrAlt:      { en: "Kaspi QR Code",          ru: "QR-код Kaspi" },
-    orLabel:    { en: "Or transfer manually via phone number (Kaspi, Halyk, Freedom):", ru: "Или переведите вручную по номеру телефона (Kaspi, Halyk, Freedom):" },
-    accountNo:  { en: "+7 747 822 5091",   ru: "+7 747 822 5091" },
-    reference:  { en: "Comments: Student Full Name", ru: "Комментарий: Полное Имя ученика" },
-    confirmBtn: { en: "I have paid — Show my credentials", ru: "Я оплатил(-а) — Показать данные входа" },
-    cancelBtn:  { en: "Cancel",            ru: "Отмена" },
-    disclaimer: { en: "After confirming payment, you will receive your personal login and password for the Personal Cabinet.", ru: "После подтверждения оплаты вы получите логин и пароль для входа в личный кабинет." },
+    title:        { en: "Payment Instructions", ru: "Инструкции по оплате" },
+    sub:          { en: "Please complete your payment via Kaspi Bank to finalise your registration.", ru: "Завершите оплату через Kaspi Bank для завершения регистрации." },
+    feeLabel:     { en: "Total Registration Fee", ru: "Итоговый регистрационный взнос" },
+    qrLabel:      { en: "Scan with Kaspi to Pay", ru: "Отсканируйте для оплаты через Kaspi" },
+    qrAlt:        { en: "Kaspi QR Code",          ru: "QR-код Kaspi" },
+    orLabel:      { en: "Or transfer manually via phone number (Kaspi, Halyk, Freedom):", ru: "Или переведите вручную по номеру телефона (Kaspi, Halyk, Freedom):" },
+    accountNo:    { en: "+7 747 822 5091",   ru: "+7 747 822 5091" },
+    reference:    { en: "Comments: Student Full Name", ru: "Комментарий: Полное Имя ученика" },
+    confirmBtn:   { en: "I have paid — Show my credentials", ru: "Я оплатил(-а) — Показать данные входа" },
+    confirmSending:{ en: "Sending...", ru: "Отправка..." },
+    cancelBtn:    { en: "Cancel",            ru: "Отмена" },
+    disclaimer:   { en: "After confirming payment, you will receive your personal login and password for the Personal Cabinet.", ru: "После подтверждения оплаты вы получите логин и пароль для входа в личный кабинет." },
     subjectsLabel:{ en: "Selected subjects", ru: "Выбранные предметы" },
   },
-
-  /* ── Success / credentials screen ── */
   success: {
     headline:     { en: "Registration Complete",  ru: "Регистрация завершена" },
     body:         { en: "Your payment has been confirmed. Save your login and password — you will need them to access the Personal Cabinet and start the olympiad.", ru: "Ваша оплата подтверждена. Сохраните логин и пароль — они нужны для входа в личный кабинет и прохождения олимпиады." },
@@ -205,7 +195,6 @@ const COPY = {
     copyHint:     { en: "Copy", ru: "Копировать" },
     copied:       { en: "Copied!", ru: "Скопировано!" },
   },
-
   footer: {
     tagline:   { en: "Academic Excellence & Independent Research", ru: "Академическое Превосходство и Независимые Исследования" },
     location:  { en: "Astana, Republic of Kazakhstan", ru: "Астана, Республика Казахстан" },
@@ -233,9 +222,6 @@ const COPY = {
   },
 };
 
-/* ─────────────────────────────────────────────────────────────────────── */
-/* STYLES — preserved from original, new olympiad card styles added        */
-/* ─────────────────────────────────────────────────────────────────────── */
 const GF = () => (
   <style>{`
     @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+SC:wght@300;400;500;600&display=swap');
@@ -303,8 +289,6 @@ const GF = () => (
     @keyframes slideUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:none} }
     .modal-close { position:absolute; top:20px; right:20px; background:none; border:none; cursor:pointer; color:#7A8A9A; transition:color 0.2s; }
     .modal-close:hover { color:#1A2B45; }
-
-    /* Olympiad grid cards */
     .olym-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; }
     .olym-card { background:#FFFEF9; border:1px solid #D8CEB8; padding:32px 28px; display:flex; flex-direction:column; gap:18px; transition:border-color 0.3s,box-shadow 0.3s; }
     .olym-card:hover { border-color:#1A2B45; box-shadow:0 8px 32px rgba(26,43,69,0.09); }
@@ -312,8 +296,6 @@ const GF = () => (
     .olym-meta-row { display:flex; align-items:center; gap:8px; }
     .olym-meta-key { font-family:'Cormorant SC',serif; font-size:0.56rem; letter-spacing:0.18em; text-transform:uppercase; color:#9A8878; min-width:40px; }
     .olym-meta-val { font-family:'Lora',serif; font-size:0.8rem; color:#1A2B45; }
-
-    /* Credentials card */
     .cred-card { border:2px solid #1A2B45; background:#FFFEF9; padding:28px 32px; margin-bottom:20px; }
     .cred-row { display:flex; align-items:center; justify-content:space-between; gap:16px; padding-bottom:16px; margin-bottom:16px; border-bottom:1px solid #E8E0D0; }
     .cred-row:last-child { padding-bottom:0; margin-bottom:0; border-bottom:none; }
@@ -323,7 +305,6 @@ const GF = () => (
     .copy-btn:hover { border-color:#1A2B45; color:#1A2B45; }
     .copy-btn.ok { border-color:#2A5A2A; color:#2A5A2A; }
     .cred-warning { background:#FFF8E8; border:1px solid #C8A87A; padding:14px 18px; font-family:'Lora',serif; font-size:0.78rem; color:#5A3A00; line-height:1.65; margin-bottom:28px; }
-
     .ftr { background:#0E1620; color:#7A8A9A; }
     .ftr a { color:#7A8A9A; text-decoration:none; transition:color 0.2s; }
     .ftr a:hover { color:#F9F7F2; }
@@ -376,7 +357,6 @@ function LangToggle({ lang, setLang, scrolled }) {
   );
 }
 
-/* ── Header ─────────────────────────────────────────────────────── */
 function Header({ lang, setLang }) {
   const [sc, setSc]     = useState(false);
   const [open, setOpen] = useState(false);
@@ -440,7 +420,6 @@ function Header({ lang, setLang }) {
   );
 }
 
-/* ── Hero (unchanged structure, updated text via COPY) ─────────── */
 function Hero() {
   const lang = useLang();
   const c = COPY.hero;
@@ -477,7 +456,6 @@ function Hero() {
   );
 }
 
-/* ── About (unchanged) ─────────────────────────────────────────── */
 function About() {
   const lang = useLang();
   const ref  = useReveal();
@@ -506,7 +484,6 @@ function About() {
   );
 }
 
-/* ── Olympiads (replaces Competitions — same section id) ─────────── */
 function Olympiads() {
   const lang = useLang();
   const ref  = useReveal();
@@ -522,7 +499,6 @@ function Olympiads() {
           <div className="orn rv d2"><span style={{ fontFamily: "'Cormorant SC',serif", fontSize: "0.85rem", letterSpacing: "0.3em", whiteSpace: "nowrap" }}>* * *</span></div>
           <p className="rv d2" style={{ fontFamily: "'Lora',serif", fontSize: "0.9rem", color: "#5A6A7A", lineHeight: 1.88, marginTop: 24 }}>{t(c.body, lang)}</p>
         </div>
-
         <div className="olym-grid">
           {COPY.olympiads.map((sub, i) => (
             <div key={sub.key} className={"olym-card rv d" + (i + 1)}>
@@ -550,7 +526,6 @@ function Olympiads() {
   );
 }
 
-/* ── Experts (unchanged) ────────────────────────────────────────── */
 function Experts() {
   const lang = useLang();
   const ref  = useReveal();
@@ -593,7 +568,6 @@ function Experts() {
   );
 }
 
-/* ── Transcript (unchanged) ─────────────────────────────────────── */
 function Transcript() {
   const lang = useLang();
   const ref  = useReveal();
@@ -650,8 +624,8 @@ function Transcript() {
   );
 }
 
-/* ── Payment Modal ─────────────────────────────────────────────── */
-function PaymentModal({ isOpen, onClose, onConfirm, applicantName, feeDisplay, selectedCategories, lang }) {
+/* ── Payment Modal — принимает sending ─────────────────────────── */
+function PaymentModal({ isOpen, onClose, onConfirm, applicantName, feeDisplay, selectedCategories, lang, sending }) {
   const c = COPY.modal;
   useEffect(() => {
     if (!isOpen) return;
@@ -709,20 +683,46 @@ function PaymentModal({ isOpen, onClose, onConfirm, applicantName, feeDisplay, s
         </div>
         <p style={{ fontFamily: "'Lora',serif", fontSize: "0.74rem", color: "#7A8A9A", lineHeight: 1.7, marginBottom: 28, fontStyle: "italic" }}>{t(c.disclaimer, lang)}</p>
         <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-          <button onClick={onConfirm}
-            style={{ flex: 1, background: "#1A2B45", color: "#F9F7F2", fontFamily: "'Cormorant SC',serif", fontSize: "0.68rem", letterSpacing: "0.24em", textTransform: "uppercase", border: "none", padding: "16px 24px", cursor: "pointer", transition: "background 0.3s" }}
-            onMouseOver={e => e.currentTarget.style.background = "#4A0E0E"}
-            onMouseOut={e  => e.currentTarget.style.background = "#1A2B45"}>
-            {t(c.confirmBtn, lang)}
+          <button
+            onClick={onConfirm}
+            disabled={sending}
+            style={{
+              flex: 1,
+              background: "#1A2B45",
+              color: "#F9F7F2",
+              fontFamily: "'Cormorant SC',serif",
+              fontSize: "0.68rem",
+              letterSpacing: "0.24em",
+              textTransform: "uppercase",
+              border: "none",
+              padding: "16px 24px",
+              cursor: sending ? "not-allowed" : "pointer",
+              opacity: sending ? 0.65 : 1,
+              transition: "background 0.3s",
+            }}
+            onMouseOver={e => { if (!sending) e.currentTarget.style.background = "#4A0E0E"; }}
+            onMouseOut={e  => { e.currentTarget.style.background = "#1A2B45"; }}>
+            {sending ? t(c.confirmSending, lang) : t(c.confirmBtn, lang)}
           </button>
-          <button onClick={onClose}
-            style={{ background: "transparent", color: "#5A6A7A", fontFamily: "'Cormorant SC',serif", fontSize: "0.68rem", letterSpacing: "0.2em", textTransform: "uppercase", border: "1px solid #D8CEB8", padding: "16px 24px", cursor: "pointer", transition: "all 0.25s" }}
-            onMouseOver={e => { e.currentTarget.style.borderColor = "#1A2B45"; e.currentTarget.style.color = "#1A2B45"; }}
+          <button
+            onClick={onClose}
+            disabled={sending}
+            style={{
+              background: "transparent",
+              color: "#5A6A7A",
+              fontFamily: "'Cormorant SC',serif",
+              fontSize: "0.68rem",
+              letterSpacing: "0.2em",
+              textTransform: "uppercase",
+              border: "1px solid #D8CEB8",
+              padding: "16px 24px",
+              cursor: sending ? "not-allowed" : "pointer",
+              opacity: sending ? 0.5 : 1,
+              transition: "all 0.25s",
+            }}
+            onMouseOver={e => { if (!sending) { e.currentTarget.style.borderColor = "#1A2B45"; e.currentTarget.style.color = "#1A2B45"; }}}
             onMouseOut={e  => { e.currentTarget.style.borderColor = "#D8CEB8"; e.currentTarget.style.color = "#5A6A7A"; }}>
             {t(c.cancelBtn, lang)}
-          </button>
-          <button onClick={onConfirm} disabled={sending} style={{ ..., opacity: sending ? 0.6 : 1 }}>
-              {sending ? (lang === "en" ? "Sending..." : "Отправка...") : t(c.confirmBtn, lang)}
           </button>
         </div>
       </div>
@@ -730,7 +730,6 @@ function PaymentModal({ isOpen, onClose, onConfirm, applicantName, feeDisplay, s
   );
 }
 
-/* ── Copy button ────────────────────────────────────────────────── */
 function CopyBtn({ text, lang }) {
   const [done, setDone] = useState(false);
   const sc = COPY.success;
@@ -747,7 +746,6 @@ function CopyBtn({ text, lang }) {
   );
 }
 
-/* ── Field wrapper (defined OUTSIDE form — prevents focus loss) ── */
 function Field({ id, label, children, error }) {
   return (
     <div style={{ marginBottom: 28 }}>
@@ -758,7 +756,6 @@ function Field({ id, label, children, error }) {
   );
 }
 
-/* ── Registration Form ─────────────────────────────────────────── */
 function RegistrationForm() {
   const lang = useLang();
   const ref  = useReveal();
@@ -771,12 +768,12 @@ function RegistrationForm() {
   const [showModal,  setShowModal]        = useState(false);
   const [submitted,  setSubmitted]        = useState(false);
   const [credentials, setCredentials]     = useState({ login: "", password: "" });
+  const [sending,    setSending]          = useState(false); /* ← ЗДЕСЬ, внутри компонента */
 
   const selectedCount = fields.categories.length;
   const totalFee      = FEE_TABLE[selectedCount] || 0;
   const feeDisplay    = selectedCount > 0 ? totalFee.toLocaleString() + " KZT" : "-";
 
-  /* Russian plural helper */
   const subjectWord = (n) => {
     if (lang === "ru") {
       if (n === 1) return "предмет";
@@ -820,10 +817,9 @@ function RegistrationForm() {
     setShowModal(true);
   };
 
-  /* Generate login/password, send to Sheets */
   const handleConfirmPayment = async () => {
-    if (sending) return;           // блокируем повторный клик
-    setSending(true);              // показываем загрузку
+    if (sending) return;
+    setSending(true);
 
     const login    = "OL-" + new Date().getFullYear() + "-" + Math.floor(10000 + Math.random() * 90000);
     const password = Math.random().toString(36).slice(2, 8).toUpperCase();
@@ -853,6 +849,7 @@ function RegistrationForm() {
     setLegalTouched(false);
     setSubmitted(false);
     setCredentials({ login: "", password: "" });
+    setSending(false);
   };
 
   const sc = COPY.success;
@@ -870,7 +867,6 @@ function RegistrationForm() {
           </p>
         </div>
 
-        {/* ── CREDENTIALS SCREEN ── */}
         {submitted ? (
           <div className="rv in" style={{ border: "1px solid #1A2B45", background: "#FFFEF9", padding: "52px 56px" }}>
             <CheckCircle size={36} color="#1A2B45" style={{ marginBottom: 20 }} />
@@ -880,7 +876,6 @@ function RegistrationForm() {
             <p style={{ fontFamily: "'Lora',serif", fontSize: "0.9rem", color: "#3A4A5A", lineHeight: 1.85, marginBottom: 32, maxWidth: 520 }}>
               {t(sc.body, lang)}
             </p>
-
             <div className="cred-card">
               <div className="cred-row">
                 <div>
@@ -897,9 +892,7 @@ function RegistrationForm() {
                 <CopyBtn text={credentials.password} lang={lang} />
               </div>
             </div>
-
             <div className="cred-warning">{t(sc.warning, lang)}</div>
-
             <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
               <a href="/cabinet.html" target="_blank" rel="noopener noreferrer" className="btn-p">
                 {t(sc.cabinetBtn, lang)}
@@ -909,24 +902,19 @@ function RegistrationForm() {
               </button>
             </div>
           </div>
-
         ) : (
-          /* ── FORM ── */
           <div className="rv d2" style={{ background: "#FFFEF9", border: "1px solid #D8CEB8", padding: "52px 56px" }}>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))", gap: "0 48px" }}>
-
               <Field id="name" label={t(c.nameLabel, lang)} error={errors.name}>
                 <input id="name" className={"fi" + (errors.name ? " err" : "")}
                   placeholder={t(c.namePlaceholder, lang)} value={fields.name}
                   onChange={e => handleChange("name", e.target.value)} />
               </Field>
-
               <Field id="email" label={t(c.emailLabel, lang)} error={errors.email}>
                 <input id="email" type="email" className={"fi" + (errors.email ? " err" : "")}
                   placeholder={t(c.emailPlaceholder, lang)} value={fields.email}
                   onChange={e => handleChange("email", e.target.value)} />
               </Field>
-
               <div style={{ gridColumn: "1 / -1" }}>
                 <Field id="phone" label={t(c.phoneLabel, lang)} error={errors.phone}>
                   <input id="phone" type="tel" className={"fi" + (errors.phone ? " err" : "")}
@@ -934,8 +922,6 @@ function RegistrationForm() {
                     onChange={e => handleChange("phone", e.target.value)} />
                 </Field>
               </div>
-
-              {/* Subject checkboxes in 2-column grid */}
               <div style={{ gridColumn: "1 / -1", marginBottom: 28 }}>
                 <label className="fi-label">{t(c.catLabel, lang)}</label>
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))", gap: 8, marginTop: 4 }}>
@@ -961,7 +947,6 @@ function RegistrationForm() {
 
             <div style={{ borderTop: "1px solid #E8E0D0", margin: "12px 0 32px" }} />
 
-            {/* Legal checkbox */}
             <div style={{ marginBottom: 32 }}>
               <div className="legal-row">
                 <div className="cb-wrap">
@@ -994,7 +979,6 @@ function RegistrationForm() {
               {t(c.feeNote, lang)}
             </p>
 
-            {/* Pricing table — always visible, active row highlighted */}
             <div style={{ marginBottom: 24, border: "1px solid #C8A87A", background: "#FDFAF3", padding: "20px 24px" }}>
               <div style={{ fontFamily: "'Cormorant SC',serif", fontSize: "0.6rem", letterSpacing: "0.26em", textTransform: "uppercase", color: "#4A0E0E", marginBottom: 10 }}>
                 {t(c.discountTitle, lang)}
@@ -1024,7 +1008,6 @@ function RegistrationForm() {
               </div>
             </div>
 
-            {/* Live total */}
             {selectedCount > 0 && (
               <div style={{ marginBottom: 20, padding: "16px 22px", background: "#1A2B45", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <div>
@@ -1069,7 +1052,6 @@ function RegistrationForm() {
   );
 }
 
-/* ── Footer ─────────────────────────────────────────────────────── */
 function Footer() {
   const lang = useLang();
   const c    = COPY.footer;
@@ -1125,7 +1107,6 @@ function Footer() {
   );
 }
 
-/* ── App Root ────────────────────────────────────────────────────── */
 export default function App() {
   const [lang, setLang] = useState("en");
   return (
