@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Olympiad Test — The Russell Institute</title>
+<title>Олимпиада по математике — The Russell Institute</title>
 <link rel="icon" type="image/png" href="/logo1.png" />
 <style>
   @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+SC:wght@300;400;500;600&display=swap');
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   body {
     font-family: 'Lora', Georgia, serif;
     background: #1A2B45;
@@ -18,356 +17,508 @@
     -webkit-user-select: none;
     overflow-x: hidden;
   }
-
-  /* ── Top bar ── */
   .topbar {
-    background: rgba(10,18,28,0.7);
-    border-bottom: 1px solid rgba(200,216,240,0.08);
-    padding: 0 40px;
-    height: 64px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
+    background: rgba(10,18,28,0.85);
+    border-bottom: 1px solid rgba(200,168,122,0.15);
+    padding: 0 40px; height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    backdrop-filter: blur(8px);
   }
-  .top-brand { font-family: 'Cormorant SC', serif; font-size: 0.72rem; letter-spacing: 0.22em; color: #C8D8E8; }
-  .top-subject { font-family: 'EB Garamond', serif; font-size: 1.1rem; color: #C8A87A; }
-  .timer-wrap { display: flex; align-items: center; gap: 10px; }
-  .timer-label { font-family: 'Cormorant SC', serif; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: #7A9AB8; }
-  .timer { font-family: 'EB Garamond', serif; font-size: 1.8rem; color: #EEE8E0; letter-spacing: 0.08em; min-width: 80px; text-align: right; }
+  .top-left { display: flex; flex-direction: column; gap: 2px; }
+  .top-brand { font-family: 'Cormorant SC', serif; font-size: 0.68rem; letter-spacing: 0.22em; color: #7A9AB8; }
+  .top-subject { font-family: 'EB Garamond', serif; font-size: 1.15rem; color: #C8A87A; }
+  .timer-wrap { display: flex; align-items: center; gap: 12px; }
+  .timer-label { font-family: 'Cormorant SC', serif; font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: #5A6A7A; }
+  .timer { font-family: 'EB Garamond', serif; font-size: 2rem; color: #EEE8E0; letter-spacing: 0.05em; min-width: 80px; text-align: right; line-height: 1; }
   .timer.urgent { color: #C84040; }
-
-  /* ── Main content ── */
-  .content { max-width: 820px; margin: 0 auto; padding: 104px 40px 80px; }
-
-  .test-header { margin-bottom: 52px; }
-  .slbl { font-family: 'Cormorant SC', serif; font-size: 0.62rem; letter-spacing: 0.32em; text-transform: uppercase; color: #4A0E0E; }
-  .q-counter { font-family: 'Lora', serif; font-size: 0.82rem; color: #7A9AB8; margin-top: 8px; }
-
-  /* ── Question card ── */
-  .q-card { background: rgba(255,254,249,0.04); border: 1px solid rgba(200,216,240,0.12); padding: 40px 44px; margin-bottom: 32px; }
-  .q-text { font-family: 'EB Garamond', serif; font-size: 1.28rem; font-weight: 400; line-height: 1.65; color: #EEE8E0; margin-bottom: 32px; }
-
-  /* ── Answer options ── */
-  .options { display: flex; flex-direction: column; gap: 10px; }
-  .option {
-    display: flex; align-items: center; gap: 16px;
-    padding: 14px 20px;
-    border: 1px solid rgba(200,216,240,0.14);
-    background: rgba(255,254,249,0.03);
-    cursor: pointer;
-    transition: border-color 0.2s, background 0.2s;
-  }
-  .option:hover { border-color: rgba(200,216,240,0.35); background: rgba(255,254,249,0.06); }
-  .option.selected { border-color: #C8A87A; background: rgba(200,168,122,0.1); }
-  .opt-circle {
-    width: 22px; height: 22px; border-radius: 50%;
-    border: 1.5px solid rgba(200,216,240,0.3);
+  .content { max-width: 800px; margin: 0 auto; padding: 96px 40px 80px; }
+  .progress-bar { height: 2px; background: rgba(200,168,122,0.15); margin-bottom: 36px; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, #4A0E0E, #C8A87A); transition: width 0.4s; }
+  .slbl { font-family: 'Cormorant SC', serif; font-size: 0.62rem; letter-spacing: 0.32em; text-transform: uppercase; color: #C8A87A; }
+  .q-counter { font-family: 'Lora', serif; font-size: 0.82rem; color: #5A6A7A; margin-top: 6px; }
+  .dots-row { display: flex; flex-wrap: wrap; gap: 6px; margin: 20px 0 24px; }
+  .dot {
+    width: 30px; height: 30px;
+    border: 1px solid rgba(200,168,122,0.18); background: transparent;
+    color: #5A6A7A; font-family: 'Cormorant SC', serif; font-size: 0.65rem;
+    cursor: pointer; transition: all 0.2s;
     display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0; transition: all 0.2s;
   }
-  .option.selected .opt-circle { border-color: #C8A87A; background: #C8A87A; }
-  .opt-dot { width: 8px; height: 8px; border-radius: 50%; background: #1A2B45; display: none; }
-  .option.selected .opt-dot { display: block; }
-  .opt-text { font-family: 'Lora', serif; font-size: 0.9rem; color: #C8D8E8; line-height: 1.5; }
-
-  /* ── Navigation ── */
-  .nav-row { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+  .dot.answered { border-color: rgba(200,168,122,0.45); color: #C8A87A; }
+  .dot.current  { background: #C8A87A; color: #1A2B45; border-color: #C8A87A; }
+  .q-card {
+    background: rgba(255,254,249,0.04);
+    border: 1px solid rgba(200,168,122,0.14);
+    padding: 40px 44px; margin: 0 0 28px;
+  }
+  .q-tag {
+    font-family: 'Cormorant SC', serif; font-size: 0.56rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: #4A6A8A; margin-bottom: 14px;
+  }
+  .q-text {
+    font-family: 'EB Garamond', serif; font-size: 1.22rem;
+    line-height: 1.72; color: #EEE8E0; margin-bottom: 24px;
+  }
+  .q-hint { font-family: 'Lora', serif; font-size: 0.74rem; color: #4A6A7A; font-style: italic; margin-bottom: 12px; }
+  .ans-input {
+    width: 100%; background: rgba(14,22,32,0.7);
+    border: 1px solid rgba(200,168,122,0.2);
+    padding: 13px 18px; font-family: 'Lora', serif;
+    font-size: 0.9rem; color: #EEE8E0; outline: none;
+    transition: border-color 0.25s; resize: vertical;
+  }
+  .ans-input:focus { border-color: #C8A87A; }
+  .ans-input::placeholder { color: rgba(200,216,240,0.2); font-style: italic; }
+  .nav-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
   .btn-nav {
     font-family: 'Cormorant SC', serif; font-size: 0.68rem; letter-spacing: 0.22em;
-    text-transform: uppercase; border: 1px solid rgba(200,216,240,0.25);
-    background: transparent; color: #C8D8E8; padding: 13px 36px; cursor: pointer;
-    transition: all 0.25s;
+    text-transform: uppercase; border: 1px solid rgba(200,216,240,0.18);
+    background: transparent; color: #8AAABE; padding: 13px 32px;
+    cursor: pointer; transition: all 0.25s;
   }
-  .btn-nav:hover:not(:disabled) { border-color: #C8D8E8; }
-  .btn-nav:disabled { opacity: 0.3; cursor: not-allowed; }
+  .btn-nav:hover:not(:disabled) { border-color: #C8A87A; color: #C8A87A; }
+  .btn-nav:disabled { opacity: 0.22; cursor: not-allowed; }
   .btn-submit {
     font-family: 'Cormorant SC', serif; font-size: 0.68rem; letter-spacing: 0.22em;
     text-transform: uppercase; border: none;
-    background: #C8A87A; color: #1A2B45; padding: 14px 44px; cursor: pointer;
-    transition: all 0.25s;
+    background: #C8A87A; color: #1A2B45;
+    padding: 14px 44px; cursor: pointer; transition: all 0.25s;
   }
   .btn-submit:hover { background: #EEE8E0; }
-
-  /* ── Progress bar ── */
-  .progress-bar { height: 3px; background: rgba(200,216,240,0.1); margin-bottom: 32px; }
-  .progress-fill { height: 100%; background: linear-gradient(90deg, #4A0E0E, #C8A87A); transition: width 0.4s; }
-
-  /* ── Warning overlay ── */
+  /* Warning */
   .overlay {
-    display: none;
-    position: fixed; inset: 0; z-index: 500;
-    background: rgba(10,18,28,0.88);
-    align-items: center; justify-content: center;
-    padding: 24px;
+    display: none; position: fixed; inset: 0; z-index: 500;
+    background: rgba(10,18,28,0.92);
+    align-items: center; justify-content: center; padding: 24px;
   }
   .overlay.show { display: flex; }
   .warn-box {
     background: #F9F7F2; color: #1A2B45;
-    max-width: 480px; width: 100%; padding: 48px;
-    border: 2px solid #8B2020;
-    animation: slideUp 0.28s cubic-bezier(0.22,1,0.36,1);
-    text-align: center;
+    max-width: 460px; width: 100%; padding: 48px;
+    border: 2px solid #8B2020; text-align: center;
   }
-  @keyframes slideUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:none} }
-  .warn-icon { font-size: 2.4rem; margin-bottom: 16px; }
-  .warn-title { font-family: 'EB Garamond', serif; font-size: 1.8rem; margin-bottom: 12px; color: #8B2020; }
-  .warn-body { font-family: 'Lora', serif; font-size: 0.88rem; line-height: 1.75; color: #3A4A5A; margin-bottom: 28px; }
-  .warn-count { font-family: 'Cormorant SC', serif; font-size: 0.7rem; letter-spacing: 0.2em; color: #8B2020; margin-bottom: 28px; }
-  .btn-warn { font-family: 'Cormorant SC', serif; font-size: 0.7rem; letter-spacing: 0.24em; text-transform: uppercase; background: #1A2B45; color: #F9F7F2; border: none; padding: 15px 40px; cursor: pointer; }
+  .warn-icon { font-size: 2.2rem; margin-bottom: 14px; }
+  .warn-title { font-family: 'EB Garamond', serif; font-size: 1.8rem; color: #8B2020; margin-bottom: 10px; }
+  .warn-body  { font-family: 'Lora', serif; font-size: 0.84rem; line-height: 1.75; color: #3A4A5A; margin-bottom: 10px; }
+  .warn-count { font-family: 'Cormorant SC', serif; font-size: 0.68rem; letter-spacing: 0.18em; color: #8B2020; margin-bottom: 26px; }
+  .btn-warn {
+    font-family: 'Cormorant SC', serif; font-size: 0.7rem; letter-spacing: 0.22em;
+    text-transform: uppercase; background: #1A2B45; color: #F9F7F2;
+    border: none; padding: 14px 40px; cursor: pointer; transition: background 0.25s;
+  }
   .btn-warn:hover { background: #4A0E0E; }
-
-  /* ── Submitted screen ── */
+  /* Submitted */
   .submitted-screen {
-    display: none;
-    position: fixed; inset: 0; z-index: 600;
-    background: #1A2B45;
-    align-items: center; justify-content: center;
-    text-align: center; padding: 40px;
+    display: none; position: fixed; inset: 0; z-index: 600;
+    background: #0E1620; align-items: center; justify-content: center;
+    text-align: center; padding: 40px; flex-direction: column;
   }
-  .submitted-screen.show { display: flex; flex-direction: column; }
-  .sub-icon { font-size: 3rem; margin-bottom: 24px; }
-  .sub-title { font-family: 'EB Garamond', serif; font-size: 2.8rem; font-weight: 400; color: #C8A87A; margin-bottom: 20px; }
-  .sub-body { font-family: 'Lora', serif; font-size: 1rem; color: #8AAABE; line-height: 1.8; max-width: 520px; }
-
-  @media(max-width:600px) { .topbar { padding: 0 16px; } .content { padding: 96px 16px 60px; } .q-card { padding: 24px 20px; } }
+  .submitted-screen.show { display: flex; }
+  .sub-icon  { font-size: 3rem; margin-bottom: 28px; }
+  .sub-title { font-family: 'EB Garamond', serif; font-size: 2.8rem; color: #C8A87A; margin-bottom: 20px; }
+  .sub-body  { font-family: 'Lora', serif; font-size: 0.96rem; color: #7A9AB8; line-height: 1.85; max-width: 500px; }
+  .sub-note  { font-family: 'Cormorant SC', serif; font-size: 0.65rem; letter-spacing: 0.18em; color: #4A6A7A; margin-top: 22px; }
+  @media(max-width:600px){
+    .topbar{padding:0 16px;} .content{padding:88px 16px 60px;}
+    .q-card{padding:24px 18px;} .timer{font-size:1.5rem;}
+  }
 </style>
 </head>
 <body>
 
-<!-- Top bar -->
 <div class="topbar">
-  <div>
+  <div class="top-left">
     <div class="top-brand">THE RUSSELL INSTITUTE</div>
-    <div class="top-subject" id="top-subject">Olympiad</div>
+    <div class="top-subject">Математика — 10 класс</div>
   </div>
   <div class="timer-wrap">
-    <span class="timer-label" id="timer-label">Time remaining</span>
+    <span class="timer-label">Осталось</span>
     <span class="timer" id="timer-display">90:00</span>
   </div>
 </div>
 
-<!-- Main test content -->
-<div class="content" id="test-content">
+<div class="content">
   <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
-  <div class="test-header">
-    <div class="slbl" id="section-label">Section</div>
-    <div class="q-counter" id="q-counter">Question 1 of 10</div>
-  </div>
-  <div class="q-card" id="question-card">
-    <!-- injected by JS -->
-  </div>
+  <div class="slbl">Олимпиада по математике</div>
+  <div class="q-counter" id="q-counter">Вопрос 1 из 30</div>
+  <div class="dots-row" id="dots-row"></div>
+  <div class="q-card" id="question-card"></div>
   <div class="nav-row">
-    <button class="btn-nav" id="btn-prev" onclick="prevQ()">Previous</button>
-    <button class="btn-nav" id="btn-next" onclick="nextQ()">Next</button>
-    <button class="btn-submit" id="btn-submit" onclick="confirmSubmit()" style="display:none">Submit</button>
+    <button class="btn-nav" id="btn-prev" onclick="prevQ()">&#8592; Назад</button>
+    <button class="btn-nav" id="btn-next" onclick="nextQ()">Далее &#8594;</button>
+    <button class="btn-submit" id="btn-submit" onclick="confirmSubmit()" style="display:none">Сдать работу</button>
   </div>
 </div>
 
-<!-- Warning overlay -->
 <div class="overlay" id="warn-overlay">
   <div class="warn-box">
-    <div class="warn-icon">⚠️</div>
-    <div class="warn-title" id="warn-title">Warning</div>
-    <div class="warn-body" id="warn-body">You have switched tabs or minimised the window.</div>
-    <div class="warn-count" id="warn-count">Violation 1 of 2. A third violation will auto-submit your paper.</div>
-    <button class="btn-warn" onclick="closeWarn()">Return to Test</button>
+    <div class="warn-icon">&#9888;&#65039;</div>
+    <div class="warn-title" id="warn-title">Предупреждение</div>
+    <div class="warn-body" id="warn-body"></div>
+    <div class="warn-count" id="warn-count"></div>
+    <button class="btn-warn" onclick="closeWarn()">Вернуться к тесту</button>
   </div>
 </div>
 
-<!-- Submitted screen -->
 <div class="submitted-screen" id="submitted-screen">
-  <div class="sub-icon">📝</div>
-  <div class="sub-title" id="sub-title">Paper Submitted</div>
-  <div class="sub-body" id="sub-body">Your answers have been recorded. You may close this window.</div>
+  <div class="sub-icon">&#128221;</div>
+  <div class="sub-title">Работа сдана</div>
+  <div class="sub-body">Ваши ответы сохранены. Благодарим за участие в олимпиаде The Russell Institute. Вы можете закрыть это окно.</div>
+  <div class="sub-note" id="sub-note">Сохранение ответов...</div>
 </div>
 
 <script>
-/* ══ CONFIG ══════════════════════════════════════════════════════════════ */
-const DURATION_MINUTES = 90;   // ← change test duration here
+/* ══ CONFIG ════════════════════════════════════════════════════════ */
+const SHEETS_URL       = "https://script.google.com/macros/s/AKfycbzgeCUChzdk3qNraq6BlBPFoeiQn2VUe_tlhW5Rvmlah0gUBgml31soRyHsv8Cch29t/exec";
+const DURATION_MINUTES = 90;
 
-/* ── Placeholder questions (replace with real ones) ──────────────────── */
-const QUESTIONS = {
-  default: [
-    { text: "This is a placeholder question 1. Choose the best answer.", options: ["Option A", "Option B", "Option C", "Option D"] },
-    { text: "This is a placeholder question 2. Choose the best answer.", options: ["Option A", "Option B", "Option C", "Option D"] },
-    { text: "This is a placeholder question 3. Choose the best answer.", options: ["Option A", "Option B", "Option C", "Option D"] },
-    { text: "This is a placeholder question 4. Choose the best answer.", options: ["Option A", "Option B", "Option C", "Option D"] },
-    { text: "This is a placeholder question 5. Choose the best answer.", options: ["Option A", "Option B", "Option C", "Option D"] },
-  ],
-  Mathematics: [
-    { text: "If f(x) = x² + 3x − 4, what are the roots of f(x) = 0?", options: ["x = 1 and x = −4", "x = −1 and x = 4", "x = 2 and x = −2", "x = 4 and x = −4"] },
-    { text: "What is the derivative of sin(x) · cos(x)?", options: ["cos(2x)", "sin(2x)", "−sin²(x) + cos²(x)", "Both A and C"] },
-    { text: "A geometric sequence has first term 3 and common ratio 2. What is the 6th term?", options: ["48", "96", "64", "192"] },
-    { text: "Evaluate ∫₀¹ x² dx.", options: ["1/3", "1/2", "2/3", "1/4"] },
-    { text: "How many solutions does the equation |2x − 5| = 3 have?", options: ["0", "1", "2", "Infinitely many"] },
-  ],
-  Physics: [
-    { text: "A ball is thrown vertically upward with initial velocity 20 m/s. What is the maximum height reached? (g = 10 m/s²)", options: ["10 m", "20 m", "40 m", "80 m"] },
-    { text: "Two charges +2μC and −2μC are placed 1 m apart. The force between them is:", options: ["Attractive", "Repulsive", "Zero", "Cannot be determined"] },
-    { text: "A wave has frequency 440 Hz and wavelength 0.75 m. What is its speed?", options: ["330 m/s", "440 m/s", "293 m/s", "586 m/s"] },
-    { text: "Which quantity is conserved in an elastic collision?", options: ["Kinetic energy only", "Momentum only", "Both kinetic energy and momentum", "Neither"] },
-    { text: "The resistance of a wire doubles when:", options: ["Its length doubles", "Its area doubles", "Its temperature halves", "Its voltage doubles"] },
-  ],
-};
+/* ══ ВОПРОСЫ — 30 штук, казахстанская программа 10 класс ════════
+   Вопросы 1–10:  вычислительные  → type: "input"
+   Вопросы 11–30: рассуждение     → type: "textarea"
+═══════════════════════════════════════════════════════════════════ */
+const QUESTIONS = [
 
-/* ══ State ═══════════════════════════════════════════════════════════════ */
-const subject    = sessionStorage.getItem("ri_subject") || "default";
-const questions  = QUESTIONS[subject] || QUESTIONS.default;
-const answers    = new Array(questions.length).fill(null);
-let   currentQ   = 0;
-let   violations = 0;
-let   submitted  = false;
-let   timerSecs  = DURATION_MINUTES * 60;
-let   timerInterval;
+  /* ── БЛОК 1: Вычислительные (1–10) ──────────────────────────── */
+  {
+    tag: "Алгебра",
+    text: "Решите уравнение: 3(2x − 4) = 2(x + 6). Найдите значение x.",
+    type: "input",
+    placeholder: "Введите число"
+  },
+  {
+    tag: "Алгебра",
+    text: "Найдите значение выражения: если 2x = 9, чему равно 2^(6x − 23)?",
+    type: "input",
+    placeholder: "Введите число"
+  },
+  {
+    tag: "Прогрессии",
+    text: "Арифметическая прогрессия: первый член a₁ = 3, разность d = 5. Найдите 12-й член прогрессии.",
+    type: "input",
+    placeholder: "Введите число"
+  },
+  {
+    tag: "Прогрессии",
+    text: "Геометрическая прогрессия: первый член b₁ = 2, знаменатель q = 3. Найдите сумму первых 5 членов.",
+    type: "input",
+    placeholder: "Введите число"
+  },
+  {
+    tag: "Тригонометрия",
+    text: "Найдите значение: sin²(30°) + cos²(60°) + tan(45°). Дайте точный ответ.",
+    type: "input",
+    placeholder: "Введите число"
+  },
+  {
+    tag: "Тригонометрия",
+    text: "Решите уравнение: 2sin(x) − 1 = 0 на промежутке [0°; 360°]. Запишите все решения через запятую.",
+    type: "input",
+    placeholder: "Например: 30°, 150°"
+  },
+  {
+    tag: "Функции",
+    text: "Функция задана формулой f(x) = x² − 4x + 3. Найдите координаты вершины параболы.",
+    type: "input",
+    placeholder: "Например: (2; −1)"
+  },
+  {
+    tag: "Статистика",
+    text: "Дан набор чисел: 4, 7, 7, 9, 13, 15, 15, 15, 21. Найдите моду, медиану и среднее арифметическое.",
+    type: "input",
+    placeholder: "Мода = ..., Медиана = ..., Среднее = ..."
+  },
+  {
+    tag: "Вероятность",
+    text: "В урне 5 красных и 3 синих шара. Один шар извлекают случайно. Найдите вероятность того, что шар окажется красным. Ответ запишите в виде обыкновенной дроби.",
+    type: "input",
+    placeholder: "Например: 5/8"
+  },
+  {
+    tag: "Комбинаторика",
+    text: "Сколькими способами можно выбрать 2 человека из группы 8 для участия в олимпиаде? (Порядок выбора не важен.)",
+    type: "input",
+    placeholder: "Введите число"
+  },
 
-/* ══ i18n ════════════════════════════════════════════════════════════════ */
-const lang = (() => {
-  try { return JSON.parse(sessionStorage.getItem("ri_user") || "{}").lang || "en"; } catch(e) { return "en"; }
-})();
+  /* ── БЛОК 2: Рассуждение и логика (11–30) ────────────────────── */
+  {
+    tag: "Алгебра — логика",
+    text: "Пусть p + q + r = 18, p + q = 5 и q + r = 9. Не используя систему уравнений с тремя неизвестными, объясните логически, как найти значение q. Запишите ход рассуждений и ответ.",
+    type: "textarea",
+    placeholder: "Опишите ход рассуждений шаг за шагом..."
+  },
+  {
+    tag: "Алгебра — понимание",
+    text: "Дискриминант квадратного уравнения ax² + bx + c = 0 равен нулю. Что это означает геометрически — как выглядит график параболы относительно оси Ox? Объясните своими словами и нарисуйте (опишите) схему.",
+    type: "textarea",
+    placeholder: "Объясните геометрический смысл..."
+  },
+  {
+    tag: "Функции — анализ",
+    text: "Функция f(x) = |x − 3| + |x + 1|. Не строя точный график, определите: при каком значении x функция принимает наименьшее значение и чему оно равно? Объясните логику рассуждений.",
+    type: "textarea",
+    placeholder: "Запишите рассуждение и ответ..."
+  },
+  {
+    tag: "Прогрессии — применение",
+    text: "Банк начисляет на вклад 10% годовых (сложные проценты). Вкладчик положил 100 000 тенге. Через сколько лет сумма вклада превысит 200 000 тенге? Объясните связь с геометрической прогрессией и запишите неравенство.",
+    type: "textarea",
+    placeholder: "Объясните связь с прогрессией и решите задачу..."
+  },
+  {
+    tag: "Прогрессии — логика",
+    text: "Два игрока играют в следующую игру: на столе лежат 21 монета, по очереди берут от 1 до 3 монет, проигрывает тот, кто берёт последнюю. Используя понятие арифметической прогрессии, объясните выигрышную стратегию первого игрока.",
+    type: "textarea",
+    placeholder: "Опишите стратегию и её математическое обоснование..."
+  },
+  {
+    tag: "Тригонометрия — понимание",
+    text: "Ученик утверждает: «sin(x) = 1,5 — у этого уравнения есть решение, просто оно очень большое». Прав ли он? Объясните, почему уравнение sin(x) = a не имеет решений при |a| > 1, используя определение синуса.",
+    type: "textarea",
+    placeholder: "Объясните ошибку ученика и правильный ответ..."
+  },
+  {
+    tag: "Тригонометрия — применение",
+    text: "Рабочий измеряет высоту столба. Он стоит на расстоянии 10 метров от столба и видит его верхушку под углом 35° к горизонту. Составьте тригонометрическое уравнение для нахождения высоты и объясните, какую тригонометрическую функцию нужно использовать и почему.",
+    type: "textarea",
+    placeholder: "Составьте уравнение и объясните выбор функции..."
+  },
+  {
+    tag: "Вероятность — рассуждение",
+    text: "Монету подбрасывают 5 раз подряд и каждый раз выпадает орёл. Одноклассник говорит: «В следующий раз точно выпадет решка — вероятность уже накопилась». Объясните ошибку в его рассуждении. Как называется это когнитивное искажение?",
+    type: "textarea",
+    placeholder: "Объясните ошибку и назовите явление..."
+  },
+  {
+    tag: "Вероятность — задача",
+    text: "На олимпиаде 30 учеников. Учитель говорит: «Вероятность того, что хотя бы двое из вас родились в один день — больше 70%.» Кажется ли вам это правдоподобным? Объясните интуитивно (или математически), почему это может быть верно. Это явление называется «парадокс дней рождения».",
+    type: "textarea",
+    placeholder: "Объясните свои рассуждения..."
+  },
+  {
+    tag: "Комбинаторика — логика",
+    text: "На чемпионате участвуют 8 команд. Каждая команда играет с каждой другой ровно один раз. Сколько всего матчей будет сыграно? Запишите два разных способа получить ответ: один через формулу сочетаний, другой через логическое рассуждение.",
+    type: "textarea",
+    placeholder: "Запишите оба способа решения..."
+  },
+  {
+    tag: "Функции — исследование",
+    text: "Функция f(x) = x³ − 3x. Не используя производную, попробуйте определить: является ли функция чётной, нечётной или никакой? Имеет ли она точки пересечения с осью Ox? Запишите свои рассуждения.",
+    type: "textarea",
+    placeholder: "Запишите полное исследование функции..."
+  },
+  {
+    tag: "Алгебра — доказательство",
+    text: "Докажите или опровергните утверждение: «Произведение двух нечётных чисел всегда является нечётным». Используйте алгебраическую запись.",
+    type: "textarea",
+    placeholder: "Запишите алгебраическое доказательство..."
+  },
+  {
+    tag: "Логика — числа",
+    text: "Число N при делении на 3 даёт остаток 1, при делении на 5 даёт остаток 3. Найдите наименьшее такое натуральное число и объясните метод поиска. Можно ли найти все такие числа? Как они расположены на числовой прямой?",
+    type: "textarea",
+    placeholder: "Найдите число и опишите метод..."
+  },
+  {
+    tag: "Статистика — анализ",
+    text: "В классе провели тест. Результаты (в баллах): 45, 67, 72, 55, 88, 91, 60, 73, 82, 49. Учитель говорит: «Средний балл — 68,2, значит большинство учеников справились неплохо». Согласны ли вы с этим выводом? Подкрепите своё мнение вычислениями (среднее, медиана, разброс).",
+    type: "textarea",
+    placeholder: "Проведите анализ и сформулируйте вывод..."
+  },
+  {
+    tag: "Реальная ситуация",
+    text: "В магазине две акции: «Скидка 30% на весь товар» или «Купи два — третий в подарок». Для какого случая выгоднее первая акция, а для какого — вторая? Проведите математическое сравнение на конкретном примере.",
+    type: "textarea",
+    placeholder: "Приведите пример, посчитайте и сделайте вывод..."
+  },
+  {
+    tag: "Реальная ситуация",
+    text: "Мобильный оператор предлагает два тарифа. Тариф А: 1500 тг/мес + 20 тг за каждую минуту звонков. Тариф Б: 3500 тг/мес, звонки бесплатно. При каком количестве минут в месяц выгоднее тариф Б? Составьте неравенство и решите его. Какой тариф выбрали бы вы и почему?",
+    type: "textarea",
+    placeholder: "Составьте неравенство, решите и обоснуйте выбор..."
+  },
+  {
+    tag: "Логика — последовательности",
+    text: "Запишите следующие три числа последовательности: 1, 1, 2, 3, 5, 8, 13, ... и объясните закономерность. Как называется эта последовательность? Попробуйте объяснить, где она встречается в природе или архитектуре.",
+    type: "textarea",
+    placeholder: "Продолжите последовательность и объясните закономерность..."
+  },
+  {
+    tag: "Функции — моделирование",
+    text: "Мяч бросают вертикально вверх. Высота мяча в метрах задаётся формулой h(t) = −5t² + 20t, где t — время в секундах. Определите: а) в какой момент мяч достигнет максимальной высоты; б) какова эта высота; в) когда мяч упадёт на землю. Запишите рассуждения.",
+    type: "textarea",
+    placeholder: "Решите все три части задачи..."
+  },
+  {
+    tag: "Открытый вопрос",
+    text: "Два ученика решают одну и ту же задачу разными способами и получают один и тот же ответ. Первый использовал алгебру, второй — графический метод. Что это говорит о математике? Можно ли считать один метод «правильнее» другого? Обоснуйте свою точку зрения.",
+    type: "textarea",
+    placeholder: "Напишите развёрнутое рассуждение..."
+  },
+  {
+    tag: "Открытый вопрос",
+    text: "Представьте, что вы объясняете своему младшему брату или сестре (6 класс), что такое функция. Как бы вы объяснили это понятие простыми словами, без формул? Используйте жизненный пример.",
+    type: "textarea",
+    placeholder: "Напишите объяснение простым языком с примером..."
+  },
+];
 
-const TT = {
-  timerLabel: { en: "Time remaining", ru: "Осталось времени" },
-  qOf:        { en: "Question",       ru: "Вопрос" },
-  of:         { en: "of",             ru: "из" },
-  prev:       { en: "Previous",       ru: "Назад" },
-  next:       { en: "Next",           ru: "Далее" },
-  submit:     { en: "Submit",         ru: "Сдать работу" },
-  section:    { en: "Olympiad",       ru: "Олимпиада" },
-  warnTitle:  { en: "Warning", ru: "Предупреждение" },
-  warnBody1:  { en: "You have switched tabs or minimised the window. Please stay on this page.", ru: "Вы переключили вкладку или свернули окно. Оставайтесь на этой странице." },
-  warnBodyF:  { en: "Final warning. The next tab switch will auto-submit your paper.", ru: "Последнее предупреждение. Следующее переключение вкладки автоматически сдаст вашу работу." },
-  violation:  { en: "Violation", ru: "Нарушение" },
-  of2:        { en: "of 2. A third violation will auto-submit.", ru: "из 2. Третье нарушение автоматически сдаст работу." },
-  returnBtn:  { en: "Return to Test", ru: "Вернуться к тесту" },
-  subTitle:   { en: "Paper Submitted", ru: "Работа сдана" },
-  subBody:    { en: "Your answers have been recorded. Thank you for participating in the Russell Institute Olympiad. You may close this window.", ru: "Ваши ответы записаны. Благодарим за участие в олимпиаде Russell Institute. Вы можете закрыть это окно." },
-};
+/* ══ State ══════════════════════════════════════════════════════ */
+const answers  = new Array(QUESTIONS.length).fill("");
+let currentQ   = 0;
+let violations = 0;
+let submitted  = false;
+let timerSecs  = DURATION_MINUTES * 60;
+let timerInterval;
 
-function tt(k) { return TT[k][lang] || TT[k].en; }
+const userRaw = sessionStorage.getItem("ri_user");
+const user    = userRaw ? (function(){ try{ return JSON.parse(userRaw); }catch(e){ return {}; } })() : {};
 
-/* ══ Render question ═════════════════════════════════════════════════════ */
+/* ══ Render ══════════════════════════════════════════════════════ */
 function renderQ() {
-  const q    = questions[currentQ];
-  const pct  = ((currentQ + 1) / questions.length * 100).toFixed(1);
+  const q   = QUESTIONS[currentQ];
+  const pct = ((currentQ + 1) / QUESTIONS.length * 100).toFixed(1);
   document.getElementById("progress-fill").style.width = pct + "%";
   document.getElementById("q-counter").textContent =
-    tt("qOf") + " " + (currentQ + 1) + " " + tt("of") + " " + questions.length;
+    "Вопрос " + (currentQ + 1) + " из " + QUESTIONS.length;
 
-  const optHtml = q.options.map((opt, i) => `
-    <div class="option${answers[currentQ] === i ? " selected" : ""}" onclick="selectOpt(${i})">
-      <div class="opt-circle"><div class="opt-dot"></div></div>
-      <span class="opt-text">${opt}</span>
-    </div>`).join("");
+  /* Dots */
+  var html = "";
+  for (var i = 0; i < QUESTIONS.length; i++) {
+    var cls = "dot";
+    if (i === currentQ) cls += " current";
+    else if (answers[i] && answers[i].trim()) cls += " answered";
+    html += '<button class="' + cls + '" onclick="goToQ(' + i + ')">' + (i+1) + '</button>';
+  }
+  document.getElementById("dots-row").innerHTML = html;
+
+  /* Field */
+  var fieldHtml;
+  if (q.type === "textarea") {
+    fieldHtml =
+      '<div class="q-hint">Развёрнутый ответ:</div>' +
+      '<textarea class="ans-input" id="ans-field" rows="7" placeholder="' + (q.placeholder||"") + '">' +
+      (answers[currentQ]||"") + '</textarea>';
+  } else {
+    fieldHtml =
+      '<div class="q-hint">Ваш ответ:</div>' +
+      '<input type="text" class="ans-input" id="ans-field" placeholder="' + (q.placeholder||"") + '" value="' + (answers[currentQ]||"") + '" />';
+  }
 
   document.getElementById("question-card").innerHTML =
-    `<div class="q-text">${q.text}</div><div class="options">${optHtml}</div>`;
+    '<div class="q-tag">' + q.tag + '</div>' +
+    '<div class="q-text">' + q.text + '</div>' +
+    fieldHtml;
+
+  document.getElementById("ans-field").addEventListener("input", function() {
+    answers[currentQ] = this.value;
+    refreshDots();
+  });
 
   document.getElementById("btn-prev").disabled = (currentQ === 0);
-  const isLast = currentQ === questions.length - 1;
-  document.getElementById("btn-next").style.display  = isLast ? "none" : "inline-block";
+  var isLast = (currentQ === QUESTIONS.length - 1);
+  document.getElementById("btn-next").style.display   = isLast ? "none"         : "inline-block";
   document.getElementById("btn-submit").style.display = isLast ? "inline-block" : "none";
 }
 
-function selectOpt(i) {
-  if (submitted) return;
-  answers[currentQ] = i;
-  renderQ();
+function refreshDots() {
+  document.querySelectorAll(".dot").forEach(function(d, i) {
+    d.className = "dot";
+    if (i === currentQ) d.className += " current";
+    else if (answers[i] && answers[i].trim()) d.className += " answered";
+  });
 }
 
-function prevQ() { if (currentQ > 0) { currentQ--; renderQ(); } }
-function nextQ() { if (currentQ < questions.length - 1) { currentQ++; renderQ(); } }
+function saveField() {
+  var f = document.getElementById("ans-field");
+  if (f) answers[currentQ] = f.value;
+}
 
-/* ══ Timer ═══════════════════════════════════════════════════════════════ */
+function prevQ() { saveField(); if (currentQ > 0) { currentQ--; renderQ(); } }
+function nextQ() { saveField(); if (currentQ < QUESTIONS.length-1) { currentQ++; renderQ(); } }
+function goToQ(i) { saveField(); currentQ = i; renderQ(); }
+
+/* ══ Timer ══════════════════════════════════════════════════════ */
 function startTimer() {
-  timerInterval = setInterval(() => {
+  timerInterval = setInterval(function() {
     timerSecs--;
-    const m = Math.floor(timerSecs / 60);
-    const s = timerSecs % 60;
-    const display = document.getElementById("timer-display");
-    display.textContent = m + ":" + String(s).padStart(2, "0");
-    if (timerSecs <= 300) display.classList.add("urgent");
+    var m = Math.floor(timerSecs/60), s = timerSecs % 60;
+    var el = document.getElementById("timer-display");
+    el.textContent = m + ":" + (s<10?"0":"") + s;
+    if (timerSecs <= 300) el.classList.add("urgent");
     if (timerSecs <= 0)   doSubmit("timeout");
   }, 1000);
 }
 
-/* ══ Submit ══════════════════════════════════════════════════════════════ */
-function confirmSubmit() { doSubmit("manual"); }
+/* ══ Submit ══════════════════════════════════════════════════════ */
+function confirmSubmit() { saveField(); doSubmit("manual"); }
 
-function doSubmit(reason) {
+async function doSubmit(reason) {
   if (submitted) return;
   submitted = true;
   clearInterval(timerInterval);
-
+  if (document.fullscreenElement) document.exitFullscreen().catch(function(){});
   document.getElementById("submitted-screen").classList.add("show");
-  document.getElementById("sub-title").textContent = tt("subTitle");
-  document.getElementById("sub-body").textContent  = tt("subBody");
 
-  if (document.fullscreenElement) {
-    document.exitFullscreen().catch(() => {});
+  var payload = QUESTIONS.map(function(q, i) {
+    return { n: i+1, question: q.text, answer: answers[i] || "" };
+  });
+  var ts = new Date().toLocaleString("ru-KZ", { timeZone: "Asia/Almaty" });
+
+  try {
+    await fetch(SHEETS_URL, {
+      method: "POST", mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        type:      "answers",
+        timestamp: ts,
+        login:     user.login || user.name || "unknown",
+        name:      user.name  || "unknown",
+        subject:   "Mathematics",
+        answers:   payload,
+      }),
+    });
+    document.getElementById("sub-note").textContent = "Ответы сохранены.";
+  } catch(e) {
+    document.getElementById("sub-note").textContent = "";
   }
 }
 
-/* ══ Visibility / tab-switch monitoring ═════════════════════════════════ */
-document.addEventListener("visibilitychange", () => {
+/* ══ Visibility ══════════════════════════════════════════════════ */
+document.addEventListener("visibilitychange", function() {
   if (submitted || document.visibilityState !== "hidden") return;
   violations++;
-  showWarn();
-  if (violations >= 3) {
-    setTimeout(() => doSubmit("violation"), 800);
-  }
-});
-
-function showWarn() {
-  if (submitted) return;
-  const overlay = document.getElementById("warn-overlay");
-  document.getElementById("warn-title").textContent = tt("warnTitle");
-  document.getElementById("warn-body").textContent  = violations >= 2 ? tt("warnBodyF") : tt("warnBody1");
+  document.getElementById("warn-title").textContent = "Предупреждение";
+  document.getElementById("warn-body").textContent  =
+    violations >= 2
+      ? "Последнее предупреждение. Следующее нарушение автоматически сдаст вашу работу."
+      : "Вы переключили вкладку или свернули окно. Оставайтесь на этой странице.";
   document.getElementById("warn-count").textContent =
-    tt("violation") + " " + violations + " " + tt("of2");
-  overlay.classList.add("show");
-}
+    "Нарушение " + violations + " из 2. Третье нарушение сдаст работу автоматически.";
+  document.getElementById("warn-overlay").classList.add("show");
+  if (violations >= 3) setTimeout(function(){ doSubmit("violation"); }, 600);
+});
 
 function closeWarn() {
   document.getElementById("warn-overlay").classList.remove("show");
 }
 
-/* ══ Anti-cheat ══════════════════════════════════════════════════════════ */
-document.addEventListener("contextmenu", e => e.preventDefault());
-document.addEventListener("copy",        e => e.preventDefault());
-document.addEventListener("keydown",     e => {
-  // block F12, Ctrl+Shift+I, Ctrl+U, Ctrl+S, Ctrl+P
-  if (e.key === "F12") { e.preventDefault(); return; }
-  if (e.ctrlKey && ["u","U","s","S","p","P"].includes(e.key)) { e.preventDefault(); }
-  if (e.ctrlKey && e.shiftKey && ["i","I","j","J","c","C"].includes(e.key)) { e.preventDefault(); }
+/* ══ Anti-cheat ══════════════════════════════════════════════════ */
+document.addEventListener("contextmenu", function(e){ e.preventDefault(); });
+document.addEventListener("copy",        function(e){ e.preventDefault(); });
+document.addEventListener("keydown",     function(e){
+  if (e.key==="F12"){ e.preventDefault(); return; }
+  if (e.ctrlKey && ["u","U","s","S","p","P"].includes(e.key)) e.preventDefault();
+  if (e.ctrlKey && e.shiftKey && ["i","I","j","J","c","C"].includes(e.key)) e.preventDefault();
 });
 
-/* ══ Fullscreen ══════════════════════════════════════════════════════════ */
-function enterFullscreen() {
-  const el = document.documentElement;
-  if (el.requestFullscreen)         el.requestFullscreen();
+/* ══ Fullscreen ══════════════════════════════════════════════════ */
+(function(){
+  var el = document.documentElement;
+  if (el.requestFullscreen)            el.requestFullscreen();
   else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
-  else if (el.mozRequestFullScreen)    el.mozRequestFullScreen();
-}
-
-/* ══ Boot ════════════════════════════════════════════════════════════════ */
-(function init() {
-  // localise static labels
-  document.getElementById("timer-label").textContent = tt("timerLabel");
-  document.getElementById("btn-prev").textContent    = tt("prev");
-  document.getElementById("btn-next").textContent    = tt("next");
-  document.getElementById("btn-submit").textContent  = tt("submit");
-  document.getElementById("section-label").textContent = tt("section");
-  document.getElementById("btn-warn").textContent    = tt("returnBtn");
-
-  // subject label in topbar
-  const subjectNames = { en:{ Mathematics:"Mathematics", Physics:"Physics", "Computer Science":"Computer Science", Biology:"Biology", Economics:"Economics", Business:"Business" }, ru:{ Mathematics:"Математика", Physics:"Физика", "Computer Science":"Информатика", Biology:"Биология", Economics:"Экономика", Business:"Бизнес" } };
-  document.getElementById("top-subject").textContent =
-    (subjectNames[lang] || subjectNames.en)[subject] || subject;
-
-  enterFullscreen();
   renderQ();
   startTimer();
 })();
