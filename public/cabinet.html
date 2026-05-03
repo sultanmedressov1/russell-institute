@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,196 +8,67 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+SC:wght@300;400;500;600&display=swap');
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Lora', Georgia, serif;
-    background: #0E1620;
-    color: #C8D8E8;
-    min-height: 100vh;
-  }
-
-  /* ── Header ── */
+  body { font-family: 'Lora', Georgia, serif; background: #0E1620; color: #C8D8E8; min-height: 100vh; }
   .hdr {
-    background: rgba(10,18,28,0.92);
-    border-bottom: 1px solid rgba(200,168,122,0.15);
-    padding: 0 40px;
-    height: 72px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    backdrop-filter: blur(8px);
+    background: rgba(10,18,28,0.92); border-bottom: 1px solid rgba(200,168,122,0.15);
+    padding: 0 40px; height: 72px; display: flex; align-items: center; justify-content: space-between;
+    position: sticky; top: 0; z-index: 100; backdrop-filter: blur(8px);
   }
   .logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
-  .logo-box {
-    width: 34px; height: 34px;
-    border: 1px solid rgba(200,168,122,0.4);
-    display: flex; align-items: center; justify-content: center;
-  }
+  .logo-box { width: 34px; height: 34px; border: 1px solid rgba(200,168,122,0.4); display: flex; align-items: center; justify-content: center; }
   .logo-title { font-family: 'Cormorant SC', serif; font-size: 0.74rem; letter-spacing: 0.2em; color: #EAE7E0; }
-  .logo-sub { font-family: 'Lora', serif; font-size: 0.52rem; letter-spacing: 0.12em; text-transform: uppercase; color: #7A9AB8; }
-  .hdr-right { display: flex; align-items: center; gap: 20px; }
-  .back-link {
-    font-family: 'Cormorant SC', serif; font-size: 0.62rem; letter-spacing: 0.2em;
-    text-transform: uppercase; color: #7A9AB8; text-decoration: none; transition: color 0.2s;
-  }
+  .logo-sub   { font-family: 'Lora', serif; font-size: 0.52rem; letter-spacing: 0.12em; text-transform: uppercase; color: #7A9AB8; }
+  .hdr-right  { display: flex; align-items: center; gap: 20px; }
+  .back-link  { font-family: 'Cormorant SC', serif; font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: #7A9AB8; text-decoration: none; transition: color 0.2s; }
   .back-link:hover { color: #C8A87A; }
   .lang-toggle { display: flex; border: 1px solid rgba(200,168,122,0.25); overflow: hidden; }
-  .lang-btn {
-    font-family: 'Cormorant SC', serif; font-size: 0.6rem; letter-spacing: 0.18em;
-    border: none; background: transparent; cursor: pointer; padding: 6px 11px;
-    transition: all 0.22s; color: rgba(200,216,240,0.45);
-  }
+  .lang-btn { font-family: 'Cormorant SC', serif; font-size: 0.6rem; letter-spacing: 0.18em; border: none; background: transparent; cursor: pointer; padding: 6px 11px; transition: all 0.22s; color: rgba(200,216,240,0.45); }
   .lang-btn.active { background: #C8A87A; color: #1A2B45; }
-
-  /* ── Main ── */
   .main { max-width: 780px; margin: 0 auto; padding: 72px 40px 80px; }
-  .slbl {
-    font-family: 'Cormorant SC', serif; font-size: 0.62rem;
-    letter-spacing: 0.32em; text-transform: uppercase; color: #C8A87A;
-  }
-
-  /* ── Login card ── */
+  .slbl { font-family: 'Cormorant SC', serif; font-size: 0.62rem; letter-spacing: 0.32em; text-transform: uppercase; color: #C8A87A; }
+  .h-accent { width: 44px; height: 1px; background: #4A0E0E; display: inline-block; margin-right: 16px; vertical-align: middle; }
+  /* Login */
   .login-wrap { max-width: 480px; }
-  .login-headline {
-    font-family: 'EB Garamond', serif; font-size: 2.6rem;
-    font-weight: 400; line-height: 1.1; color: #EEE8E0;
-    margin-bottom: 14px;
-  }
+  .login-headline { font-family: 'EB Garamond', serif; font-size: 2.6rem; font-weight: 400; line-height: 1.1; color: #EEE8E0; margin-bottom: 14px; }
   .login-sub { font-size: 0.88rem; color: #7A9AB8; line-height: 1.8; margin-bottom: 44px; }
-
-  .login-card {
-    border: 1px solid rgba(200,168,122,0.2);
-    background: rgba(26,43,69,0.5);
-    padding: 44px 48px;
-  }
+  .login-card { border: 1px solid rgba(200,168,122,0.2); background: rgba(26,43,69,0.5); padding: 44px 48px; }
   .field { margin-bottom: 24px; }
-  .field label {
-    display: block; font-family: 'Cormorant SC', serif; font-size: 0.6rem;
-    letter-spacing: 0.22em; text-transform: uppercase; color: #9A8878; margin-bottom: 10px;
-  }
-  .field input {
-    width: 100%;
-    background: rgba(14,22,32,0.7);
-    border: 1px solid rgba(200,168,122,0.2);
-    padding: 14px 18px;
-    font-family: 'Lora', serif; font-size: 0.88rem; color: #EEE8E0;
-    outline: none; transition: border-color 0.25s;
-  }
+  .field label { display: block; font-family: 'Cormorant SC', serif; font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: #9A8878; margin-bottom: 10px; }
+  .field input { width: 100%; background: rgba(14,22,32,0.7); border: 1px solid rgba(200,168,122,0.2); padding: 14px 18px; font-family: 'Lora', serif; font-size: 0.88rem; color: #EEE8E0; outline: none; transition: border-color 0.25s; }
   .field input:focus { border-color: #C8A87A; }
   .field input::placeholder { color: rgba(200,216,240,0.25); font-style: italic; }
   .field input.err { border-color: #8B2020; }
   .err-msg { font-family: 'Lora', serif; font-size: 0.72rem; color: #C84040; margin-top: 10px; font-style: italic; }
-
-  .btn-primary {
-    width: 100%;
-    background: #C8A87A; color: #1A2B45;
-    font-family: 'Cormorant SC', serif; font-size: 0.72rem; letter-spacing: 0.28em;
-    text-transform: uppercase; border: none; padding: 18px 24px;
-    cursor: pointer; transition: background 0.3s; margin-top: 8px;
-  }
+  .btn-primary { width: 100%; background: #C8A87A; color: #1A2B45; font-family: 'Cormorant SC', serif; font-size: 0.72rem; letter-spacing: 0.28em; text-transform: uppercase; border: none; padding: 18px 24px; cursor: pointer; transition: background 0.3s; margin-top: 8px; }
   .btn-primary:hover { background: #EEE8E0; }
   .btn-primary:disabled { background: rgba(200,168,122,0.3); color: rgba(26,43,69,0.5); cursor: not-allowed; }
-
-  /* ── Dashboard ── */
+  /* Dashboard */
   .dash-top { margin-bottom: 52px; }
-  .dash-top h1 {
-    font-family: 'EB Garamond', serif; font-size: 2.8rem; font-weight: 400;
-    color: #EEE8E0; line-height: 1.1; margin-bottom: 10px;
-  }
-  .dash-top p { font-size: 0.88rem; color: #7A9AB8; line-height: 1.75; }
-
-  /* ── Subject cards ── */
+  .dash-top h1 { font-family: 'EB Garamond', serif; font-size: 2.8rem; font-weight: 400; color: #EEE8E0; line-height: 1.1; margin-bottom: 10px; }
+  .dash-top p  { font-size: 0.88rem; color: #7A9AB8; line-height: 1.75; }
   .subject-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2px; margin-bottom: 40px; }
-
-  .subject-card {
-    background: rgba(26,43,69,0.6);
-    border: 1px solid rgba(200,168,122,0.12);
-    padding: 28px 32px;
-    transition: border-color 0.3s;
-  }
+  .subject-card { background: rgba(26,43,69,0.6); border: 1px solid rgba(200,168,122,0.12); padding: 28px 32px; transition: border-color 0.3s; }
   .subject-card:hover { border-color: rgba(200,168,122,0.35); }
-
-  .subject-name {
-    font-family: 'EB Garamond', serif; font-size: 1.55rem;
-    color: #EEE8E0; margin-bottom: 18px; line-height: 1.1;
-  }
+  .subject-name { font-family: 'EB Garamond', serif; font-size: 1.55rem; color: #EEE8E0; margin-bottom: 18px; line-height: 1.1; }
   .subject-meta { display: flex; flex-direction: column; gap: 9px; margin-bottom: 22px; }
   .meta-row { display: flex; align-items: center; gap: 10px; font-size: 0.8rem; }
-  .meta-key {
-    font-family: 'Cormorant SC', serif; font-size: 0.56rem;
-    letter-spacing: 0.18em; text-transform: uppercase; color: #5A6A7A; min-width: 48px;
-  }
-  .meta-val { color: #8AAABE; }
-
-  /* Status badges */
-  .badge {
-    display: inline-block; padding: 8px 18px;
-    font-family: 'Cormorant SC', serif; font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase;
-  }
-  .badge-wait {
-    background: rgba(26,43,69,0.8);
-    border: 1px solid rgba(200,168,122,0.2);
-    color: #5A6A7A;
-  }
-  .badge-active {
-    background: #C8A87A; color: #1A2B45;
-    border: none; cursor: pointer; transition: background 0.3s;
-  }
+  .meta-key { font-family: 'Cormorant SC', serif; font-size: 0.56rem; letter-spacing: 0.18em; text-transform: uppercase; color: #5A6A7A; min-width: 48px; }
+  .meta-val { color: #8AAABE; font-style: italic; }
+  .badge { display: inline-block; padding: 8px 18px; font-family: 'Cormorant SC', serif; font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; }
+  .badge-wait   { background: rgba(26,43,69,0.8); border: 1px solid rgba(200,168,122,0.2); color: #5A6A7A; }
+  .badge-active { background: #C8A87A; color: #1A2B45; border: none; cursor: pointer; transition: background 0.3s; }
   .badge-active:hover { background: #EEE8E0; }
-  .badge-done {
-    background: rgba(42,90,42,0.3);
-    border: 1px solid rgba(168,200,168,0.3);
-    color: #7AB878;
-  }
-
-  /* ── Info box ── */
-  .info-box {
-    border: 1px solid rgba(200,168,122,0.15);
-    background: rgba(26,43,69,0.4);
-    padding: 28px 32px;
-    margin-bottom: 36px;
-  }
-  .info-title {
-    font-family: 'Cormorant SC', serif; font-size: 0.6rem;
-    letter-spacing: 0.22em; text-transform: uppercase; color: #C8A87A; margin-bottom: 14px;
-  }
+  .badge-done   { background: rgba(42,90,42,0.3); border: 1px solid rgba(168,200,168,0.3); color: #7AB878; }
+  .info-box { border: 1px solid rgba(200,168,122,0.15); background: rgba(26,43,69,0.4); padding: 28px 32px; margin-bottom: 36px; }
+  .info-title { font-family: 'Cormorant SC', serif; font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: #C8A87A; margin-bottom: 14px; }
   .info-body { font-size: 0.84rem; color: #7A9AB8; line-height: 1.8; }
   .info-body strong { color: #C8D8E8; font-weight: 600; }
-
-  /* ── Divider ── */
   .divider { height: 1px; background: rgba(200,168,122,0.1); margin: 40px 0; }
-
-  /* ── Logout ── */
-  .logout-btn {
-    font-family: 'Cormorant SC', serif; font-size: 0.62rem; letter-spacing: 0.2em;
-    text-transform: uppercase; background: transparent;
-    border: 1px solid rgba(200,216,240,0.1); padding: 10px 22px;
-    color: rgba(200,216,240,0.3); cursor: pointer; transition: all 0.25s;
-  }
+  .logout-btn { font-family: 'Cormorant SC', serif; font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; background: transparent; border: 1px solid rgba(200,216,240,0.1); padding: 10px 22px; color: rgba(200,216,240,0.3); cursor: pointer; transition: all 0.25s; }
   .logout-btn:hover { border-color: rgba(200,168,122,0.4); color: #C8A87A; }
-
-  /* ── Spinner ── */
-  .spinner {
-    display: inline-block; width: 18px; height: 18px;
-    border: 2px solid rgba(200,168,122,0.2);
-    border-top-color: #C8A87A;
-    border-radius: 50%; animation: spin 0.7s linear infinite;
-    vertical-align: middle;
-  }
+  .spinner { display: inline-block; width: 18px; height: 18px; border: 2px solid rgba(200,168,122,0.2); border-top-color: #C8A87A; border-radius: 50%; animation: spin 0.7s linear infinite; vertical-align: middle; }
   @keyframes spin { to { transform: rotate(360deg); } }
-
-  /* ── Decorative lines ── */
-  .h-accent { width: 44px; height: 1px; background: #4A0E0E; display: inline-block; margin-right: 16px; vertical-align: middle; }
-
-  @media(max-width:600px) {
-    .main { padding: 48px 20px; }
-    .login-card { padding: 28px 24px; }
-    .hdr { padding: 0 20px; }
-  }
+  @media(max-width:600px) { .main{padding:48px 20px;} .login-card{padding:28px 24px;} .hdr{padding:0 20px;} }
 </style>
 </head>
 <body>
@@ -228,20 +99,21 @@
 <script>
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzgeCUChzdk3qNraq6BlBPFoeiQn2VUe_tlhW5Rvmlah0gUBgml31soRyHsv8Cch29t/exec";
 
+/* Dates TBA — isoStart far in future so "Start Test" never activates until updated */
 const SCHEDULE = {
-  "Mathematics":     { dateEn: "10 May 2026", dateRu: "10 мая 2026",  time: "10:00 – 11:30", isoStart: "2026-05-10T10:00:00+06:00", durationMin: 90 },
-  "Physics":         { dateEn: "10 May 2026", dateRu: "10 мая 2026",  time: "12:00 – 13:30", isoStart: "2026-05-10T12:00:00+06:00", durationMin: 90 },
-  "Computer Science":{ dateEn: "11 May 2026", dateRu: "11 мая 2026",  time: "10:00 – 11:30", isoStart: "2026-05-11T10:00:00+06:00", durationMin: 90 },
-  "Biology":         { dateEn: "11 May 2026", dateRu: "11 мая 2026",  time: "12:00 – 13:30", isoStart: "2026-05-11T12:00:00+06:00", durationMin: 90 },
-  "Economics":       { dateEn: "12 May 2026", dateRu: "12 мая 2026",  time: "10:00 – 11:30", isoStart: "2026-05-12T10:00:00+06:00", durationMin: 90 },
-  "Business":        { dateEn: "12 May 2026", dateRu: "12 мая 2026",  time: "12:00 – 13:30", isoStart: "2026-05-12T12:00:00+06:00", durationMin: 90 },
+  "Mathematics":     { dateEn: "To be announced", dateRu: "Будет объявлено", time: "—", isoStart: "2099-01-01T00:00:00+06:00", durationMin: 90 },
+  "Physics":         { dateEn: "To be announced", dateRu: "Будет объявлено", time: "—", isoStart: "2099-01-01T00:00:00+06:00", durationMin: 90 },
+  "Computer Science":{ dateEn: "To be announced", dateRu: "Будет объявлено", time: "—", isoStart: "2099-01-01T00:00:00+06:00", durationMin: 90 },
+  "Biology":         { dateEn: "To be announced", dateRu: "Будет объявлено", time: "—", isoStart: "2099-01-01T00:00:00+06:00", durationMin: 90 },
+  "Economics":       { dateEn: "To be announced", dateRu: "Будет объявлено", time: "—", isoStart: "2099-01-01T00:00:00+06:00", durationMin: 90 },
+  "Humanities":      { dateEn: "To be announced", dateRu: "Будет объявлено", time: "—", isoStart: "2099-01-01T00:00:00+06:00", durationMin: 90 },
 };
 
 const TR = {
-  pageTitle:    { en: "Personal Cabinet",          ru: "Личный кабинет" },
-  backLink:     { en: "← Main site",               ru: "← На сайт" },
-  loginSection: { en: "Access",                    ru: "Доступ" },
-  loginHead:    { en: "Sign in to your Cabinet",   ru: "Войти в личный кабинет" },
+  pageTitle:    { en: "Personal Cabinet",                ru: "Личный кабинет" },
+  backLink:     { en: "← Main site",                    ru: "← На сайт" },
+  loginSection: { en: "Access",                         ru: "Доступ" },
+  loginHead:    { en: "Sign in to your Cabinet",        ru: "Войти в личный кабинет" },
   loginSub:     { en: "Enter the login and password you received after registration.", ru: "Введите логин и пароль, полученные после регистрации." },
   loginLabel:   { en: "Login",    ru: "Логин" },
   passLabel:    { en: "Password", ru: "Пароль" },
@@ -249,24 +121,24 @@ const TR = {
   errEmpty:     { en: "Please fill in both fields.", ru: "Заполните оба поля." },
   errInvalid:   { en: "Incorrect login or password.", ru: "Неверный логин или пароль." },
   errNetwork:   { en: "Network error. Please try again.", ru: "Ошибка сети. Попробуйте ещё раз." },
-  dashSection:  { en: "Personal Cabinet",          ru: "Личный кабинет" },
-  welcome:      { en: "Welcome,",                  ru: "Добро пожаловать," },
-  subjectsHd:   { en: "Your Olympiad Subjects",    ru: "Ваши предметы олимпиады" },
-  dateLabel:    { en: "Date",     ru: "Дата" },
-  timeLabel:    { en: "Time",     ru: "Время" },
-  statusWait:   { en: "Not started yet",  ru: "Ещё не началось" },
-  statusStart:  { en: "Start Test",       ru: "Начать тест" },
-  statusDone:   { en: "Completed",        ru: "Завершено" },
-  infoTitle:    { en: "Important",        ru: "Важно" },
-  infoBody:     { en: "<strong>Start Test</strong> becomes active only on the day and exact time of your olympiad. Once started, the test must be completed without closing the browser or switching tabs.", ru: "Кнопка <strong>Начать тест</strong> активируется только в день и время проведения вашей олимпиады. После начала тест нужно пройти за один раз — не закрывайте браузер и не переключайте вкладки." },
+  dashSection:  { en: "Personal Cabinet",   ru: "Личный кабинет" },
+  welcome:      { en: "Welcome,",           ru: "Добро пожаловать," },
+  subjectsHd:   { en: "Your Olympiad Subjects", ru: "Ваши предметы олимпиады" },
+  dateLabel:    { en: "Date",   ru: "Дата" },
+  timeLabel:    { en: "Time",   ru: "Время" },
+  statusWait:   { en: "Date to be announced", ru: "Дата будет объявлена" },
+  statusStart:  { en: "Start Test",           ru: "Начать тест" },
+  statusDone:   { en: "Completed",            ru: "Завершено" },
+  infoTitle:    { en: "Important",  ru: "Важно" },
+  infoBody:     { en: "Olympiad dates will be announced soon. <strong>Start Test</strong> becomes active only on the day and exact time of your olympiad.", ru: "Даты олимпиад будут объявлены в ближайшее время. Кнопка <strong>Начать тест</strong> активируется только в день и время проведения вашей олимпиады." },
   logout:       { en: "Sign out", ru: "Выйти" },
   subjectNames: {
-    en: { Mathematics: "Mathematics", Physics: "Physics", "Computer Science": "Computer Science", Biology: "Biology", Economics: "Economics", Business: "Business" },
-    ru: { Mathematics: "Математика",  Physics: "Физика",  "Computer Science": "Информатика",     Biology: "Биология", Economics: "Экономика", Business: "Бизнес" },
+    en: { Mathematics:"Mathematics", Physics:"Physics", "Computer Science":"Computer Science", Biology:"Biology", Economics:"Economics", Humanities:"Humanities" },
+    ru: { Mathematics:"Математика",  Physics:"Физика",  "Computer Science":"Информатика",     Biology:"Биология", Economics:"Экономика", Humanities:"Гуманитарные науки" },
   },
 };
 
-let lang = "en";
+let lang     = "en";
 let userData = null;
 
 function tr(key) { return TR[key][lang] || TR[key].en; }
@@ -281,50 +153,40 @@ function setLang(l) {
   else renderLogin();
 }
 
-/* ── Render login ── */
 function renderLogin(errMsg) {
-  document.getElementById("main-area").innerHTML = `
-    <div class="login-wrap">
-      <div style="margin-bottom:28px">
-        <span class="h-accent"></span>
-        <span class="slbl">${tr("loginSection")}</span>
-      </div>
-      <h1 class="login-headline">${tr("loginHead")}</h1>
-      <p class="login-sub">${tr("loginSub")}</p>
+  document.getElementById("main-area").innerHTML =
+    '<div class="login-wrap">' +
+      '<div style="margin-bottom:28px"><span class="h-accent"></span><span class="slbl">' + tr("loginSection") + '</span></div>' +
+      '<h1 class="login-headline">' + tr("loginHead") + '</h1>' +
+      '<p class="login-sub">' + tr("loginSub") + '</p>' +
+      '<div class="login-card">' +
+        '<div class="field"><label>' + tr("loginLabel") + '</label>' +
+        '<input type="text" id="inp-login" placeholder="OL-2026-XXXXX"' + (errMsg ? ' class="err"' : '') + ' /></div>' +
+        '<div class="field"><label>' + tr("passLabel") + '</label>' +
+        '<input type="password" id="inp-pass" placeholder="&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;"' + (errMsg ? ' class="err"' : '') + ' /></div>' +
+        (errMsg ? '<div class="err-msg">' + errMsg + '</div>' : '') +
+        '<button class="btn-primary" id="login-btn" onclick="doLogin()">' + tr("loginBtn") + '</button>' +
+      '</div>' +
+    '</div>';
 
-      <div class="login-card">
-        <div class="field">
-          <label>${tr("loginLabel")}</label>
-          <input type="text" id="inp-login" placeholder="OL-2026-XXXXX" ${errMsg ? 'class="err"' : ''} />
-        </div>
-        <div class="field">
-          <label>${tr("passLabel")}</label>
-          <input type="password" id="inp-pass" placeholder="••••••" ${errMsg ? 'class="err"' : ''} />
-        </div>
-        ${errMsg ? '<div class="err-msg">' + errMsg + '</div>' : ''}
-        <button class="btn-primary" id="login-btn" onclick="doLogin()">${tr("loginBtn")}</button>
-      </div>
-    </div>`;
-
-  document.getElementById("inp-pass").addEventListener("keydown", e => {
+  document.getElementById("inp-pass").addEventListener("keydown", function(e) {
     if (e.key === "Enter") doLogin();
   });
 }
 
-/* ── Render dashboard ── */
 function renderDashboard() {
-  const subjects = userData.categories.split(";").map(s => s.trim()).filter(Boolean);
+  const subjects = userData.categories.split(";").map(function(s){ return s.trim(); }).filter(Boolean);
   const now = Date.now();
 
-  const cards = subjects.map(subj => {
+  const cards = subjects.map(function(subj) {
     const sch = SCHEDULE[subj];
     if (!sch) return "";
-    const start = new Date(sch.isoStart).getTime();
-    const end   = start + sch.durationMin * 60 * 1000;
+    const start    = new Date(sch.isoStart).getTime();
+    const end      = start + sch.durationMin * 60 * 1000;
     const nameDisp = (TR.subjectNames[lang] || TR.subjectNames.en)[subj] || subj;
     const dateDisp = lang === "en" ? sch.dateEn : sch.dateRu;
 
-    let statusHtml;
+    var statusHtml;
     if (now >= start && now <= end) {
       statusHtml = '<button class="badge badge-active" onclick="goTest(\'' + subj + '\')">' + tr("statusStart") + '</button>';
     } else if (now > end) {
@@ -340,7 +202,7 @@ function renderDashboard() {
         '<div class="meta-row"><span class="meta-key">' + tr("timeLabel") + '</span><span class="meta-val">' + sch.time + '</span></div>' +
       '</div>' +
       statusHtml +
-      '</div>';
+    '</div>';
   }).join("");
 
   document.getElementById("main-area").innerHTML =
@@ -348,20 +210,16 @@ function renderDashboard() {
       '<div style="margin-bottom:20px"><span class="h-accent"></span><span class="slbl">' + tr("dashSection") + '</span></div>' +
       '<h1>' + tr("welcome") + ' ' + userData.name + '</h1>' +
     '</div>' +
-
     '<div style="margin-bottom:20px"><span class="slbl">' + tr("subjectsHd") + '</span></div>' +
     '<div class="subject-grid">' + cards + '</div>' +
-
     '<div class="info-box">' +
       '<div class="info-title">' + tr("infoTitle") + '</div>' +
       '<div class="info-body">' + tr("infoBody") + '</div>' +
     '</div>' +
-
     '<div class="divider"></div>' +
     '<button class="logout-btn" onclick="doLogout()">' + tr("logout") + '</button>';
 }
 
-/* ── Auth ── */
 async function doLogin() {
   const login = (document.getElementById("inp-login").value || "").trim();
   const pass  = (document.getElementById("inp-pass").value  || "").trim();
@@ -382,7 +240,7 @@ async function doLogin() {
     } else {
       renderLogin(tr("errInvalid"));
     }
-  } catch (err) {
+  } catch(err) {
     renderLogin(tr("errNetwork"));
   }
 }
@@ -398,7 +256,6 @@ function goTest(subject) {
   window.open("/test.html", "_blank");
 }
 
-/* ── Boot ── */
 (function init() {
   const saved = sessionStorage.getItem("ri_user");
   if (saved) { try { userData = JSON.parse(saved); } catch(e) {} }

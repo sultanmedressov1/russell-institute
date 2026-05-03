@@ -11,11 +11,11 @@ const t = (copy, lang) => copy[lang] ?? copy.en;
 
 const COPY = {
   nav: {
-    competitions: { en: "Olympiads",    ru: "Олимпиады" },
-    experts:      { en: "Experts",      ru: "Эксперты" },
+    competitions: { en: "Olympiads",      ru: "Олимпиады" },
+    experts:      { en: "Experts",        ru: "Эксперты" },
     transcript:   { en: "The Transcript", ru: "Транскрипт" },
-    about:        { en: "About",        ru: "О нас" },
-    register:     { en: "Register",     ru: "Регистрация" },
+    about:        { en: "About",          ru: "О нас" },
+    register:     { en: "Register",       ru: "Регистрация" },
   },
   header: {
     tagline: { en: "Academic Excellence · Independent Research", ru: "Академическое Превосходство · Независимые Исследования" },
@@ -44,20 +44,22 @@ const COPY = {
     ],
   },
   olympiadSection: {
-    label:      { en: "Open Olympiads",  ru: "Открытые Олимпиады" },
-    headline:   { en: "Six Subjects. One Standard.", ru: "Шесть Предметов. Один Стандарт." },
-    body:       { en: "Each olympiad is conducted online on a fixed date and time. Participants receive a formal Academic Transcript and certificate.", ru: "Каждая олимпиада проводится онлайн в фиксированную дату и время. Участники получают официальный академический транскрипт и сертификат." },
-    dateLabel:  { en: "Date",     ru: "Дата" },
-    timeLabel:  { en: "Time",     ru: "Время" },
-    registerBtn:{ en: "Register", ru: "Участвовать" },
+    label:       { en: "Open Olympiads",         ru: "Открытые Олимпиады" },
+    headline:    { en: "Six Subjects. One Standard.", ru: "Шесть Предметов. Один Стандарт." },
+    body:        { en: "Each olympiad is conducted online. Dates will be announced shortly. Registration closes 17 May 2026.", ru: "Каждая олимпиада проводится онлайн. Даты будут объявлены в ближайшее время. Регистрация закрывается 17 мая 2026." },
+    dateLabel:   { en: "Date",     ru: "Дата" },
+    timeLabel:   { en: "Time",     ru: "Время" },
+    registerBtn: { en: "Register", ru: "Участвовать" },
+    deadlineLabel:{ en: "Registration deadline", ru: "Дедлайн регистрации" },
+    deadlineVal:  { en: "17 May 2026", ru: "17 мая 2026" },
   },
   olympiads: [
-    { key: "math", en: "Mathematics",      ru: "Математика",   dateEn: "10 May 2026", dateRu: "10 мая 2026", time: "10:00 – 11:30" },
-    { key: "phys", en: "Physics",          ru: "Физика",       dateEn: "10 May 2026", dateRu: "10 мая 2026", time: "12:00 – 13:30" },
-    { key: "cs",   en: "Computer Science", ru: "Информатика",  dateEn: "11 May 2026", dateRu: "11 мая 2026", time: "10:00 – 11:30" },
-    { key: "bio",  en: "Biology",          ru: "Биология",     dateEn: "11 May 2026", dateRu: "11 мая 2026", time: "12:00 – 13:30" },
-    { key: "econ", en: "Economics",        ru: "Экономика",    dateEn: "12 May 2026", dateRu: "12 мая 2026", time: "10:00 – 11:30" },
-    { key: "biz",  en: "Business",         ru: "Бизнес",       dateEn: "12 May 2026", dateRu: "12 мая 2026", time: "12:00 – 13:30" },
+    { key: "math", en: "Mathematics",      ru: "Математика",         dateEn: "To be announced", dateRu: "Будет объявлено", time: "—" },
+    { key: "phys", en: "Physics",          ru: "Физика",             dateEn: "To be announced", dateRu: "Будет объявлено", time: "—" },
+    { key: "cs",   en: "Computer Science", ru: "Информатика",        dateEn: "To be announced", dateRu: "Будет объявлено", time: "—" },
+    { key: "bio",  en: "Biology",          ru: "Биология",           dateEn: "To be announced", dateRu: "Будет объявлено", time: "—" },
+    { key: "econ", en: "Economics",        ru: "Экономика",          dateEn: "To be announced", dateRu: "Будет объявлено", time: "—" },
+    { key: "hum",  en: "Humanities",       ru: "Гуманитарные науки", dateEn: "To be announced", dateRu: "Будет объявлено", time: "—" },
   ],
   experts: {
     label:    { en: "The Expert Board", ru: "Совет Экспертов" },
@@ -107,8 +109,8 @@ const COPY = {
     reviewer:   { en: "Reviewed by ...", ru: "Проверено ..." },
     instName:   { en: "The Russell Institute", ru: "The Russell Institute" },
     mockTitle:  { en: "Academic Transcript of Performance", ru: "Академический Транскрипт Результатов" },
-    mockComp:   { en: "Olympiad: Mathematics — May 2026", ru: "Олимпиада: Математика — май 2026" },
-    mockCand:   { en: "Candidate: A. Candidate · May 2026", ru: "Кандидат: А. Кандидатов · Май 2026" },
+    mockComp:   { en: "Olympiad: Mathematics — 2026", ru: "Олимпиада: Математика — 2026" },
+    mockCand:   { en: "Candidate: A. Candidate · 2026", ru: "Кандидат: А. Кандидатов · 2026" },
     compLabel:  { en: "Competency Assessment", ru: "Оценка компетенций" },
     overall:    { en: "Overall Assessment",    ru: "Общая оценка" },
     verdict:    { en: "Demonstrates High Academic Promise", ru: "Высокий Академический Потенциал" },
@@ -123,22 +125,22 @@ const COPY = {
   regForm: {
     sectionLabel:     { en: "Enrolment",  ru: "Регистрация" },
     headline:         { en: "Register for the Olympiad", ru: "Зарегистрироваться на олимпиаду" },
-    sub:              { en: "Complete the form below. Select one or more olympiad subjects. After payment confirmation you will receive your personal login and password.", ru: "Заполните форму ниже. Выберите один или несколько предметов олимпиады. После подтверждения оплаты вы получите личный логин и пароль." },
-    nameLabel:        { en: "Full Name",            ru: "Имя и Фамилия" },
+    sub:              { en: "Complete the form below. Select one or more olympiad subjects. After payment confirmation you will receive your personal login and password. Registration deadline: 17 May 2026.", ru: "Заполните форму ниже. Выберите один или несколько предметов олимпиады. После подтверждения оплаты вы получите личный логин и пароль. Дедлайн регистрации: 17 мая 2026." },
+    nameLabel:        { en: "Full Name",               ru: "Имя и Фамилия" },
     namePlaceholder:  { en: "e.g. Aibek Dzhaksybekov", ru: "напр. Айбек Джаксыбеков" },
-    emailLabel:       { en: "Email Address",        ru: "Адрес электронной почты" },
-    emailPlaceholder: { en: "your@email.com",       ru: "ваш@email.com" },
-    phoneLabel:       { en: "Phone Number",         ru: "Номер телефона" },
-    phonePlaceholder: { en: "+7 777 123 45 67",     ru: "+7 777 123 45 67" },
+    emailLabel:       { en: "Email Address",           ru: "Адрес электронной почты" },
+    emailPlaceholder: { en: "your@email.com",          ru: "ваш@email.com" },
+    phoneLabel:       { en: "Phone Number",            ru: "Номер телефона" },
+    phonePlaceholder: { en: "+7 777 123 45 67",        ru: "+7 777 123 45 67" },
     errPhone:         { en: "Please enter a valid phone number.", ru: "Введите корректный номер телефона." },
     catLabel:         { en: "Select Olympiad Subjects", ru: "Выберите предметы олимпиады" },
     cats: [
-      { en: "Mathematics",      ru: "Математика",   val: "Mathematics" },
-      { en: "Physics",          ru: "Физика",       val: "Physics" },
-      { en: "Computer Science", ru: "Информатика",  val: "Computer Science" },
-      { en: "Biology",          ru: "Биология",     val: "Biology" },
-      { en: "Economics",        ru: "Экономика",    val: "Economics" },
-      { en: "Business",         ru: "Бизнес",       val: "Business" },
+      { en: "Mathematics",      ru: "Математика",         val: "Mathematics" },
+      { en: "Physics",          ru: "Физика",             val: "Physics" },
+      { en: "Computer Science", ru: "Информатика",        val: "Computer Science" },
+      { en: "Biology",          ru: "Биология",           val: "Biology" },
+      { en: "Economics",        ru: "Экономика",          val: "Economics" },
+      { en: "Humanities",       ru: "Гуманитарные науки", val: "Humanities" },
     ],
     legalPre:    { en: "I have read and agree to the ",  ru: "Я ознакомился(-ась) и согласен(-на) с " },
     legalOffer:  { en: "Public Offer,",                  ru: "Публичной офертой," },
@@ -146,15 +148,15 @@ const COPY = {
     legalAnd:    { en: " and the ",                      ru: " и " },
     legalPriv:   { en: "Privacy Policy",                 ru: "Политикой конфиденциальности" },
     legalPost:   { en: " of The Russell Institute.",     ru: " The Russell Institute." },
-    errRequired:   { en: "This field is required.",                ru: "Это поле обязательно для заполнения." },
-    errEmail:      { en: "Please enter a valid email address.",    ru: "Введите корректный адрес электронной почты." },
-    errCat:        { en: "Please select at least one subject.",    ru: "Выберите хотя бы один предмет." },
-    errLegal:      { en: "You must accept the terms to proceed.",  ru: "Для продолжения необходимо принять условия." },
-    btnPay:        { en: "Proceed to Payment",           ru: "Перейти к оплате" },
-    btnDisabled:   { en: "Accept terms to continue",     ru: "Примите условия для продолжения" },
-    feeNote:       { en: "Base fee: 2,000 KZT per subject. Multi-subject discounts apply automatically.", ru: "Базовый взнос: 2 000 KZT за предмет. Скидки при нескольких предметах применяются автоматически." },
-    discountTitle: { en: "Multi-Subject Pricing", ru: "Цены при нескольких предметах" },
-    discountSub:   { en: "Select more subjects for a better rate:", ru: "Больше предметов — выгоднее:" },
+    errRequired:     { en: "This field is required.",                ru: "Это поле обязательно для заполнения." },
+    errEmail:        { en: "Please enter a valid email address.",    ru: "Введите корректный адрес электронной почты." },
+    errCat:          { en: "Please select at least one subject.",    ru: "Выберите хотя бы один предмет." },
+    errLegal:        { en: "You must accept the terms to proceed.",  ru: "Для продолжения необходимо принять условия." },
+    btnPay:          { en: "Proceed to Payment",          ru: "Перейти к оплате" },
+    btnDisabled:     { en: "Accept terms to continue",    ru: "Примите условия для продолжения" },
+    feeNote:         { en: "Base fee: 2,000 KZT per subject. Multi-subject discounts apply automatically.", ru: "Базовый взнос: 2 000 KZT за предмет. Скидки при нескольких предметах применяются автоматически." },
+    discountTitle:   { en: "Multi-Subject Pricing",       ru: "Цены при нескольких предметах" },
+    discountSub:     { en: "Select more subjects for a better rate:", ru: "Больше предметов — выгоднее:" },
     pricingRows: [
       { n: 1, price: "2,000 KZT",  saveEn: "base rate",  saveRu: "базовая цена" },
       { n: 2, price: "3,500 KZT",  saveEn: "save 500",   saveRu: "экономия 500" },
@@ -163,37 +165,37 @@ const COPY = {
       { n: 5, price: "7,000 KZT",  saveEn: "save 3,000", saveRu: "экономия 3 000" },
       { n: 6, price: "8,000 KZT",  saveEn: "save 4,000", saveRu: "экономия 4 000" },
     ],
-    totalLabel:      { en: "Total",           ru: "Итого" },
-    discountApplied: { en: "Discount applied",ru: "Скидка применена" },
+    totalLabel:      { en: "Total",            ru: "Итого" },
+    discountApplied: { en: "Discount applied", ru: "Скидка применена" },
     subjectWord:     { en: "subject",  ru: "предмет" },
     subjectsWord24:  { en: "subjects", ru: "предмета" },
     subjectsWord56:  { en: "subjects", ru: "предметов" },
   },
   modal: {
-    title:        { en: "Payment Instructions", ru: "Инструкции по оплате" },
-    sub:          { en: "Please complete your payment via Kaspi Bank to finalise your registration.", ru: "Завершите оплату через Kaspi Bank для завершения регистрации." },
-    feeLabel:     { en: "Total Registration Fee", ru: "Итоговый регистрационный взнос" },
-    qrLabel:      { en: "Scan with Kaspi to Pay", ru: "Отсканируйте для оплаты через Kaspi" },
-    qrAlt:        { en: "Kaspi QR Code",          ru: "QR-код Kaspi" },
-    orLabel:      { en: "Or transfer manually via phone number (Kaspi, Halyk, Freedom):", ru: "Или переведите вручную по номеру телефона (Kaspi, Halyk, Freedom):" },
-    accountNo:    { en: "+7 747 822 5091",   ru: "+7 747 822 5091" },
-    reference:    { en: "Comments: Student Full Name", ru: "Комментарий: Полное Имя ученика" },
-    confirmBtn:   { en: "I have paid — Show my credentials", ru: "Я оплатил(-а) — Показать данные входа" },
+    title:         { en: "Payment Instructions", ru: "Инструкции по оплате" },
+    sub:           { en: "Please complete your payment via Kaspi Bank to finalise your registration.", ru: "Завершите оплату через Kaspi Bank для завершения регистрации." },
+    feeLabel:      { en: "Total Registration Fee", ru: "Итоговый регистрационный взнос" },
+    qrLabel:       { en: "Scan with Kaspi to Pay", ru: "Отсканируйте для оплаты через Kaspi" },
+    qrAlt:         { en: "Kaspi QR Code",          ru: "QR-код Kaspi" },
+    orLabel:       { en: "Or transfer manually via phone number (Kaspi, Halyk, Freedom):", ru: "Или переведите вручную по номеру телефона (Kaspi, Halyk, Freedom):" },
+    accountNo:     { en: "+7 747 822 5091",   ru: "+7 747 822 5091" },
+    reference:     { en: "Comments: Student Full Name", ru: "Комментарий: Полное Имя ученика" },
+    confirmBtn:    { en: "I have paid — Show my credentials", ru: "Я оплатил(-а) — Показать данные входа" },
     confirmSending:{ en: "Sending...", ru: "Отправка..." },
-    cancelBtn:    { en: "Cancel",            ru: "Отмена" },
-    disclaimer:   { en: "After confirming payment, you will receive your personal login and password for the Personal Cabinet.", ru: "После подтверждения оплаты вы получите логин и пароль для входа в личный кабинет." },
-    subjectsLabel:{ en: "Selected subjects", ru: "Выбранные предметы" },
+    cancelBtn:     { en: "Cancel",    ru: "Отмена" },
+    disclaimer:    { en: "After confirming payment, you will receive your personal login and password for the Personal Cabinet.", ru: "После подтверждения оплаты вы получите логин и пароль для входа в личный кабинет." },
+    subjectsLabel: { en: "Selected subjects", ru: "Выбранные предметы" },
   },
   success: {
-    headline:     { en: "Registration Complete",  ru: "Регистрация завершена" },
-    body:         { en: "Your payment has been confirmed. Save your login and password — you will need them to access the Personal Cabinet and start the olympiad.", ru: "Ваша оплата подтверждена. Сохраните логин и пароль — они нужны для входа в личный кабинет и прохождения олимпиады." },
-    loginLabel:   { en: "Your Login",    ru: "Ваш логин" },
-    passLabel:    { en: "Your Password", ru: "Ваш пароль" },
-    warning:      { en: "Important: save these credentials now. They will not be sent by email.", ru: "Важно: сохраните данные прямо сейчас. Они не будут отправлены на почту." },
-    cabinetBtn:   { en: "Open Personal Cabinet", ru: "Открыть личный кабинет" },
-    newBtn:       { en: "Submit Another Application", ru: "Подать ещё одну заявку" },
-    copyHint:     { en: "Copy", ru: "Копировать" },
-    copied:       { en: "Copied!", ru: "Скопировано!" },
+    headline:   { en: "Registration Complete",  ru: "Регистрация завершена" },
+    body:       { en: "Your payment has been confirmed. Save your login and password — you will need them to access the Personal Cabinet and start the olympiad.", ru: "Ваша оплата подтверждена. Сохраните логин и пароль — они нужны для входа в личный кабинет и прохождения олимпиады." },
+    loginLabel: { en: "Your Login",    ru: "Ваш логин" },
+    passLabel:  { en: "Your Password", ru: "Ваш пароль" },
+    warning:    { en: "Important: save these credentials now. They will not be sent by email.", ru: "Важно: сохраните данные прямо сейчас. Они не будут отправлены на почту." },
+    cabinetBtn: { en: "Open Personal Cabinet", ru: "Открыть личный кабинет" },
+    newBtn:     { en: "Submit Another Application", ru: "Подать ещё одну заявку" },
+    copyHint:   { en: "Copy",    ru: "Копировать" },
+    copied:     { en: "Copied!", ru: "Скопировано!" },
   },
   footer: {
     tagline:   { en: "Academic Excellence & Independent Research", ru: "Академическое Превосходство и Независимые Исследования" },
@@ -290,12 +292,15 @@ const GF = () => (
     .modal-close { position:absolute; top:20px; right:20px; background:none; border:none; cursor:pointer; color:#7A8A9A; transition:color 0.2s; }
     .modal-close:hover { color:#1A2B45; }
     .olym-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; }
-    .olym-card { background:#FFFEF9; border:1px solid #D8CEB8; padding:32px 28px; display:flex; flex-direction:column; gap:18px; transition:border-color 0.3s,box-shadow 0.3s; }
+    .olym-card { background:#FFFEF9; border:1px solid #D8CEB8; padding:32px 28px; display:flex; flex-direction:column; gap:16px; transition:border-color 0.3s,box-shadow 0.3s; }
     .olym-card:hover { border-color:#1A2B45; box-shadow:0 8px 32px rgba(26,43,69,0.09); }
     .olym-name { font-family:'EB Garamond',serif; font-size:1.6rem; font-weight:400; color:#1A2B45; line-height:1.1; }
     .olym-meta-row { display:flex; align-items:center; gap:8px; }
     .olym-meta-key { font-family:'Cormorant SC',serif; font-size:0.56rem; letter-spacing:0.18em; text-transform:uppercase; color:#9A8878; min-width:40px; }
-    .olym-meta-val { font-family:'Lora',serif; font-size:0.8rem; color:#1A2B45; }
+    .olym-meta-val { font-family:'Lora',serif; font-size:0.8rem; color:#7A8A9A; font-style:italic; }
+    .deadline-banner { background:#1A2B45; padding:12px 20px; display:flex; align-items:center; gap:12px; margin-bottom:2px; }
+    .deadline-banner-text { font-family:'Cormorant SC',serif; font-size:0.62rem; letter-spacing:0.22em; text-transform:uppercase; color:#C8A87A; }
+    .deadline-banner-date { font-family:'EB Garamond',serif; font-size:1.1rem; color:#EEE8E0; }
     .cred-card { border:2px solid #1A2B45; background:#FFFEF9; padding:28px 32px; margin-bottom:20px; }
     .cred-row { display:flex; align-items:center; justify-content:space-between; gap:16px; padding-bottom:16px; margin-bottom:16px; border-bottom:1px solid #E8E0D0; }
     .cred-row:last-child { padding-bottom:0; margin-bottom:0; border-bottom:none; }
@@ -491,7 +496,7 @@ function Olympiads() {
   return (
     <section id="competitions" ref={ref} style={{ padding: "100px 40px", background: "#F9F7F2" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-        <div style={{ maxWidth: 680, marginBottom: 72 }}>
+        <div style={{ maxWidth: 680, marginBottom: 56 }}>
           <div className="slbl rv" style={{ marginBottom: 20 }}>{t(c.label, lang)}</div>
           <h2 className="rv d1" style={{ fontFamily: "'EB Garamond',serif", fontSize: "2.9rem", fontWeight: 400, color: "#1A2B45", lineHeight: 1.12, marginBottom: 28 }}>
             {t(c.headline, lang)}
@@ -499,6 +504,18 @@ function Olympiads() {
           <div className="orn rv d2"><span style={{ fontFamily: "'Cormorant SC',serif", fontSize: "0.85rem", letterSpacing: "0.3em", whiteSpace: "nowrap" }}>* * *</span></div>
           <p className="rv d2" style={{ fontFamily: "'Lora',serif", fontSize: "0.9rem", color: "#5A6A7A", lineHeight: 1.88, marginTop: 24 }}>{t(c.body, lang)}</p>
         </div>
+
+        {/* Deadline banner */}
+        <div className="deadline-banner rv d2" style={{ marginBottom: 16 }}>
+          <div>
+            <div className="deadline-banner-text">{t(c.deadlineLabel, lang)}</div>
+            <div className="deadline-banner-date">{t(c.deadlineVal, lang)}</div>
+          </div>
+          <div style={{ marginLeft: "auto", fontFamily: "'Lora',serif", fontSize: "0.78rem", color: "#8A9AB8", fontStyle: "italic" }}>
+            {lang === "en" ? "Olympiad dates to be announced" : "Даты олимпиад будут объявлены"}
+          </div>
+        </div>
+
         <div className="olym-grid">
           {COPY.olympiads.map((sub, i) => (
             <div key={sub.key} className={"olym-card rv d" + (i + 1)}>
@@ -624,7 +641,6 @@ function Transcript() {
   );
 }
 
-/* ── Payment Modal — принимает sending ─────────────────────────── */
 function PaymentModal({ isOpen, onClose, onConfirm, applicantName, feeDisplay, selectedCategories, lang, sending }) {
   const c = COPY.modal;
   useEffect(() => {
@@ -683,43 +699,14 @@ function PaymentModal({ isOpen, onClose, onConfirm, applicantName, feeDisplay, s
         </div>
         <p style={{ fontFamily: "'Lora',serif", fontSize: "0.74rem", color: "#7A8A9A", lineHeight: 1.7, marginBottom: 28, fontStyle: "italic" }}>{t(c.disclaimer, lang)}</p>
         <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-          <button
-            onClick={onConfirm}
-            disabled={sending}
-            style={{
-              flex: 1,
-              background: "#1A2B45",
-              color: "#F9F7F2",
-              fontFamily: "'Cormorant SC',serif",
-              fontSize: "0.68rem",
-              letterSpacing: "0.24em",
-              textTransform: "uppercase",
-              border: "none",
-              padding: "16px 24px",
-              cursor: sending ? "not-allowed" : "pointer",
-              opacity: sending ? 0.65 : 1,
-              transition: "background 0.3s",
-            }}
+          <button onClick={onConfirm} disabled={sending}
+            style={{ flex: 1, background: "#1A2B45", color: "#F9F7F2", fontFamily: "'Cormorant SC',serif", fontSize: "0.68rem", letterSpacing: "0.24em", textTransform: "uppercase", border: "none", padding: "16px 24px", cursor: sending ? "not-allowed" : "pointer", opacity: sending ? 0.65 : 1, transition: "background 0.3s" }}
             onMouseOver={e => { if (!sending) e.currentTarget.style.background = "#4A0E0E"; }}
             onMouseOut={e  => { e.currentTarget.style.background = "#1A2B45"; }}>
             {sending ? t(c.confirmSending, lang) : t(c.confirmBtn, lang)}
           </button>
-          <button
-            onClick={onClose}
-            disabled={sending}
-            style={{
-              background: "transparent",
-              color: "#5A6A7A",
-              fontFamily: "'Cormorant SC',serif",
-              fontSize: "0.68rem",
-              letterSpacing: "0.2em",
-              textTransform: "uppercase",
-              border: "1px solid #D8CEB8",
-              padding: "16px 24px",
-              cursor: sending ? "not-allowed" : "pointer",
-              opacity: sending ? 0.5 : 1,
-              transition: "all 0.25s",
-            }}
+          <button onClick={onClose} disabled={sending}
+            style={{ background: "transparent", color: "#5A6A7A", fontFamily: "'Cormorant SC',serif", fontSize: "0.68rem", letterSpacing: "0.2em", textTransform: "uppercase", border: "1px solid #D8CEB8", padding: "16px 24px", cursor: sending ? "not-allowed" : "pointer", opacity: sending ? 0.5 : 1, transition: "all 0.25s" }}
             onMouseOver={e => { if (!sending) { e.currentTarget.style.borderColor = "#1A2B45"; e.currentTarget.style.color = "#1A2B45"; }}}
             onMouseOut={e  => { e.currentTarget.style.borderColor = "#D8CEB8"; e.currentTarget.style.color = "#5A6A7A"; }}>
             {t(c.cancelBtn, lang)}
@@ -734,10 +721,7 @@ function CopyBtn({ text, lang }) {
   const [done, setDone] = useState(false);
   const sc = COPY.success;
   const handle = () => {
-    navigator.clipboard.writeText(text).then(() => {
-      setDone(true);
-      setTimeout(() => setDone(false), 2000);
-    });
+    navigator.clipboard.writeText(text).then(() => { setDone(true); setTimeout(() => setDone(false), 2000); });
   };
   return (
     <button className={"copy-btn" + (done ? " ok" : "")} onClick={handle}>
@@ -768,7 +752,7 @@ function RegistrationForm() {
   const [showModal,  setShowModal]        = useState(false);
   const [submitted,  setSubmitted]        = useState(false);
   const [credentials, setCredentials]     = useState({ login: "", password: "" });
-  const [sending,    setSending]          = useState(false); /* ← ЗДЕСЬ, внутри компонента */
+  const [sending,    setSending]          = useState(false);
 
   const selectedCount = fields.categories.length;
   const totalFee      = FEE_TABLE[selectedCount] || 0;
@@ -820,14 +804,11 @@ function RegistrationForm() {
   const handleConfirmPayment = async () => {
     if (sending) return;
     setSending(true);
-
     const login    = "OL-" + new Date().getFullYear() + "-" + Math.floor(10000 + Math.random() * 90000);
     const password = Math.random().toString(36).slice(2, 8).toUpperCase();
     const time     = new Date().toLocaleString("ru-KZ", { timeZone: "Asia/Almaty" });
-
     await fetch(SHEETS_URL, {
-      method: "POST",
-      mode: "no-cors",
+      method: "POST", mode: "no-cors",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         timestamp: time, name: fields.name, email: fields.email,
@@ -835,7 +816,6 @@ function RegistrationForm() {
         fee: totalFee, login, password, lang,
       }),
     });
-
     setCredentials({ login, password });
     setShowModal(false);
     setSubmitted(true);
@@ -897,9 +877,7 @@ function RegistrationForm() {
               <a href="/cabinet.html" target="_blank" rel="noopener noreferrer" className="btn-p">
                 {t(sc.cabinetBtn, lang)}
               </a>
-              <button className="btn-o" onClick={handleReset}>
-                {t(sc.newBtn, lang)}
-              </button>
+              <button className="btn-o" onClick={handleReset}>{t(sc.newBtn, lang)}</button>
             </div>
           </div>
         ) : (
@@ -928,9 +906,7 @@ function RegistrationForm() {
                   {c.cats.map(cat => {
                     const checked = fields.categories.includes(cat.val);
                     return (
-                      <div key={cat.val}
-                        className={"cat-row" + (checked ? " sel" : "")}
-                        onClick={() => toggleCategory(cat.val)}>
+                      <div key={cat.val} className={"cat-row" + (checked ? " sel" : "")} onClick={() => toggleCategory(cat.val)}>
                         <div className={"cat-chk" + (checked ? " sel" : "")}>
                           {checked && <span style={{ color: "#F9F7F2", fontSize: "11px", lineHeight: 1 }}>v</span>}
                         </div>
@@ -950,11 +926,9 @@ function RegistrationForm() {
             <div style={{ marginBottom: 32 }}>
               <div className="legal-row">
                 <div className="cb-wrap">
-                  <input type="checkbox" className="cb-real" id="legal"
-                    checked={legalAccepted}
+                  <input type="checkbox" className="cb-real" id="legal" checked={legalAccepted}
                     onChange={e => { setLegalAccepted(e.target.checked); setLegalTouched(true); }} />
-                  <label htmlFor="legal"
-                    className={"cb-box " + (legalAccepted ? "checked " : "") + (legalTouched && !legalAccepted ? "cb-err" : "")}>
+                  <label htmlFor="legal" className={"cb-box " + (legalAccepted ? "checked " : "") + (legalTouched && !legalAccepted ? "cb-err" : "")}>
                     {legalAccepted && <span className="cb-tick">v</span>}
                   </label>
                 </div>
@@ -988,18 +962,11 @@ function RegistrationForm() {
               </p>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 4 }}>
                 {c.pricingRows.map(row => (
-                  <div key={row.n} style={{
-                    padding: "10px 12px",
-                    background: selectedCount === row.n ? "#1A2B45" : "transparent",
-                    border: "1px solid " + (selectedCount === row.n ? "#1A2B45" : "#E8E0D0"),
-                    transition: "all 0.2s",
-                  }}>
+                  <div key={row.n} style={{ padding: "10px 12px", background: selectedCount === row.n ? "#1A2B45" : "transparent", border: "1px solid " + (selectedCount === row.n ? "#1A2B45" : "#E8E0D0"), transition: "all 0.2s" }}>
                     <div style={{ fontFamily: "'Cormorant SC',serif", fontSize: "0.56rem", letterSpacing: "0.15em", color: selectedCount === row.n ? "#8A9AB8" : "#9A8878", textTransform: "uppercase", marginBottom: 4 }}>
                       {row.n} {subjectWord(row.n)}
                     </div>
-                    <div style={{ fontFamily: "'EB Garamond',serif", fontSize: "1rem", color: selectedCount === row.n ? "#C8A87A" : "#1A2B45" }}>
-                      {row.price}
-                    </div>
+                    <div style={{ fontFamily: "'EB Garamond',serif", fontSize: "1rem", color: selectedCount === row.n ? "#C8A87A" : "#1A2B45" }}>{row.price}</div>
                     <div style={{ fontFamily: "'Lora',serif", fontSize: "0.68rem", color: selectedCount === row.n ? "#7A9AB8" : "#9A8878", fontStyle: "italic" }}>
                       {lang === "en" ? row.saveEn : row.saveRu}
                     </div>
@@ -1026,8 +993,7 @@ function RegistrationForm() {
               </div>
             )}
 
-            <button
-              className={"pay-btn " + (legalAccepted ? "active" : "disabled")}
+            <button className={"pay-btn " + (legalAccepted ? "active" : "disabled")}
               onClick={handleSubmit}
               title={!legalAccepted ? t(c.btnDisabled, lang) : undefined}
               style={{ cursor: legalAccepted ? "pointer" : "not-allowed" }}
