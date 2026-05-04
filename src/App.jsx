@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, createContext, useContext } from "react";
-import { BookOpen, Award, Users, FileText, Menu, X, CheckCircle, AlertCircle, Calendar, Clock, Copy } from "lucide-react";
+import { BookOpen, Award, FileText, Users, Menu, X, CheckCircle, AlertCircle, Calendar, Clock, Copy } from "lucide-react";
 
 const SHEETS_URL = "https://script.google.com/macros/s/AKfycbzgeCUChzdk3qNraq6BlBPFoeiQn2VUe_tlhW5Rvmlah0gUBgml31soRyHsv8Cch29t/exec";
 
@@ -12,7 +12,6 @@ const t = (copy, lang) => copy[lang] ?? copy.en;
 const COPY = {
   nav: {
     competitions: { en: "Olympiads",      ru: "Олимпиады" },
-    experts:      { en: "Experts",        ru: "Эксперты" },
     transcript:   { en: "The Transcript", ru: "Транскрипт" },
     about:        { en: "About",          ru: "О нас" },
     register:     { en: "Register",       ru: "Регистрация" },
@@ -60,43 +59,6 @@ const COPY = {
     { key: "bio",  en: "Biology",          ru: "Биология",           dateEn: "To be announced", dateRu: "Будет объявлено", time: "—" },
     { key: "econ", en: "Economics",        ru: "Экономика",          dateEn: "To be announced", dateRu: "Будет объявлено", time: "—" },
     { key: "hum",  en: "Humanities",       ru: "Гуманитарные науки", dateEn: "To be announced", dateRu: "Будет объявлено", time: "—" },
-  ],
-  experts: {
-    label:    { en: "The Expert Board", ru: "Совет Экспертов" },
-    headline: { en: ["Reviewed by Those", "Who Know the Standard"], ru: ["Оценивают Те,", "Кто Знает Стандарт"] },
-    body:     { en: "Every olympiad paper is reviewed by a credentialled academic. We do not employ automated scoring. Assessment is the work of human intellect.", ru: "Каждая олимпийская работа проверяется дипломированным учёным. Мы не используем автоматизированные оценки." },
-    spec:     { en: "Specialisation", ru: "Специализация" },
-    prior:    { en: "Work Experience", ru: "Опыт работы" },
-  },
-  expertsData: [
-    {
-      ini: "A.V.",
-      name:  { en: "Prof. Arina Volkova",    ru: "Проф. Арина Волкова" },
-      cred:  { en: "Ph.D. Political Philosophy · University of Oxford", ru: "Ph.D. Политическая философия · Оксфордский университет" },
-      field: { en: "Political Theory & Constitutional Law", ru: "Политическая теория и конституционное право" },
-      prior: { en: "Fellow, All Souls College", ru: "Научный сотрудник, All Souls College" },
-    },
-    {
-      ini: "D.S.",
-      name:  { en: "Dr. David Sternberg", ru: "Д-р Дэвид Стернберг" },
-      cred:  { en: "Ph.D. Economics · London School of Economics", ru: "Ph.D. Экономика · Лондонская школа экономики" },
-      field: { en: "Welfare Economics & Public Policy", ru: "Экономика благосостояния и государственная политика" },
-      prior: { en: "Economist, HM Treasury", ru: "Экономист, Казначейство ЕВ" },
-    },
-    {
-      ini: "N.A.",
-      name:  { en: "Nadia Al-Rashid", ru: "Надия Аль-Рашид" },
-      cred:  { en: "M.A. Artificial Intelligence and Machine Learning · University of California, Los Angeles", ru: "M.A. Искусственный интеллект и Машинное обучение · Университет Калифорния Лос-Анджелес" },
-      field: { en: "Deep Learning and Statistics", ru: "Глубокое обучение и Статистика" },
-      prior: { en: "Senior Researcher, Meta", ru: "Старший исследователь, Meta" },
-    },
-    {
-      ini: "B.A.",
-      name:  { en: "Beksultan Aubakirov", ru: "Бексултан Аубакиров" },
-      cred:  { en: "M.A. International Relations · Sciences Po Paris", ru: "M.A. Международные отношения · Sciences Po Париж" },
-      field: { en: "Comparative Politics · Eurasian region", ru: "Сравнительная политология · Евразийский регион" },
-      prior: { en: "Junior Assistant, OSCE", ru: "Младший ассистент, ОБСЕ" },
-    },
   ],
   transcript: {
     label:      { en: "The Academic Transcript", ru: "Академический Транскрипт" },
@@ -207,7 +169,6 @@ const COPY = {
     ie:        { en: "IE MSM GROUP", ru: "ИП MSM GROUP" },
     navLinks: [
       { en: "Olympiads",           ru: "Олимпиады",        href: "#competitions" },
-      { en: "Expert Board",        ru: "Совет экспертов",  href: "#experts" },
       { en: "The Transcript",      ru: "Транскрипт",       href: "#transcript" },
       { en: "About the Institute", ru: "Об Институте",     href: "#about" },
       { en: "Register",            ru: "Регистрация",      href: "#registration" },
@@ -371,7 +332,7 @@ function Header({ lang, setLang }) {
     return () => window.removeEventListener("scroll", fn);
   }, []);
   const col  = sc ? "#1A2B45" : "#C8D8E8";
-  const keys = ["competitions", "experts", "transcript", "about"];
+  const keys = ["competitions", "transcript", "about"];
   return (
     <header className={"hdr" + (sc ? " sc" : "")}>
       <div className="hdr-in">
@@ -543,47 +504,6 @@ function Olympiads() {
   );
 }
 
-function Experts() {
-  const lang = useLang();
-  const ref  = useReveal();
-  const c    = COPY.experts;
-  const hl   = t(c.headline, lang);
-  return (
-    <section id="experts" ref={ref} style={{ padding: "100px 40px", background: "#EEE8E0", borderTop: "1px solid #D8CEB8" }}>
-      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: 32, marginBottom: 68 }}>
-          <div>
-            <div className="slbl rv" style={{ marginBottom: 20 }}>{t(c.label, lang)}</div>
-            <h2 className="rv d1" style={{ fontFamily: "'EB Garamond',serif", fontSize: "2.9rem", fontWeight: 400, color: "#1A2B45", lineHeight: 1.12 }}>
-              {hl[0]}<br />{hl[1]}
-            </h2>
-          </div>
-          <p className="rv d2" style={{ fontFamily: "'Lora',serif", fontSize: "0.88rem", color: "#5A6A7A", lineHeight: 1.88, maxWidth: 360 }}>{t(c.body, lang)}</p>
-        </div>
-        <div className="eg" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 2 }}>
-          {COPY.expertsData.map((e, i) => (
-            <div key={i} className={"ec rv d" + (i + 1)} style={{ padding: "40px 30px" }}>
-              <div style={{ width: 68, height: 68, background: "#1A2B45", marginBottom: 24, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <span style={{ fontFamily: "'Cormorant SC',serif", fontSize: "1.05rem", color: "#C8A87A" }}>{e.ini}</span>
-              </div>
-              <h3 style={{ fontFamily: "'EB Garamond',serif", fontSize: "1.2rem", fontWeight: 500, color: "#1A2B45", marginBottom: 16 }}>{t(e.name, lang)}</h3>
-              <div style={{ width: 28, height: 1, background: "#4A0E0E", marginBottom: 16 }} />
-              <p style={{ fontFamily: "'Lora',serif", fontSize: "0.76rem", color: "#3A4A5A", lineHeight: 1.65, marginBottom: 18 }}>{t(e.cred, lang)}</p>
-              <div style={{ borderTop: "1px solid #E2D8C8", paddingTop: 16, marginBottom: 12 }}>
-                <div style={{ fontFamily: "'Cormorant SC',serif", fontSize: "0.58rem", letterSpacing: "0.18em", color: "#9A8878", marginBottom: 4, textTransform: "uppercase" }}>{t(c.spec, lang)}</div>
-                <div style={{ fontFamily: "'Lora',serif", fontSize: "0.76rem", color: "#1A2B45", lineHeight: 1.4 }}>{t(e.field, lang)}</div>
-              </div>
-              <div style={{ borderTop: "1px solid #E2D8C8", paddingTop: 12 }}>
-                <div style={{ fontFamily: "'Cormorant SC',serif", fontSize: "0.58rem", letterSpacing: "0.18em", color: "#9A8878", marginBottom: 4, textTransform: "uppercase" }}>{t(c.prior, lang)}</div>
-                <div style={{ fontFamily: "'Lora',serif", fontSize: "0.74rem", color: "#5A6A7A", fontStyle: "italic" }}>{t(e.prior, lang)}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function Transcript() {
   const lang = useLang();
@@ -1084,7 +1004,6 @@ export default function App() {
           <Hero />
           <About />
           <Olympiads />
-          <Experts />
           <Transcript />
           <RegistrationForm />
         </main>
