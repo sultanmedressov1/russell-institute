@@ -45,12 +45,12 @@ const COPY = {
   olympiadSection: {
     label:       { en: "Open Olympiads",         ru: "Открытые Олимпиады" },
     headline:    { en: "Six Subjects. One Standard.", ru: "Шесть Предметов. Один Стандарт." },
-    body:        { en: "Each olympiad is conducted online. Dates will be announced shortly. Registration closes 17 May 2026.", ru: "Каждая олимпиада проводится онлайн. Даты будут объявлены в ближайшее время. Регистрация закрывается 17 мая 2026." },
+    body:        { en: "Each olympiad is conducted online. Dates will be announced shortly. Registration closes 30 May 2026.", ru: "Каждая олимпиада проводится онлайн. Даты будут объявлены в ближайшее время. Регистрация закрывается 30 мая 2026." },
     dateLabel:   { en: "Date",     ru: "Дата" },
     timeLabel:   { en: "Time",     ru: "Время" },
     registerBtn: { en: "Register", ru: "Участвовать" },
     deadlineLabel:{ en: "Registration deadline", ru: "Дедлайн регистрации" },
-    deadlineVal:  { en: "17 May 2026", ru: "17 мая 2026" },
+    deadlineVal:  { en: "30 May 2026", ru: "30 мая 2026" },
   },
   olympiads: [
     { key: "math", en: "Mathematics",      ru: "Математика",         dateEn: "To be announced", dateRu: "Будет объявлено", time: "—" },
@@ -87,7 +87,7 @@ const COPY = {
   regForm: {
     sectionLabel:     { en: "Enrolment",  ru: "Регистрация" },
     headline:         { en: "Register for the Olympiad", ru: "Зарегистрироваться на олимпиаду" },
-    sub:              { en: "Complete the form below. Select one or more olympiad subjects. After payment confirmation you will receive your personal login and password. Registration deadline: 17 May 2026.", ru: "Заполните форму ниже. Выберите один или несколько предметов олимпиады. После подтверждения оплаты вы получите личный логин и пароль. Дедлайн регистрации: 17 мая 2026." },
+    sub:              { en: "Complete the form below. Select one or more olympiad subjects. After payment confirmation you will receive your personal login and password. Registration deadline:30 May 2026.", ru: "Заполните форму ниже. Выберите один или несколько предметов олимпиады. После подтверждения оплаты вы получите личный логин и пароль. Дедлайн регистрации:30 мая 2026." },
     nameLabel:        { en: "Full Name",               ru: "Имя и Фамилия" },
     namePlaceholder:  { en: "e.g. Aibek Dzhaksybekov", ru: "напр. Айбек Джаксыбеков" },
     emailLabel:       { en: "Email Address",           ru: "Адрес электронной почты" },

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Russell Institute — Academic Transcript</title>
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:        #0f2140;
+    --navy-mid:    #1a3560;
+    --navy-accent: #2a5299;
+    --navy-light:  #3a68b8;
+    --navy-rule:   rgba(15, 33, 64, 0.2);
+    --navy-faint:  rgba(15, 33, 64, 0.04);
+    --text:        #0d1b2e;
+    --text-soft:   #2d3a4a;
+    --text-muted:  #6a7a8a;
+    --white:       #ffffff;
+  }
+
+  body {
+    background: #13110e;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 24px;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .page-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: .35em;
+    color: #4a4438;
+    text-transform: uppercase;
+    margin-bottom: 48px;
+  }
+
+  .doc {
+    width: 560px;
+    position: relative;
+    background: var(--white);
+    padding: 48px 52px 56px;
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+    box-shadow:
+      0 2px 4px rgba(0,0,0,.06),
+      0 8px 24px rgba(0,0,0,.12),
+      0 32px 64px rgba(0,0,0,.18),
+      inset 0 0 0 1px rgba(15,33,64,.08);
+  }
+
+  .doc::before {
+    content: '';
+    position: absolute;
+    left: -2px; top: 0; bottom: 0;
+    width: 6px;
+    background: var(--white);
+    clip-path: polygon(0 0%,100% 1%,98% 4%,100% 7%,97% 11%,100% 15%,98% 19%,100% 23%,97% 27%,100% 31%,98% 35%,100% 39%,97% 43%,100% 47%,98% 51%,100% 55%,97% 59%,100% 63%,98% 67%,100% 71%,97% 75%,100% 79%,98% 83%,100% 87%,97% 91%,100% 95%,98% 99%,0 100%);
+    z-index: 2;
+  }
+
+  .doc-stripe {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--navy-light) 100%);
+  }
+
+  .doc-id {
+    position: absolute;
+    right: 18px; top: 72px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7px;
+    letter-spacing: .2em;
+    color: rgba(15,33,64,.1);
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    text-transform: uppercase;
+  }
+
+  /* HEADER */
+  .doc-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--navy);
+  }
+
+  .header-left { display: flex; align-items: center; gap: 14px; }
+
+  .shield { width: 32px; height: 37px; flex-shrink: 0; }
+
+  .inst-name {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8px;
+    font-weight: 500;
+    letter-spacing: .42em;
+    text-transform: uppercase;
+    color: var(--navy-accent);
+    margin-bottom: 2px;
+  }
+  .doc-type {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 18px;
+    color: var(--text);
+    line-height: 1;
+  }
+
+  .header-meta { text-align: right; }
+  .meta-pair { margin-bottom: 6px; }
+  .meta-row {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7px;
+    letter-spacing: .28em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .meta-val {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text);
+    letter-spacing: .04em;
+  }
+
+  /* CANDIDATE */
+  .candidate-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 28px;
+    padding-bottom: 24px;
+    border-bottom: 0.5px solid var(--navy-rule);
+  }
+
+  .cand-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7px;
+    letter-spacing: .35em;
+    text-transform: uppercase;
+    color: var(--navy-accent);
+    margin-bottom: 5px;
+  }
+  .cand-name {
+    font-family: 'IM Fell English', serif;
+    font-size: 26px;
+    color: var(--navy);
+    line-height: 1.05;
+  }
+  .cand-essay {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+
+  .total-box {
+    text-align: center;
+    padding: 10px 20px;
+    background: var(--navy);
+    flex-shrink: 0;
+  }
+  .total-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 6.5px;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.45);
+    margin-bottom: 1px;
+  }
+  .total-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 34px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1;
+  }
+  .total-denom { font-size: 14px; font-weight: 300; opacity: .5; }
+  .total-rank {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 6px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.5);
+    margin-top: 3px;
+  }
+
+  /* SECTION LABEL */
+  .section-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7.5px;
+    font-weight: 500;
+    letter-spacing: .38em;
+    text-transform: uppercase;
+    color: var(--navy-accent);
+    margin-bottom: 12px;
+  }
+
+  /* CRITERIA */
+  .criteria-list { margin-bottom: 28px; }
+
+  .criterion-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 0.5px solid var(--navy-rule);
+  }
+  .criterion-row:first-child { border-top: 0.5px solid var(--navy-rule); }
+
+  .crit-left { display: flex; align-items: center; gap: 12px; flex: 1; }
+  .crit-num {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8px;
+    color: var(--navy-accent);
+    opacity: .4;
+    width: 16px;
+    flex-shrink: 0;
+  }
+  .crit-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .crit-right { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
+  .crit-bar-wrap {
+    width: 72px; height: 2px;
+    background: rgba(15,33,64,.1);
+    border-radius: 1px; overflow: hidden;
+  }
+  .crit-bar { height: 100%; background: var(--navy-accent); border-radius: 1px; }
+  .crit-score {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--navy);
+    min-width: 42px;
+    text-align: right;
+  }
+  .crit-max { font-size: 11px; font-weight: 300; color: var(--text-muted); }
+
+  /* FEEDBACK */
+  .feedback-block {
+    border-left: 2px solid var(--navy);
+    padding: 16px 20px;
+    background: var(--navy-faint);
+  }
+  .feedback-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14.5px;
+    font-weight: 300;
+    line-height: 1.78;
+    color: var(--text-soft);
+  }
+
+  /* FOOTER */
+  .doc-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 32px;
+    padding-top: 18px;
+    border-top: 0.5px solid var(--navy-rule);
+  }
+  .footer-meta {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7px;
+    letter-spacing: .18em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    line-height: 1.9;
+  }
+  .sig-block { text-align: right; }
+  .sig-line { width: 100px; height: 0.5px; background: rgba(15,33,64,.2); margin: 0 0 5px auto; }
+  .sig-name { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 11.5px; color: var(--text-muted); }
+  .sig-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 6.5px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: rgba(15,33,64,.3);
+    margin-top: 2px;
+  }
+</style>
+</head>
+<body>
+
+<div class="doc">
+  <div class="doc-stripe"></div>
+
+  <div class="doc-header">
+    <div class="header-left">
+      <svg class="shield" viewBox="0 0 44 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M22 2L42 10V26C42 36 33 44 22 48C11 44 2 36 2 26V10L22 2Z" stroke="#1a3560" stroke-width="0.75" fill="none" opacity="0.7"/>
+        <path d="M22 6L38 12.5V26C38 34.5 31 41 22 44.5C13 41 6 34.5 6 26V12.5L22 6Z" stroke="#1a3560" stroke-width="0.4" fill="none" opacity="0.35"/>
+        <rect x="14" y="19" width="16" height="11" rx="0.5" stroke="#1a3560" stroke-width="0.5" fill="none" opacity="0.5"/>
+        <line x1="22" y1="19" x2="22" y2="30" stroke="#1a3560" stroke-width="0.4" opacity="0.5"/>
+        <path d="M28 14 Q30 18 26 22" stroke="#1a3560" stroke-width="0.5" fill="none" opacity="0.5"/>
+        <circle cx="15" cy="15" r="0.8" fill="#1a3560" opacity="0.4"/>
+        <circle cx="22" cy="13" r="0.8" fill="#1a3560" opacity="0.4"/>
+        <circle cx="29" cy="15" r="0.8" fill="#1a3560" opacity="0.4"/>
+      </svg>
+      <div>
+        <span class="inst-name">The Russell Institute</span>
+        <div class="doc-type">Academic Transcript</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <div class="meta-pair">
+      </div>
+      <div class="meta-pair">
+      </div>
+    </div>
+  </div>
+
+  <div class="candidate-block">
+    <div>
+      <div class="cand-label">Participant</div>
+      <div class="cand-name">Yesseniya Baimukhanbetova</div>
+      <div class="cand-essay">"The Nature of Economic Inequality"</div>
+    </div>
+    <div class="total-box">
+      <div class="total-label">Total Score</div>
+      <div class="total-value">34<span class="total-denom">/100</span></div>
+    </div>
+  </div>
+
+  <div class="section-label">Evaluation</div>
+  <div class="criteria-list">
+    <div class="criterion-row">
+      <div class="crit-left"><span class="crit-num">01</span><span class="crit-name">Critical Analysis</span></div>
+      <div class="crit-right"><div class="crit-score">14<span class="crit-max">/30</span></div></div>
+    </div>
+    <div class="criterion-row">
+      <div class="crit-left"><span class="crit-num">02</span><span class="crit-name">Evidentiary Rigor and Use of Sources</span></div>
+      <div class="crit-right"><div class="crit-score">3<span class="crit-max">/25</span></div></div>
+    </div>
+    <div class="criterion-row">
+      <div class="crit-left"><span class="crit-num">03</span><span class="crit-name">Architectural Logic</span></div>
+      <div class="crit-right"><div class="crit-score">10<span class="crit-max">/20</span></div></div>
+    </div>
+    <div class="criterion-row">
+      <div class="crit-left"><span class="crit-num">04</span><span class="crit-name">Academic Prose</span></div>
+      <div class="crit-right"><div class="crit-score">3<span class="crit-max">/15</span></div></div>
+    </div>
+    <div class="criterion-row">
+      <div class="crit-left"><span class="crit-num">05</span><span class="crit-name">Originality of Though</span></div>
+      <div class="crit-right"><div class="crit-score">4<span class="crit-max">/10</span></div></div>
+    </div>
+  </div>
+
+  <div class="section-label">Reviewer Feedback</div>
+  <div class="feedback-block">
+    <div class="feedback-text">
+      While the essay introduces relevant regional contexts such as the "Bolashak" program and Kazakhstan's rural-urban divide, it suffers from a critical academic deficit due to a completely informal, conversational register and unauthorized personal assertions ("Я считаю так потому что"). Structurally, the text relies on surface-level generalizations about personal motivation instead of deploying rigorous macroeconomic metrics or institutional frameworks like Piketty's capital accumulation theory ($r > g$) or Acemoglu’s institutional analysis. Crucially, the draft remains entirely textually vacant of mandatory author-date in-text citations, meaning the foundational literature listed in the bibliography is never actually integrated into the paper. 
+  </div>
+
+</div>
+
+</body>
+</html>
