@@ -45,7 +45,7 @@ const COPY = {
   olympiadSection: {
     label:       { en: "Open Olympiads",         ru: "Открытые Олимпиады" },
     headline:    { en: "Six Subjects. One Standard.", ru: "Шесть Предметов. Один Стандарт." },
-    body:        { en: "Each olympiad is conducted online. Olympiads take place June 25–27, 2026. Registration closes 17 May 2026.", ru: "Каждая олимпиада проводится онлайн. Олимпиады пройдут 25–27 июня 2026 года. Регистрация закрывается 17 мая 2026." },
+    body:        { en: "Each olympiad is conducted online. Olympiads take place July 4–6, 2026. Registration closes 17 May 2026.", ru: "Каждая олимпиада проводится онлайн. Олимпиады пройдут 4–6 июля 2026 года. Регистрация закрывается 17 мая 2026." },
     dateLabel:   { en: "Date",     ru: "Дата" },
     timeLabel:   { en: "Time",     ru: "Время" },
     registerBtn: { en: "Register", ru: "Участвовать" },
@@ -53,12 +53,12 @@ const COPY = {
     deadlineVal:  { en: "17 May 2026", ru: "17 мая 2026" },
   },
   olympiads: [
-    { key: "math", en: "Mathematics",      ru: "Математика",         dateEn: "25 June 2026", dateRu: "25 июня 2026", time: "10:00 – 11:30" },
-    { key: "phys", en: "Physics",          ru: "Физика",             dateEn: "25 June 2026", dateRu: "25 июня 2026", time: "13:00 – 14:30" },
-    { key: "cs",   en: "Computer Science", ru: "Информатика",        dateEn: "26 June 2026", dateRu: "26 июня 2026", time: "10:00 – 11:30" },
-    { key: "bio",  en: "Biology",          ru: "Биология",           dateEn: "26 June 2026", dateRu: "26 июня 2026", time: "13:00 – 14:30" },
-    { key: "econ", en: "Economics",        ru: "Экономика",          dateEn: "27 June 2026", dateRu: "27 июня 2026", time: "10:00 – 11:30" },
-    { key: "hum",  en: "Humanities",       ru: "Гуманитарные науки", dateEn: "27 June 2026", dateRu: "27 июня 2026", time: "13:00 – 14:30" },
+    { key: "math", en: "Mathematics",      ru: "Математика",         dateEn: "4 July 2026", dateRu: "4 июля 2026", time: "10:00 – 11:30" },
+    { key: "phys", en: "Physics",          ru: "Физика",             dateEn: "4 July 2026", dateRu: "4 июля 2026", time: "13:00 – 14:30" },
+    { key: "cs",   en: "Computer Science", ru: "Информатика",        dateEn: "5 July 2026", dateRu: "5 июля 2026", time: "10:00 – 11:30" },
+    { key: "bio",  en: "Biology",          ru: "Биология",           dateEn: "5 July 2026", dateRu: "5 июля 2026", time: "13:00 – 14:30" },
+    { key: "econ", en: "Economics",        ru: "Экономика",          dateEn: "6 July 2026", dateRu: "6 июля 2026", time: "10:00 – 11:30" },
+    { key: "hum",  en: "Humanities",       ru: "Гуманитарные науки", dateEn: "6 July 2026", dateRu: "6 июля 2026", time: "13:00 – 14:30" },
   ],
   transcript: {
     label:      { en: "The Academic Transcript", ru: "Академический Транскрипт" },
@@ -87,7 +87,7 @@ const COPY = {
   regForm: {
     sectionLabel:     { en: "Enrolment",  ru: "Регистрация" },
     headline:         { en: "Register for the Olympiad", ru: "Зарегистрироваться на олимпиаду" },
-    sub:              { en: "Complete the form below. Select one or more olympiad subjects. After payment confirmation you will receive your personal login and password. Registration deadline: 17 May 2026. Olympiads: 25–27 June 2026.", ru: "Заполните форму ниже. Выберите один или несколько предметов олимпиады. После подтверждения оплаты вы получите личный логин и пароль. Дедлайн регистрации: 17 мая 2026. Олимпиады: 25–27 июня 2026." },
+    sub:              { en: "Complete the form below. Select one or more olympiad subjects. After payment confirmation you will receive your personal login and password. Registration deadline: 17 May 2026. Olympiads: 4–6 July 2026.", ru: "Заполните форму ниже. Выберите один или несколько предметов олимпиады. После подтверждения оплаты вы получите личный логин и пароль. Дедлайн регистрации: 17 мая 2026. Олимпиады: 4–6 июля 2026." },
     nameLabel:        { en: "Full Name",               ru: "Имя и Фамилия" },
     namePlaceholder:  { en: "e.g. Aibek Dzhaksybekov", ru: "напр. Айбек Джаксыбеков" },
     emailLabel:       { en: "Email Address",           ru: "Адрес электронной почты" },

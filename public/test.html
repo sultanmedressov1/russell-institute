@@ -1,129 +1,128 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Олимпиада по математике — The Russell Institute</title>
-<link rel="icon" type="image/png" href="/logo1.png" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Olympiad Test — The Russell Institute</title>
+<link rel="icon" type="image/png" href="/logo1.png"/>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+SC:wght@300;400;500;600&display=swap');
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'Lora', Georgia, serif;
-    background: #1A2B45;
-    color: #EEE8E0;
-    min-height: 100vh;
-    user-select: none;
-    -webkit-user-select: none;
-    overflow-x: hidden;
-  }
-  .topbar {
-    background: rgba(10,18,28,0.85);
-    border-bottom: 1px solid rgba(200,168,122,0.15);
-    padding: 0 40px; height: 64px;
-    display: flex; align-items: center; justify-content: space-between;
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    backdrop-filter: blur(8px);
-  }
-  .top-left { display: flex; flex-direction: column; gap: 2px; }
-  .top-brand { font-family: 'Cormorant SC', serif; font-size: 0.68rem; letter-spacing: 0.22em; color: #7A9AB8; }
-  .top-subject { font-family: 'EB Garamond', serif; font-size: 1.15rem; color: #C8A87A; }
-  .timer-wrap { display: flex; align-items: center; gap: 12px; }
-  .timer-label { font-family: 'Cormorant SC', serif; font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: #5A6A7A; }
-  .timer { font-family: 'EB Garamond', serif; font-size: 2rem; color: #EEE8E0; letter-spacing: 0.05em; min-width: 80px; text-align: right; line-height: 1; }
-  .timer.urgent { color: #C84040; }
-  .content { max-width: 800px; margin: 0 auto; padding: 96px 40px 80px; }
-  .progress-bar { height: 2px; background: rgba(200,168,122,0.15); margin-bottom: 36px; }
-  .progress-fill { height: 100%; background: linear-gradient(90deg, #4A0E0E, #C8A87A); transition: width 0.4s; }
-  .slbl { font-family: 'Cormorant SC', serif; font-size: 0.62rem; letter-spacing: 0.32em; text-transform: uppercase; color: #C8A87A; }
-  .q-counter { font-family: 'Lora', serif; font-size: 0.82rem; color: #5A6A7A; margin-top: 6px; }
-  .dots-row { display: flex; flex-wrap: wrap; gap: 6px; margin: 20px 0 24px; }
-  .dot {
-    width: 30px; height: 30px;
-    border: 1px solid rgba(200,168,122,0.18); background: transparent;
-    color: #5A6A7A; font-family: 'Cormorant SC', serif; font-size: 0.65rem;
-    cursor: pointer; transition: all 0.2s;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .dot.answered { border-color: rgba(200,168,122,0.45); color: #C8A87A; }
-  .dot.current  { background: #C8A87A; color: #1A2B45; border-color: #C8A87A; }
-  .q-card {
-    background: rgba(255,254,249,0.04);
-    border: 1px solid rgba(200,168,122,0.14);
-    padding: 40px 44px; margin: 0 0 28px;
-  }
-  .q-tag {
-    font-family: 'Cormorant SC', serif; font-size: 0.56rem;
-    letter-spacing: 0.2em; text-transform: uppercase;
-    color: #4A6A8A; margin-bottom: 14px;
-  }
-  .q-text {
-    font-family: 'EB Garamond', serif; font-size: 1.22rem;
-    line-height: 1.72; color: #EEE8E0; margin-bottom: 24px;
-  }
-  .q-hint { font-family: 'Lora', serif; font-size: 0.74rem; color: #4A6A7A; font-style: italic; margin-bottom: 12px; }
-  .ans-input {
-    width: 100%; background: rgba(14,22,32,0.7);
-    border: 1px solid rgba(200,168,122,0.2);
-    padding: 13px 18px; font-family: 'Lora', serif;
-    font-size: 0.9rem; color: #EEE8E0; outline: none;
-    transition: border-color 0.25s; resize: vertical;
-  }
-  .ans-input:focus { border-color: #C8A87A; }
-  .ans-input::placeholder { color: rgba(200,216,240,0.2); font-style: italic; }
-  .nav-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
-  .btn-nav {
-    font-family: 'Cormorant SC', serif; font-size: 0.68rem; letter-spacing: 0.22em;
-    text-transform: uppercase; border: 1px solid rgba(200,216,240,0.18);
-    background: transparent; color: #8AAABE; padding: 13px 32px;
-    cursor: pointer; transition: all 0.25s;
-  }
-  .btn-nav:hover:not(:disabled) { border-color: #C8A87A; color: #C8A87A; }
-  .btn-nav:disabled { opacity: 0.22; cursor: not-allowed; }
-  .btn-submit {
-    font-family: 'Cormorant SC', serif; font-size: 0.68rem; letter-spacing: 0.22em;
-    text-transform: uppercase; border: none;
-    background: #C8A87A; color: #1A2B45;
-    padding: 14px 44px; cursor: pointer; transition: all 0.25s;
-  }
-  .btn-submit:hover { background: #EEE8E0; }
-  /* Warning */
-  .overlay {
-    display: none; position: fixed; inset: 0; z-index: 500;
-    background: rgba(10,18,28,0.92);
-    align-items: center; justify-content: center; padding: 24px;
-  }
-  .overlay.show { display: flex; }
-  .warn-box {
-    background: #F9F7F2; color: #1A2B45;
-    max-width: 460px; width: 100%; padding: 48px;
-    border: 2px solid #8B2020; text-align: center;
-  }
-  .warn-icon { font-size: 2.2rem; margin-bottom: 14px; }
-  .warn-title { font-family: 'EB Garamond', serif; font-size: 1.8rem; color: #8B2020; margin-bottom: 10px; }
-  .warn-body  { font-family: 'Lora', serif; font-size: 0.84rem; line-height: 1.75; color: #3A4A5A; margin-bottom: 10px; }
-  .warn-count { font-family: 'Cormorant SC', serif; font-size: 0.68rem; letter-spacing: 0.18em; color: #8B2020; margin-bottom: 26px; }
-  .btn-warn {
-    font-family: 'Cormorant SC', serif; font-size: 0.7rem; letter-spacing: 0.22em;
-    text-transform: uppercase; background: #1A2B45; color: #F9F7F2;
-    border: none; padding: 14px 40px; cursor: pointer; transition: background 0.25s;
-  }
-  .btn-warn:hover { background: #4A0E0E; }
-  /* Submitted */
-  .submitted-screen {
-    display: none; position: fixed; inset: 0; z-index: 600;
-    background: #0E1620; align-items: center; justify-content: center;
-    text-align: center; padding: 40px; flex-direction: column;
-  }
-  .submitted-screen.show { display: flex; }
-  .sub-icon  { font-size: 3rem; margin-bottom: 28px; }
-  .sub-title { font-family: 'EB Garamond', serif; font-size: 2.8rem; color: #C8A87A; margin-bottom: 20px; }
-  .sub-body  { font-family: 'Lora', serif; font-size: 0.96rem; color: #7A9AB8; line-height: 1.85; max-width: 500px; }
-  .sub-note  { font-family: 'Cormorant SC', serif; font-size: 0.65rem; letter-spacing: 0.18em; color: #4A6A7A; margin-top: 22px; }
-  @media(max-width:600px){
-    .topbar{padding:0 16px;} .content{padding:88px 16px 60px;}
-    .q-card{padding:24px 18px;} .timer{font-size:1.5rem;}
-  }
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+SC:wght@300;400;500;600&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Lora',Georgia,serif;background:#1A2B45;color:#EEE8E0;min-height:100vh;user-select:none;-webkit-user-select:none;overflow-x:hidden;}
+.topbar{background:rgba(10,18,28,.88);border-bottom:1px solid rgba(200,168,122,.15);padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(8px);}
+.top-left{display:flex;flex-direction:column;gap:2px;}
+.top-brand{font-family:'Cormorant SC',serif;font-size:.66rem;letter-spacing:.22em;color:#7A9AB8;}
+.top-subject{font-family:'EB Garamond',serif;font-size:1.12rem;color:#C8A87A;}
+.timer-wrap{display:flex;align-items:center;gap:10px;}
+.timer-lbl{font-family:'Cormorant SC',serif;font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:#5A6A7A;}
+.timer{font-family:'EB Garamond',serif;font-size:1.9rem;color:#EEE8E0;letter-spacing:.04em;min-width:76px;text-align:right;line-height:1;}
+.timer.urgent{color:#C84040;}
+.content{max-width:780px;margin:0 auto;padding:92px 40px 80px;}
+.prog-bar{height:2px;background:rgba(200,168,122,.12);margin-bottom:32px;}
+.prog-fill{height:100%;background:linear-gradient(90deg,#4A0E0E,#C8A87A);transition:width .4s;}
+.slbl{font-family:'Cormorant SC',serif;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:#C8A87A;}
+.q-num{font-family:'Lora',serif;font-size:.8rem;color:#5A6A7A;margin-top:5px;}
+.dots{display:flex;flex-wrap:wrap;gap:5px;margin:18px 0 22px;}
+.dot{width:28px;height:28px;border:1px solid rgba(200,168,122,.16);background:transparent;color:#5A6A7A;font-family:'Cormorant SC',serif;font-size:.62rem;cursor:pointer;transition:all .18s;display:flex;align-items:center;justify-content:center;}
+.dot.ans{border-color:rgba(200,168,122,.5);color:#C8A87A;}
+.dot.cur{background:#C8A87A;color:#1A2B45;border-color:#C8A87A;}
+.q-card{background:rgba(255,254,249,.04);border:1px solid rgba(200,168,122,.13);padding:36px 42px;margin-bottom:24px;}
+.q-tag{font-family:'Cormorant SC',serif;font-size:.54rem;letter-spacing:.2em;text-transform:uppercase;color:#4A6A8A;margin-bottom:12px;}
+.q-text{font-family:'EB Garamond',serif;font-size:1.2rem;line-height:1.7;color:#EEE8E0;margin-bottom:28px;}
+.options{display:flex;flex-direction:column;gap:10px;}
+.opt{display:flex;align-items:center;gap:14px;padding:13px 18px;border:1px solid rgba(200,168,122,.16);background:rgba(255,254,249,.02);cursor:pointer;transition:all .18s;}
+.opt:hover{border-color:rgba(200,168,122,.38);background:rgba(200,168,122,.06);}
+.opt.sel{border-color:#C8A87A;background:rgba(200,168,122,.14);}
+.opt-letter{font-family:'Cormorant SC',serif;font-size:.72rem;letter-spacing:.12em;color:#C8A87A;min-width:22px;flex-shrink:0;}
+.opt-text{font-family:'Lora',serif;font-size:.88rem;color:#C8D8E8;line-height:1.45;}
+.nav-row{display:flex;justify-content:space-between;align-items:center;gap:12px;}
+.btn-nav{font-family:'Cormorant SC',serif;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;border:1px solid rgba(200,216,240,.16);background:transparent;color:#8AAABE;padding:12px 30px;cursor:pointer;transition:all .22s;}
+.btn-nav:hover:not(:disabled){border-color:#C8A87A;color:#C8A87A;}
+.btn-nav:disabled{opacity:.2;cursor:not-allowed;}
+.btn-submit{font-family:'Cormorant SC',serif;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;border:none;background:#C8A87A;color:#1A2B45;padding:13px 42px;cursor:pointer;transition:all .22s;}
+.btn-submit:hover{background:#EEE8E0;}
+/* Warning */
+.overlay{display:none;position:fixed;inset:0;z-index:500;background:rgba(10,18,28,.92);align-items:center;justify-content:center;padding:24px;}
+.overlay.show{display:flex;}
+.warn-box{background:#F9F7F2;color:#1A2B45;max-width:440px;width:100%;padding:44px;border:2px solid #8B2020;text-align:center;}
+.warn-icon{font-size:2rem;margin-bottom:12px;}
+.warn-title{font-family:'EB Garamond',serif;font-size:1.7rem;color:#8B2020;margin-bottom:8px;}
+.warn-body{font-family:'Lora',serif;font-size:.82rem;line-height:1.72;color:#3A4A5A;margin-bottom:8px;}
+.warn-count{font-family:'Cormorant SC',serif;font-size:.66rem;letter-spacing:.16em;color:#8B2020;margin-bottom:24px;}
+.btn-warn{font-family:'Cormorant SC',serif;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;background:#1A2B45;color:#F9F7F2;border:none;padding:13px 36px;cursor:pointer;}
+.btn-warn:hover{background:#4A0E0E;}
+/* Results */
+.results-screen{display:none;position:fixed;inset:0;z-index:600;background:#0E1620;overflow-y:auto;padding:56px 40px 60px;}
+.results-screen.show{display:block;}
+.res-inner{max-width:640px;margin:0 auto;}
+.res-title{font-family:'EB Garamond',serif;font-size:2.4rem;color:#C8A87A;margin-bottom:6px;}
+.res-sub{font-family:'Lora',serif;font-size:.86rem;color:#7A9AB8;margin-bottom:36px;}
+.score-label{font-family:'Cormorant SC',serif;font-size:.58rem;letter-spacing:.26em;text-transform:uppercase;color:#5A7A9A;margin-bottom:4px;}
+.score-big{font-family:'EB Garamond',serif;font-size:4.8rem;color:#C8A87A;line-height:1;margin-bottom:8px;}
+.level-badge{display:inline-block;padding:9px 26px;font-family:'Cormorant SC',serif;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;margin-bottom:32px;}
+.lv-d{background:#C8A87A;color:#1A2B45;}
+.lv-m{background:#2A4A2A;color:#A8D8A8;}
+.lv-p{border:1px solid #C8A87A;color:#C8A87A;}
+.lv-x{border:1px solid rgba(200,216,240,.2);color:#7A9AB8;}
+.bk-title{font-family:'Cormorant SC',serif;font-size:.58rem;letter-spacing:.24em;text-transform:uppercase;color:#C8A87A;margin-bottom:14px;}
+.bk-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.bk-n{font-family:'Cormorant SC',serif;font-size:.62rem;color:#5A6A7A;min-width:26px;}
+.bk-txt{font-family:'Lora',serif;font-size:.74rem;color:#8AAABE;flex:1;line-height:1.35;}
+.bk-result{font-family:'EB Garamond',serif;font-size:.9rem;min-width:24px;text-align:center;}
+.bk-result.ok{color:#6AB86A;}
+.bk-result.ng{color:#C84040;}
+.cert-btn{font-family:'Cormorant SC',serif;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;background:#C8A87A;color:#1A2B45;border:none;padding:14px 42px;cursor:pointer;margin-top:36px;transition:background .22s;}
+.cert-btn:hover{background:#EEE8E0;}
+.save-note{font-family:'Lora',serif;font-size:.7rem;color:#4A6A7A;font-style:italic;margin-top:14px;}
+/* Certificate */
+.cert-overlay{display:none;position:fixed;inset:0;z-index:700;background:rgba(10,18,28,.96);align-items:center;justify-content:center;padding:24px;}
+.cert-overlay.show{display:flex;}
+.cert-wrap{}
+.certificate{background:#FDFAF5;color:#1A2B45;width:760px;max-width:100%;padding:52px 60px;position:relative;}
+.cc{position:absolute;width:42px;height:42px;border-color:#C8A87A;border-style:solid;opacity:.45;}
+.cc.tl{top:18px;left:18px;border-width:1.5px 0 0 1.5px;}
+.cc.tr{top:18px;right:18px;border-width:1.5px 1.5px 0 0;}
+.cc.bl{bottom:18px;left:18px;border-width:0 0 1.5px 1.5px;}
+.cc.br{bottom:18px;right:18px;border-width:0 1.5px 1.5px 0;}
+.c-hdr{text-align:center;margin-bottom:28px;padding-bottom:22px;border-bottom:1px solid #D8CEB8;}
+.c-inst{font-family:'Cormorant SC',serif;font-size:.68rem;letter-spacing:.26em;color:#9A8878;margin-bottom:7px;}
+.c-doc{font-family:'EB Garamond',serif;font-size:1.9rem;color:#1A2B45;font-weight:400;margin-bottom:3px;}
+.c-doc-sub{font-family:'Lora',serif;font-size:.74rem;font-style:italic;color:#7A6A58;}
+.gline{height:1.5px;background:linear-gradient(90deg,transparent,#C8A87A 20%,#C8A87A 80%,transparent);margin:18px 0;}
+.c-body{text-align:center;}
+.c-pres{font-family:'Lora',serif;font-size:.8rem;color:#7A6A58;letter-spacing:.06em;margin-bottom:10px;}
+.c-name{font-family:'EB Garamond',serif;font-size:2.3rem;color:#1A2B45;font-weight:400;margin-bottom:10px;}
+.c-ach{font-family:'Lora',serif;font-size:.8rem;color:#5A6A7A;margin-bottom:7px;}
+.c-subj{font-family:'EB Garamond',serif;font-size:1.55rem;color:#1A2B45;margin-bottom:7px;}
+.c-year{font-family:'Cormorant SC',serif;font-size:.68rem;letter-spacing:.18em;color:#7A6A58;margin-bottom:24px;}
+.c-lv-box{display:inline-block;border:1.5px solid #1A2B45;padding:9px 30px;margin-bottom:24px;}
+.c-lv-label{font-family:'Cormorant SC',serif;font-size:.54rem;letter-spacing:.2em;text-transform:uppercase;color:#9A8878;margin-bottom:3px;}
+.c-lv-val{font-family:'EB Garamond',serif;font-size:1.1rem;color:#1A2B45;}
+.c-scores{display:flex;justify-content:center;gap:44px;margin-bottom:28px;}
+.c-sc{text-align:center;}
+.c-sc-num{font-family:'EB Garamond',serif;font-size:2.1rem;color:#C8A87A;line-height:1;}
+.c-sc-lbl{font-family:'Cormorant SC',serif;font-size:.52rem;letter-spacing:.16em;color:#9A8878;text-transform:uppercase;margin-top:3px;}
+.c-footer{display:flex;justify-content:space-between;align-items:flex-end;padding-top:22px;border-top:1px solid #D8CEB8;}
+.c-sig-svg{display:block;margin-bottom:2px;}
+.c-sig-name{font-family:'EB Garamond',serif;font-size:.84rem;color:#1A2B45;margin-top:2px;}
+.c-sig-title{font-family:'Lora',serif;font-size:.63rem;font-style:italic;color:#7A6A58;margin-top:1px;}
+.c-cand-box{background:#1A2B45;padding:10px 22px;margin-bottom:22px;display:inline-block;}
+.c-cand-lbl{font-family:'Cormorant SC',serif;font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:#7A9AB8;margin-bottom:3px;}
+.c-cand-name{font-family:'EB Garamond',serif;font-size:1.1rem;color:#EEE8E0;}
+.c-ref{text-align:right;}
+.c-ref-lbl{font-family:'Cormorant SC',serif;font-size:.5rem;letter-spacing:.16em;color:#9A8878;margin-bottom:2px;}
+.c-ref-val{font-family:'EB Garamond',serif;font-size:.82rem;color:#1A2B45;}
+.c-ref-date{font-family:'Lora',serif;font-size:.68rem;color:#7A6A58;margin-top:3px;}
+.c-actions{display:flex;gap:10px;justify-content:center;margin-top:20px;}
+.btn-cp{font-family:'Cormorant SC',serif;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;background:#1A2B45;color:#F9F7F2;border:none;padding:11px 32px;cursor:pointer;transition:background .22s;}
+.btn-cp:hover{background:#4A0E0E;}
+.btn-cc{font-family:'Cormorant SC',serif;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;background:transparent;color:#7A9AB8;border:1px solid rgba(200,216,240,.18);padding:11px 32px;cursor:pointer;}
+@media print{
+  body,html{background:white !important;}
+  .cert-overlay{position:static !important;background:white !important;padding:0 !important;display:flex !important;}
+  .c-actions,.results-screen,.topbar,.content{display:none !important;}
+}
+@media(max-width:600px){.topbar{padding:0 14px;}.content{padding:86px 16px 60px;}.q-card{padding:22px 18px;}.timer{font-size:1.4rem;}.certificate{padding:28px 22px;}.c-scores{gap:24px;}}
 </style>
 </head>
 <body>
@@ -131,394 +130,468 @@
 <div class="topbar">
   <div class="top-left">
     <div class="top-brand">THE RUSSELL INSTITUTE</div>
-    <div class="top-subject">Математика — 10 класс</div>
+    <div class="top-subject" id="top-subject">Олимпиада</div>
   </div>
   <div class="timer-wrap">
-    <span class="timer-label">Осталось</span>
-    <span class="timer" id="timer-display">90:00</span>
+    <span class="timer-lbl">Осталось</span>
+    <span class="timer" id="timer">90:00</span>
   </div>
 </div>
 
 <div class="content">
-  <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
-  <div class="slbl">Олимпиада по математике</div>
-  <div class="q-counter" id="q-counter">Вопрос 1 из 30</div>
-  <div class="dots-row" id="dots-row"></div>
-  <div class="q-card" id="question-card"></div>
+  <div class="prog-bar"><div class="prog-fill" id="prog" style="width:0%"></div></div>
+  <div class="slbl" id="slbl">Олимпиада</div>
+  <div class="q-num" id="qnum">Вопрос 1 из 20</div>
+  <div class="dots" id="dots"></div>
+  <div class="q-card" id="qcard"></div>
   <div class="nav-row">
-    <button class="btn-nav" id="btn-prev" onclick="prevQ()">&#8592; Назад</button>
-    <button class="btn-nav" id="btn-next" onclick="nextQ()">Далее &#8594;</button>
-    <button class="btn-submit" id="btn-submit" onclick="confirmSubmit()" style="display:none">Сдать работу</button>
+    <button class="btn-nav" id="bprev" onclick="prevQ()">&#8592; Назад</button>
+    <button class="btn-nav" id="bnext" onclick="nextQ()">Далее &#8594;</button>
+    <button class="btn-submit" id="bsub" onclick="confirmSubmit()" style="display:none">Сдать работу</button>
   </div>
 </div>
 
-<div class="overlay" id="warn-overlay">
+<div class="overlay" id="woverlay">
   <div class="warn-box">
     <div class="warn-icon">&#9888;&#65039;</div>
-    <div class="warn-title" id="warn-title">Предупреждение</div>
-    <div class="warn-body" id="warn-body"></div>
-    <div class="warn-count" id="warn-count"></div>
+    <div class="warn-title" id="wtitle">Предупреждение</div>
+    <div class="warn-body" id="wbody"></div>
+    <div class="warn-count" id="wcnt"></div>
     <button class="btn-warn" onclick="closeWarn()">Вернуться к тесту</button>
   </div>
 </div>
 
-<div class="submitted-screen" id="submitted-screen">
-  <div class="sub-icon">&#128221;</div>
-  <div class="sub-title">Работа сдана</div>
-  <div class="sub-body">Ваши ответы сохранены. Благодарим за участие в олимпиаде The Russell Institute. Вы можете закрыть это окно.</div>
-  <div class="sub-note" id="sub-note">Сохранение ответов...</div>
+<div class="results-screen" id="rscreen">
+  <div class="res-inner">
+    <div class="res-title">Работа сдана</div>
+    <div class="res-sub">Результаты подсчитаны автоматически</div>
+    <div class="score-label">Итоговый балл (каждый верный ответ — 5 баллов)</div>
+    <div class="score-big" id="sbig">–</div>
+    <div id="lvwrap"></div>
+    <div class="bk-title">Разбивка по вопросам</div>
+    <div id="bklist"></div>
+    <button class="cert-btn" onclick="showCert()">Получить сертификат</button>
+    <div class="save-note" id="snote">Сохранение результатов...</div>
+  </div>
+</div>
+
+<div class="cert-overlay" id="coverlay">
+  <div class="cert-wrap">
+    <div class="certificate" id="cert">
+      <div class="cc tl"></div><div class="cc tr"></div>
+      <div class="cc bl"></div><div class="cc br"></div>
+      <div class="c-hdr">
+        <div class="c-inst">THE RUSSELL INSTITUTE · ASTANA, KAZAKHSTAN</div>
+        <div class="c-doc">Certificate of Achievement</div>
+        <div class="c-doc-sub">Сертификат достижения</div>
+      </div>
+      <div class="gline"></div>
+      <div class="c-body">
+        <div class="c-pres">This is to certify that</div>
+        <div class="c-name" id="cname">–</div>
+        <div class="c-cand-box"><div class="c-cand-lbl">Candidate · Кандидат</div><div class="c-cand-name" id="cname2">–</div></div>
+        <div class="c-ach">has successfully participated in the</div>
+        <div class="c-subj" id="csubj">–</div>
+        <div class="c-year">The Russell Institute Academic Olympiad · July 2026</div>
+        <div class="c-lv-box">
+          <div class="c-lv-label">Award Level · Уровень</div>
+          <div class="c-lv-val" id="clvval">–</div>
+        </div>
+        <div class="c-scores">
+          <div class="c-sc">
+            <div class="c-sc-num" id="cscnum">–</div>
+            <div class="c-sc-lbl">Score · Балл</div>
+          </div>
+          <div class="c-sc">
+            <div class="c-sc-num" id="ccnum">–</div>
+            <div class="c-sc-lbl">Correct · Верных</div>
+          </div>
+          <div class="c-sc">
+            <div class="c-sc-num">20</div>
+            <div class="c-sc-lbl">Total · Всего</div>
+          </div>
+        </div>
+      </div>
+      <div class="gline"></div>
+      <div class="c-footer">
+        <div>
+          <svg class="c-sig-svg" width="210" height="62" viewBox="0 0 210 62" xmlns="http://www.w3.org/2000/svg">
+            <g stroke="#1A2B45" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5,44 C9,24 17,17 26,29 C30,36 27,46 22,47 M14,36 L26,34"/>
+              <circle cx="33" cy="44" r="1.8" fill="#1A2B45" stroke="none"/>
+              <path d="M40,44 C40,26 44,20 49,30 C51,36 49,46 46,47 C53,39 60,27 67,34 C70,38 68,47 63,46"/>
+              <path d="M67,42 C76,37 86,28 95,37 C98,41 96,48 91,47 M94,44 C103,39 114,32 123,40 C127,44 124,50 119,49"/>
+              <path d="M121,47 C130,42 145,35 160,41 C166,44 167,51 162,53 C170,49 182,43 196,47 C202,49 204,55 200,57"/>
+              <path d="M155,52 C157,58 159,60 161,58"/>
+            </g>
+          </svg>
+          <div class="c-sig-name">Dr. A. Mercer</div>
+          <div class="c-sig-title">Academic Director · The Russell Institute</div>
+          <div class="c-sig-title">Independent Academic Evaluation · Astana, Kazakhstan</div>
+        </div>
+        <div class="c-ref">
+          <div class="c-ref-lbl">Certificate No.</div>
+          <div class="c-ref-val" id="cref">–</div>
+          <div class="c-ref-date" id="cdate">–</div>
+        </div>
+      </div>
+    </div>
+    <div class="c-actions">
+      <button class="btn-cp" onclick="window.print()">Print / Save PDF</button>
+      <button class="btn-cc" onclick="document.getElementById('coverlay').classList.remove('show')">Close</button>
+    </div>
+  </div>
 </div>
 
 <script>
-/* ══ CONFIG ════════════════════════════════════════════════════════ */
+/* ══ CONFIG ══════════════════════════════════════════════════════ */
 const SHEETS_URL       = "https://script.google.com/macros/s/AKfycbzgeCUChzdk3qNraq6BlBPFoeiQn2VUe_tlhW5Rvmlah0gUBgml31soRyHsv8Cch29t/exec";
 const DURATION_MINUTES = 90;
 
-/* ══ ВОПРОСЫ — 30 штук, казахстанская программа 10 класс ════════
-   Вопросы 1–10:  вычислительные  → type: "input"
-   Вопросы 11–30: рассуждение     → type: "textarea"
-═══════════════════════════════════════════════════════════════════ */
-const QUESTIONS = [
+/* ══ QUESTIONS — 20 MC per subject ══════════════════════════════
+   answer: index 0-3 (A/B/C/D)
+════════════════════════════════════════════════════════════════ */
+const QUESTIONS = {
 
-  /* ── БЛОК 1: Вычислительные (1–10) ──────────────────────────── */
-  {
-    tag: "Алгебра",
-    text: "Решите уравнение: 3(2x − 4) = 2(x + 6). Найдите значение x.",
-    type: "input",
-    placeholder: "Введите число"
-  },
-  {
-    tag: "Алгебра",
-    text: "Найдите значение выражения: если 2x = 9, чему равно 2^(6x − 23)?",
-    type: "input",
-    placeholder: "Введите число"
-  },
-  {
-    tag: "Прогрессии",
-    text: "Арифметическая прогрессия: первый член a₁ = 3, разность d = 5. Найдите 12-й член прогрессии.",
-    type: "input",
-    placeholder: "Введите число"
-  },
-  {
-    tag: "Прогрессии",
-    text: "Геометрическая прогрессия: первый член b₁ = 2, знаменатель q = 3. Найдите сумму первых 5 членов.",
-    type: "input",
-    placeholder: "Введите число"
-  },
-  {
-    tag: "Тригонометрия",
-    text: "Найдите значение: sin²(30°) + cos²(60°) + tan(45°). Дайте точный ответ.",
-    type: "input",
-    placeholder: "Введите число"
-  },
-  {
-    tag: "Тригонометрия",
-    text: "Решите уравнение: 2sin(x) − 1 = 0 на промежутке [0°; 360°]. Запишите все решения через запятую.",
-    type: "input",
-    placeholder: "Например: 30°, 150°"
-  },
-  {
-    tag: "Функции",
-    text: "Функция задана формулой f(x) = x² − 4x + 3. Найдите координаты вершины параболы.",
-    type: "input",
-    placeholder: "Например: (2; −1)"
-  },
-  {
-    tag: "Статистика",
-    text: "Дан набор чисел: 4, 7, 7, 9, 13, 15, 15, 15, 21. Найдите моду, медиану и среднее арифметическое.",
-    type: "input",
-    placeholder: "Мода = ..., Медиана = ..., Среднее = ..."
-  },
-  {
-    tag: "Вероятность",
-    text: "В урне 5 красных и 3 синих шара. Один шар извлекают случайно. Найдите вероятность того, что шар окажется красным. Ответ запишите в виде обыкновенной дроби.",
-    type: "input",
-    placeholder: "Например: 5/8"
-  },
-  {
-    tag: "Комбинаторика",
-    text: "Сколькими способами можно выбрать 2 человека из группы 8 для участия в олимпиаде? (Порядок выбора не важен.)",
-    type: "input",
-    placeholder: "Введите число"
-  },
+Mathematics: [
+  {tag:"Алгебра",text:"Решите уравнение: 3(2x − 4) = 2(x + 6). Чему равно x?",opts:["x = 3","x = 4","x = 5","x = 6"],ans:3},
+  {tag:"Прогрессии",text:"Арифметическая прогрессия: a₁ = 5, d = 3. Найдите сумму первых 10 членов S₁₀.",opts:["175","185","190","200"],ans:1},
+  {tag:"Алгебра",text:"Если 2x = 9 (то есть x = 4.5), найдите значение 2^(6x − 23).",opts:["8","16","32","4"],ans:1},
+  {tag:"Прогрессии",text:"Геометрическая прогрессия: b₁ = 2, q = 3. Найдите пятый член b₅.",opts:["54","81","162","486"],ans:2},
+  {tag:"Функции",text:"Найдите координаты вершины параболы f(x) = x² − 6x + 8.",opts:["(3; 1)","(3; −1)","(−3; −1)","(−3; 1)"],ans:1},
+  {tag:"Логарифмы",text:"Чему равно log₂(32)?",opts:["4","5","6","3"],ans:1},
+  {tag:"Комбинаторика",text:"Чему равно число сочетаний C(10, 3)?",opts:["60","120","90","30"],ans:1},
+  {tag:"Тригонометрия",text:"Вычислите: sin²(30°) + cos²(60°) + tan(45°).",opts:["1","1.5","2","0.5"],ans:1},
+  {tag:"Неравенства",text:"Сколько целых чисел удовлетворяют условию −2 < 2x + 1 ≤ 9?",opts:["4","5","6","7"],ans:2},
+  {tag:"Проценты",text:"Цену снизили на 20%, затем подняли на 25%. Каково итоговое изменение?",opts:["−5%","0%","+5%","+20%"],ans:1},
+  {tag:"Прогрессии",text:"Сумма бесконечной геометрической прогрессии: a₁ = 4, q = ½. Найдите сумму.",opts:["6","8","12","16"],ans:1},
+  {tag:"Тригонометрия",text:"Чему равно tan(135°)?",opts:["1","√2","−1","−√2"],ans:2},
+  {tag:"Системы уравнений",text:"Дано: p + q = 7, q + r = 11, p + q + r = 15. Найдите q.",opts:["1","2","3","4"],ans:2},
+  {tag:"Уравнения с модулем",text:"Решите уравнение |3x − 9| = 6. Сколько корней?",opts:["1 корень: x = 5","1 корень: x = 1","2 корня: x = 1 и x = 5","Нет решений"],ans:2},
+  {tag:"Прогрессии",text:"Арифметическая прогрессия: a₁ = 3, d = 4. Какой по счёту член равен 47?",opts:["10-й","11-й","12-й","13-й"],ans:2},
+  {tag:"Логарифмы",text:"Если log_a(27) = 3, чему равно a?",opts:["9","3","√3","6"],ans:1},
+  {tag:"Комбинаторика",text:"Четыре друга пожали друг другу руки (каждый с каждым один раз). Сколько рукопожатий?",opts:["4","6","8","12"],ans:1},
+  {tag:"Вероятность",text:"P(A) = 0.4, P(B) = 0.3, события независимы. Найдите P(A ∪ B).",opts:["0.70","0.58","0.12","0.50"],ans:1},
+  {tag:"Функции",text:"Парабола y = −2x² + 8x − 3. Укажите верное утверждение.",opts:["Ветви вверх, минимум","Ветви вниз, максимум","Ветви вверх, максимум","Ветви вниз, минимум"],ans:1},
+  {tag:"Степени",text:"Чему равно (3² × 3³) ÷ 3⁴?",opts:["3","9","27","1"],ans:0},
+],
 
-  /* ── БЛОК 2: Рассуждение и логика (11–30) ────────────────────── */
-  {
-    tag: "Алгебра — логика",
-    text: "Пусть p + q + r = 18, p + q = 5 и q + r = 9. Не используя систему уравнений с тремя неизвестными, объясните логически, как найти значение q. Запишите ход рассуждений и ответ.",
-    type: "textarea",
-    placeholder: "Опишите ход рассуждений шаг за шагом..."
-  },
-  {
-    tag: "Алгебра — понимание",
-    text: "Дискриминант квадратного уравнения ax² + bx + c = 0 равен нулю. Что это означает геометрически — как выглядит график параболы относительно оси Ox? Объясните своими словами и нарисуйте (опишите) схему.",
-    type: "textarea",
-    placeholder: "Объясните геометрический смысл..."
-  },
-  {
-    tag: "Функции — анализ",
-    text: "Функция f(x) = |x − 3| + |x + 1|. Не строя точный график, определите: при каком значении x функция принимает наименьшее значение и чему оно равно? Объясните логику рассуждений.",
-    type: "textarea",
-    placeholder: "Запишите рассуждение и ответ..."
-  },
-  {
-    tag: "Прогрессии — применение",
-    text: "Банк начисляет на вклад 10% годовых (сложные проценты). Вкладчик положил 100 000 тенге. Через сколько лет сумма вклада превысит 200 000 тенге? Объясните связь с геометрической прогрессией и запишите неравенство.",
-    type: "textarea",
-    placeholder: "Объясните связь с прогрессией и решите задачу..."
-  },
-  {
-    tag: "Прогрессии — логика",
-    text: "Два игрока играют в следующую игру: на столе лежат 21 монета, по очереди берут от 1 до 3 монет, проигрывает тот, кто берёт последнюю. Используя понятие арифметической прогрессии, объясните выигрышную стратегию первого игрока.",
-    type: "textarea",
-    placeholder: "Опишите стратегию и её математическое обоснование..."
-  },
-  {
-    tag: "Тригонометрия — понимание",
-    text: "Ученик утверждает: «sin(x) = 1,5 — у этого уравнения есть решение, просто оно очень большое». Прав ли он? Объясните, почему уравнение sin(x) = a не имеет решений при |a| > 1, используя определение синуса.",
-    type: "textarea",
-    placeholder: "Объясните ошибку ученика и правильный ответ..."
-  },
-  {
-    tag: "Тригонометрия — применение",
-    text: "Рабочий измеряет высоту столба. Он стоит на расстоянии 10 метров от столба и видит его верхушку под углом 35° к горизонту. Составьте тригонометрическое уравнение для нахождения высоты и объясните, какую тригонометрическую функцию нужно использовать и почему.",
-    type: "textarea",
-    placeholder: "Составьте уравнение и объясните выбор функции..."
-  },
-  {
-    tag: "Вероятность — рассуждение",
-    text: "Монету подбрасывают 5 раз подряд и каждый раз выпадает орёл. Одноклассник говорит: «В следующий раз точно выпадет решка — вероятность уже накопилась». Объясните ошибку в его рассуждении. Как называется это когнитивное искажение?",
-    type: "textarea",
-    placeholder: "Объясните ошибку и назовите явление..."
-  },
-  {
-    tag: "Вероятность — задача",
-    text: "На олимпиаде 30 учеников. Учитель говорит: «Вероятность того, что хотя бы двое из вас родились в один день — больше 70%.» Кажется ли вам это правдоподобным? Объясните интуитивно (или математически), почему это может быть верно. Это явление называется «парадокс дней рождения».",
-    type: "textarea",
-    placeholder: "Объясните свои рассуждения..."
-  },
-  {
-    tag: "Комбинаторика — логика",
-    text: "На чемпионате участвуют 8 команд. Каждая команда играет с каждой другой ровно один раз. Сколько всего матчей будет сыграно? Запишите два разных способа получить ответ: один через формулу сочетаний, другой через логическое рассуждение.",
-    type: "textarea",
-    placeholder: "Запишите оба способа решения..."
-  },
-  {
-    tag: "Функции — исследование",
-    text: "Функция f(x) = x³ − 3x. Не используя производную, попробуйте определить: является ли функция чётной, нечётной или никакой? Имеет ли она точки пересечения с осью Ox? Запишите свои рассуждения.",
-    type: "textarea",
-    placeholder: "Запишите полное исследование функции..."
-  },
-  {
-    tag: "Алгебра — доказательство",
-    text: "Докажите или опровергните утверждение: «Произведение двух нечётных чисел всегда является нечётным». Используйте алгебраическую запись.",
-    type: "textarea",
-    placeholder: "Запишите алгебраическое доказательство..."
-  },
-  {
-    tag: "Логика — числа",
-    text: "Число N при делении на 3 даёт остаток 1, при делении на 5 даёт остаток 3. Найдите наименьшее такое натуральное число и объясните метод поиска. Можно ли найти все такие числа? Как они расположены на числовой прямой?",
-    type: "textarea",
-    placeholder: "Найдите число и опишите метод..."
-  },
-  {
-    tag: "Статистика — анализ",
-    text: "В классе провели тест. Результаты (в баллах): 45, 67, 72, 55, 88, 91, 60, 73, 82, 49. Учитель говорит: «Средний балл — 68,2, значит большинство учеников справились неплохо». Согласны ли вы с этим выводом? Подкрепите своё мнение вычислениями (среднее, медиана, разброс).",
-    type: "textarea",
-    placeholder: "Проведите анализ и сформулируйте вывод..."
-  },
-  {
-    tag: "Реальная ситуация",
-    text: "В магазине две акции: «Скидка 30% на весь товар» или «Купи два — третий в подарок». Для какого случая выгоднее первая акция, а для какого — вторая? Проведите математическое сравнение на конкретном примере.",
-    type: "textarea",
-    placeholder: "Приведите пример, посчитайте и сделайте вывод..."
-  },
-  {
-    tag: "Реальная ситуация",
-    text: "Мобильный оператор предлагает два тарифа. Тариф А: 1500 тг/мес + 20 тг за каждую минуту звонков. Тариф Б: 3500 тг/мес, звонки бесплатно. При каком количестве минут в месяц выгоднее тариф Б? Составьте неравенство и решите его. Какой тариф выбрали бы вы и почему?",
-    type: "textarea",
-    placeholder: "Составьте неравенство, решите и обоснуйте выбор..."
-  },
-  {
-    tag: "Логика — последовательности",
-    text: "Запишите следующие три числа последовательности: 1, 1, 2, 3, 5, 8, 13, ... и объясните закономерность. Как называется эта последовательность? Попробуйте объяснить, где она встречается в природе или архитектуре.",
-    type: "textarea",
-    placeholder: "Продолжите последовательность и объясните закономерность..."
-  },
-  {
-    tag: "Функции — моделирование",
-    text: "Мяч бросают вертикально вверх. Высота мяча в метрах задаётся формулой h(t) = −5t² + 20t, где t — время в секундах. Определите: а) в какой момент мяч достигнет максимальной высоты; б) какова эта высота; в) когда мяч упадёт на землю. Запишите рассуждения.",
-    type: "textarea",
-    placeholder: "Решите все три части задачи..."
-  },
-  {
-    tag: "Открытый вопрос",
-    text: "Два ученика решают одну и ту же задачу разными способами и получают один и тот же ответ. Первый использовал алгебру, второй — графический метод. Что это говорит о математике? Можно ли считать один метод «правильнее» другого? Обоснуйте свою точку зрения.",
-    type: "textarea",
-    placeholder: "Напишите развёрнутое рассуждение..."
-  },
-  {
-    tag: "Открытый вопрос",
-    text: "Представьте, что вы объясняете своему младшему брату или сестре (6 класс), что такое функция. Как бы вы объяснили это понятие простыми словами, без формул? Используйте жизненный пример.",
-    type: "textarea",
-    placeholder: "Напишите объяснение простым языком с примером..."
-  },
-];
+Physics: [
+  {tag:"Механика",text:"Тело брошено вертикально вверх со скоростью 20 м/с. Максимальная высота подъёма (g = 10 м/с²)?",opts:["10 м","20 м","40 м","4 м"],ans:1},
+  {tag:"Волны",text:"Волна: частота 200 Гц, длина волны 1.7 м. Скорость волны?",opts:["200 м/с","1.7 м/с","340 м/с","117 м/с"],ans:2},
+  {tag:"Термодинамика",text:"КПД цикла Карно при T₁ = 500 К и T₂ = 300 К?",opts:["30%","40%","50%","60%"],ans:1},
+  {tag:"Квантовая физика",text:"Фотон с энергией 4 эВ выбивает электрон (работа выхода 1.5 эВ). Кинетическая энергия электрона?",opts:["5.5 эВ","2.5 эВ","4 эВ","1.5 эВ"],ans:1},
+  {tag:"Механика",text:"При абсолютно упругом столкновении сохраняются:",opts:["Только кинетическая энергия","Только импульс","Обе величины","Ни одна из них"],ans:2},
+  {tag:"Электричество",text:"Два резистора R₁ = 100 Ω соединены последовательно. Общее сопротивление?",opts:["50 Ω","100 Ω","200 Ω","400 Ω"],ans:2},
+  {tag:"Электричество",text:"Закон Ома: V = 12 В, R = 4 Ω. Ток в цепи?",opts:["48 А","8 А","3 А","0.33 А"],ans:2},
+  {tag:"Газовые законы",text:"Газ сжимается при постоянной температуре (изотермический процесс). Давление...",opts:["Уменьшается","Остаётся прежним","Увеличивается","Становится нулём"],ans:2},
+  {tag:"Механика",text:"Тело m = 2 кг, скорость v = 5 м/с. Импульс тела?",opts:["2.5 кг·м/с","7 кг·м/с","10 кг·м/с","25 кг·м/с"],ans:2},
+  {tag:"Кинематика",text:"Тело падает с высоты 80 м. Время падения (g = 10 м/с²)?",opts:["2 с","4 с","8 с","√8 с"],ans:1},
+  {tag:"Механика",text:"Кинетическая энергия тела 100 Дж, масса 2 кг. Скорость тела?",opts:["5 м/с","10 м/с","20 м/с","50 м/с"],ans:1},
+  {tag:"Электричество",text:"Два резистора R₁ = 6 Ω и R₂ = 3 Ω соединены параллельно. Общее сопротивление?",opts:["2 Ω","3 Ω","9 Ω","18 Ω"],ans:0},
+  {tag:"Оптика",text:"Скорость света в вакууме приблизительно равна...",opts:["3×10⁶ м/с","3×10⁸ м/с","3×10¹⁰ м/с","3×10⁵ м/с"],ans:1},
+  {tag:"Колебания",text:"Период колебаний T = 0.5 с. Чему равна частота колебаний?",opts:["0.5 Гц","1 Гц","2 Гц","5 Гц"],ans:2},
+  {tag:"Ядерная физика",text:"Какой процесс является источником энергии Солнца?",opts:["Ядерное деление","Ядерный синтез","Оба процесса","Ни один из них"],ans:1},
+  {tag:"Упругость",text:"Закон Гука: жёсткость пружины k = 200 Н/м, удлинение x = 0.05 м. Сила?",opts:["4000 Н","10 Н","0.25 Н","4 Н"],ans:1},
+  {tag:"Тепловое расширение",text:"При нагревании одинаковых масс вещества какое состояние расширяется больше?",opts:["Твёрдое","Жидкое","Газообразное","Все одинаково"],ans:2},
+  {tag:"Электричество",text:"Какой знак заряда у электрона?",opts:["Положительный","Отрицательный","Нейтральный","Зависит от условий"],ans:1},
+  {tag:"Энергия",text:"Сколько джоулей в 1 кВт·ч?",opts:["3.6×10³ Дж","3.6×10⁶ Дж","3.6×10⁹ Дж","1000 Дж"],ans:1},
+  {tag:"Гидростатика",text:"Сила Архимеда (выталкивающая сила) равна...",opts:["Весу тела","Весу вытесненной жидкости","Массе тела","Объёму тела"],ans:1},
+],
 
-/* ══ State ══════════════════════════════════════════════════════ */
-const answers  = new Array(QUESTIONS.length).fill("");
-let currentQ   = 0;
-let violations = 0;
-let submitted  = false;
-let timerSecs  = DURATION_MINUTES * 60;
+"Computer Science": [
+  {tag:"Системы счисления",text:"Переведите число 42 из десятичной системы в двоичную.",opts:["101010","110010","101100","100110"],ans:0},
+  {tag:"Алгоритмы",text:"Временная сложность алгоритма сортировки слиянием (Merge Sort) в худшем случае:",opts:["O(n)","O(n²)","O(n log n)","O(log n)"],ans:2},
+  {tag:"Структуры данных",text:"Стек: push(1), push(2), push(3), pop(). Какое значение возвращает pop()?",opts:["1","2","3","Ошибка"],ans:2},
+  {tag:"Булева алгебра",text:"Вычислите: NOT (True AND False).",opts:["True","False","Null","Ошибка"],ans:0},
+  {tag:"Базы данных",text:"В таблице оценки: [6, 9, 7, 10, 8, 9, 10]. Сколько строк вернёт SELECT COUNT(*) FROM t WHERE grade >= 9?",opts:["3","4","5","2"],ans:1},
+  {tag:"Алгоритмы",text:"Временная сложность бинарного поиска в отсортированном массиве?",opts:["O(1)","O(log n)","O(n)","O(n log n)"],ans:1},
+  {tag:"Сети",text:"Какой HTTP-метод используется для отправки данных формы на сервер?",opts:["GET","PUT","POST","DELETE"],ans:2},
+  {tag:"Архитектура",text:"Какая память является энергозависимой (теряет данные при отключении питания)?",opts:["RAM","ROM","Оба","Ни один"],ans:0},
+  {tag:"Структуры данных",text:"Очередь: enqueue(A), enqueue(B), enqueue(C), dequeue(). Что возвращает dequeue()?",opts:["A","B","C","Ошибка"],ans:0},
+  {tag:"Сети",text:"Что означает аббревиатура DNS?",opts:["Data Network Service","Dynamic Name Server","Domain Name System","Digital Network System"],ans:2},
+  {tag:"Математика",text:"Какое следующее число в последовательности Фибоначчи: 1, 1, 2, 3, 5, 8, ...?",opts:["10","12","13","15"],ans:2},
+  {tag:"Архитектура",text:"Сколько бит содержится в 1 байте?",opts:["4","8","16","32"],ans:1},
+  {tag:"Алгоритмы",text:"Рекурсия — это:",opts:["Разновидность цикла","Функция, вызывающая саму себя","Ошибка программы","Алгоритм сортировки"],ans:1},
+  {tag:"Алгоритмы",text:"Какой алгоритм сортировки имеет лучшую среднюю временную сложность?",opts:["Пузырьком O(n²)","Вставками O(n²)","Быстрая O(n log n) avg","Выбором O(n²)"],ans:2},
+  {tag:"Базы данных",text:"Какой тип JOIN возвращает все строки из обеих таблиц, включая несовпадающие?",opts:["INNER JOIN","LEFT JOIN","RIGHT JOIN","FULL OUTER JOIN"],ans:3},
+  {tag:"ООП",text:"Какой принцип ООП означает «один интерфейс — множество реализаций»?",opts:["Инкапсуляция","Наследование","Полиморфизм","Абстракция"],ans:2},
+  {tag:"Сети",text:"Сколько бит в адресе IPv4?",opts:["16","32","64","128"],ans:1},
+  {tag:"Сети",text:"Расшифруйте аббревиатуру HTTP.",opts:["HyperText Transfer Protocol","High Transfer Text Protocol","Hyper Transport Protocol","Home Text Transfer Protocol"],ans:0},
+  {tag:"Программирование",text:"В Python: что вернёт выражение len([1, 2, 3, 4])?",opts:["3","4","5","Ошибка"],ans:1},
+  {tag:"Машинное обучение",text:"Модель машинного обучения, обученная на размеченных данных с правильными ответами, называется:",opts:["Обучение без учителя","Обучение с учителем","Обучение с подкреплением","Трансферное обучение"],ans:1},
+],
+
+Biology: [
+  {tag:"Клеточная биология",text:"В какой органелле клетки синтезируется большинство молекул АТФ?",opts:["Ядро","Рибосома","Митохондрия","Аппарат Гольджи"],ans:2},
+  {tag:"Молекулярная биология",text:"С каким азотистым основанием спаривается аденин в молекуле ДНК?",opts:["Гуанин","Цитозин","Урацил","Тимин"],ans:3},
+  {tag:"Генетика",text:"Сколько хромосом содержится в гаплоидной клетке человека?",opts:["23","46","44","48"],ans:0},
+  {tag:"Клеточная биология",text:"Какая органелла отвечает за синтез белков?",opts:["Митохондрия","Рибосома","Вакуоль","Лизосома"],ans:1},
+  {tag:"Биотехнологии",text:"Белок Cas9 в системе CRISPR выполняет роль:",opts:["Направляющей РНК","Молекулярных ножниц","ДНК-полимеразы","Промотора"],ans:1},
+  {tag:"Деление клетки",text:"Сколько дочерних клеток образуется в результате митоза?",opts:["2","4","3","1"],ans:0},
+  {tag:"Деление клетки",text:"Мейоз происходит при образовании:",opts:["Клеток роста и регенерации","При бесполом размножении","Гамет","Молекул АТФ"],ans:2},
+  {tag:"Молекулярная биология",text:"Какое основание присутствует в РНК, но отсутствует в ДНК?",opts:["Аденин","Гуанин","Тимин","Урацил"],ans:3},
+  {tag:"Эволюция",text:"Естественный отбор действует непосредственно на...",opts:["Только генотип","Фенотип","ДНК напрямую","Только РНК"],ans:1},
+  {tag:"Генетика",text:"Оба родителя гетерозиготны (Aa). Вероятность рождения ребёнка с голубыми глазами (aa)?",opts:["75%","50%","25%","0%"],ans:2},
+  {tag:"Фотосинтез",text:"В какой органелле происходит фотосинтез?",opts:["Митохондрия","Ядро","Хлоропласт","Рибосома"],ans:2},
+  {tag:"Иммунология",text:"Какая группа крови является универсальным донором эритроцитов?",opts:["A+","AB+","O−","B+"],ans:2},
+  {tag:"Эволюция",text:"Устойчивость бактерий к антибиотикам возникает главным образом через:",opts:["Намеренные мутации","Естественный отбор","Иммунный ответ","Вирусное заражение"],ans:1},
+  {tag:"Клеточная биология",text:"Клеточная мембрана состоит главным образом из:",opts:["Белкового слоя","Фосфолипидного бислоя","Углеводной сетки","Целлюлозной стенки"],ans:1},
+  {tag:"Физиология",text:"Какой гормон снижает уровень глюкозы в крови?",opts:["Глюкагон","Адреналин","Инсулин","Кортизол"],ans:2},
+  {tag:"Эволюция",text:"По теории Дарвина, организмы, лучше всего приспособленные к среде...",opts:["Живут вечно","Не мутируют","Выживают и размножаются","Становятся хищниками"],ans:2},
+  {tag:"Молекулярная биология",text:"Процесс синтеза мРНК на матрице ДНК называется:",opts:["Трансляция","Транскрипция","Репликация","Дупликация"],ans:1},
+  {tag:"Биохимия",text:"Ферменты по химической природе являются:",opts:["Липидами","Углеводами","Белками","ДНК"],ans:2},
+  {tag:"Физиология",text:"Нормальная температура тела человека (°C)?",opts:["35 °C","37 °C","39 °C","40 °C"],ans:1},
+  {tag:"Экология",text:"Первичными продуцентами в экосистеме являются:",opts:["Плотоядные","Травоядные","Растения/автотрофы","Редуценты"],ans:2},
+],
+
+Economics: [
+  {tag:"Эластичность",text:"Цена: 500→600 тг, спрос: 200→160 ед. Коэффициент ценовой эластичности спроса (PED)?",opts:["−2","−1","−0.5","−0.25"],ans:1},
+  {tag:"Макроэкономика",text:"ВВП измеряет...",opts:["Совокупный экспорт","Совокупную стоимость произведённых товаров и услуг","Государственные расходы","Совокупный доход граждан"],ans:1},
+  {tag:"Инфляция",text:"Инфляция означает...",opts:["Падение цен","Укрепление валюты","Общий рост цен","Рост безработицы"],ans:2},
+  {tag:"Монетарная политика",text:"Монетарную политику в стране проводит...",opts:["Парламент","Президент","Центральный банк","Коммерческие банки"],ans:2},
+  {tag:"Процентные ставки",text:"Если ЦБ повышает ключевую ставку, кредиты становятся...",opts:["Дешевле","Дороже","Бесплатными","Недоступными"],ans:1},
+  {tag:"Международная торговля",text:"Страна А: 100 ед. пшеницы OR 50 ед. ткани. Страна Б: 60 OR 60. Кто имеет сравнительное преимущество в производстве ткани?",opts:["Страна А","Страна Б","Обе","Ни одна"],ans:1},
+  {tag:"Провалы рынка",text:"«Провал рынка» означает, что рынок...",opts:["Устанавливает слишком высокие цены","Неэффективно распределяет ресурсы","Контролируется государством","Приносит убытки всем фирмам"],ans:1},
+  {tag:"Микроэкономика",text:"Кривая спроса фирмы в условиях совершенной конкуренции является...",opts:["Убывающей","Возрастающей","Горизонтальной","Вертикальной"],ans:2},
+  {tag:"Макроэкономика",text:"ВВП на душу населения = ?",opts:["ВВП × Население","ВВП − Налоги","ВВП / Население","ВВП + Экспорт"],ans:2},
+  {tag:"Международная торговля",text:"Тариф — это налог на...",opts:["Экспортируемые товары","Отечественные товары","Импортируемые товары","Все товары"],ans:2},
+  {tag:"Эластичность",text:"PED для предметов роскоши, как правило...",opts:["Неэластичный |PED|<1","Эластичный |PED|>1","Единичная эластичность","Нулевой"],ans:1},
+  {tag:"Макроэкономика",text:"Реальный ВВП отличается от номинального тем, что...",opts:["Реальный включает госрасходы","Реальный скорректирован на инфляцию","Номинальный всегда выше","Они идентичны"],ans:1},
+  {tag:"Микроэкономика",text:"Альтернативная стоимость (opportunity cost) поступления в университет — это...",opts:["Только плата за обучение","Упущенная зарплата при работе","Расходы на жильё","Плата за обучение + упущенная зарплата"],ans:3},
+  {tag:"Общественные блага",text:"Общественное благо характеризуется как...",opts:["Продаётся государством","Неисключаемое и несоперничающее","Очень дорогостоящее","Жизненно необходимое"],ans:1},
+  {tag:"Микроэкономика",text:"Если спрос превышает предложение при текущей цене, цена будет...",opts:["Падать","Расти","Оставаться неизменной","Устанавливаться государством"],ans:1},
+  {tag:"Фискальная политика",text:"Фискальная политика предполагает изменение...",opts:["Процентных ставок","Денежной массы","Госрасходов и налогов","Валютного курса"],ans:2},
+  {tag:"Микроэкономика",text:"Кривая производственных возможностей (КПВ) показывает...",opts:["Кривую спроса","Кривую предложения","Максимально возможные комбинации производства двух товаров","Кривую Лаффера"],ans:2},
+  {tag:"Инфляция",text:"Гиперинфляция означает темп инфляции...",opts:["5–10%","10–20%","20–50%","Чрезвычайно высокий (сотни и более %)"],ans:3},
+  {tag:"Макроэкономика",text:"Если MPC = 0.8, фискальный мультипликатор равен...",opts:["2","4","5","8"],ans:2},
+  {tag:"Микроэкономика",text:"По сравнению с совершенной конкуренцией, монополия устанавливает...",opts:["Более низкую цену при бо́льшем объёме","Более высокую цену при меньшем объёме","Такую же цену при том же объёме","Более низкую цену при меньшем объёме"],ans:1},
+],
+
+Humanities: [
+  {tag:"Вторая мировая война",text:"В каком году закончилась Вторая мировая война?",opts:["1943","1944","1945","1946"],ans:2},
+  {tag:"История Казахстана",text:"В каком году Казахстан провозгласил независимость?",opts:["1989","1990","1991","1992"],ans:2},
+  {tag:"Международные организации",text:"Сколько постоянных членов насчитывает Совет Безопасности ООН?",opts:["3","5","7","10"],ans:1},
+  {tag:"Права человека",text:"В каком году была принята Всеобщая декларация прав человека?",opts:["1945","1948","1950","1956"],ans:1},
+  {tag:"Философия",text:"Кто написал трактат «Левиафан» об общественном договоре и природе государства?",opts:["Джон Локк","Жан-Жак Руссо","Томас Гоббс","Иммануил Кант"],ans:2},
+  {tag:"Устойчивое развитие",text:"Сколько Целей устойчивого развития (ЦУР) ООН приняла в 2015 году?",opts:["8","12","15","17"],ans:3},
+  {tag:"Холодная война",text:"Холодная война (1947–1991) — это прежде всего противостояние между...",opts:["США и Китаем","США и СССР","СССР и Европой","Великобританией и Россией"],ans:1},
+  {tag:"Политическая философия",text:"Теория общественного договора утверждает, что власть государства...",opts:["Дана королям Богом","Исходит от военной силы","Основана на согласии граждан","Определяется религиозными законами"],ans:2},
+  {tag:"Первая мировая война",text:"Непосредственным поводом к началу Первой мировой войны послужило...",opts:["Приход Гитлера к власти","Убийство эрцгерцога Франца Фердинанда на фоне системы альянсов","Русская революция","Великая депрессия"],ans:1},
+  {tag:"Права человека",text:"Всеобщая декларация прав человека состоит из...",opts:["20 статей","25 статей","30 статей","50 статей"],ans:2},
+  {tag:"Философия",text:"Кто написал «Государство» («Республику») — трактат об идеальном государстве?",opts:["Аристотель","Сократ","Платон","Декарт"],ans:2},
+  {tag:"Этика",text:"Утилитаризм считает, что правильное действие — то, которое...",opts:["Всегда следует моральным правилам","Максимизирует общую пользу и счастье","Защищает права личности","Соответствует религиозному закону"],ans:1},
+  {tag:"История Казахстана",text:"Казахстан был принят в ООН в...",opts:["1991","1992","1993","1995"],ans:1},
+  {tag:"Политология",text:"Принцип «сдержек и противовесов» означает, что...",opts:["Правительство контролирует СМИ","Суды управляют экономикой","Ветви власти ограничивают полномочия друг друга","Армия следит за выборами"],ans:2},
+  {tag:"История",text:"Холокост — это...",opts:["Газовые атаки Первой мировой","Нацистский геноцид ~6 миллионов евреев","Советские репрессии","Атомная бомбардировка Японии"],ans:1},
+  {tag:"Этика",text:"Деонтологическая этика (Кант) сосредоточена на...",opts:["Результатах и последствиях","Социальных нормах","Следовании моральным правилам и долгу","Мнении большинства"],ans:2},
+  {tag:"История СССР",text:"Гласность и Перестройка — политика периода правления...",opts:["Сталина","Хрущёва","Брежнева","Горбачёва"],ans:3},
+  {tag:"История Казахстана",text:"Казахское ханство было основано приблизительно в...",opts:["1000 г.","1200 г.","1465 г.","1700 г."],ans:2},
+  {tag:"Этика",text:"«Задача о вагонетке» — известный мысленный эксперимент в области...",opts:["Экономики","Физики","Этики","Политологии"],ans:2},
+  {tag:"Международные отношения",text:"«Мягкая сила» (soft power) в международных отношениях — это влияние через...",opts:["Военную силу","Экономические санкции","Культуру, ценности и дипломатию","Ядерное сдерживание"],ans:2},
+],
+};
+
+/* ══ STATE ═══════════════════════════════════════════════════════ */
+const subject   = sessionStorage.getItem('ri_subject') || 'Mathematics';
+const questions = QUESTIONS[subject] || QUESTIONS['Mathematics'];
+const chosen    = new Array(questions.length).fill(-1); // -1 = unanswered
+let cur         = 0;
+let violations  = 0;
+let submitted   = false;
+let timerSecs   = DURATION_MINUTES * 60;
 let timerInterval;
 
-const userRaw = sessionStorage.getItem("ri_user");
+const userRaw = sessionStorage.getItem('ri_user');
 const user    = userRaw ? (function(){ try{ return JSON.parse(userRaw); }catch(e){ return {}; } })() : {};
 
-/* ══ Render ══════════════════════════════════════════════════════ */
-function renderQ() {
-  const q   = QUESTIONS[currentQ];
-  const pct = ((currentQ + 1) / QUESTIONS.length * 100).toFixed(1);
-  document.getElementById("progress-fill").style.width = pct + "%";
-  document.getElementById("q-counter").textContent =
-    "Вопрос " + (currentQ + 1) + " из " + QUESTIONS.length;
+const SN_RU = {Mathematics:'Математика',Physics:'Физика','Computer Science':'Информатика',Biology:'Биология',Economics:'Экономика',Humanities:'Гуманитарные науки'};
+const subjDisplay = SN_RU[subject] || subject;
+const LETTERS = ['A','B','C','D'];
 
-  /* Dots */
-  var html = "";
-  for (var i = 0; i < QUESTIONS.length; i++) {
-    var cls = "dot";
-    if (i === currentQ) cls += " current";
-    else if (answers[i] && answers[i].trim()) cls += " answered";
-    html += '<button class="' + cls + '" onclick="goToQ(' + i + ')">' + (i+1) + '</button>';
+/* ══ RENDER ══════════════════════════════════════════════════════ */
+function renderQ(){
+  var q   = questions[cur];
+  var pct = ((cur+1)/questions.length*100).toFixed(1);
+  document.getElementById('prog').style.width = pct+'%';
+  document.getElementById('qnum').textContent = 'Вопрос '+(cur+1)+' из '+questions.length;
+
+  // Dots
+  var d='';
+  for(var i=0;i<questions.length;i++){
+    var c='dot';
+    if(i===cur) c+=' cur';
+    else if(chosen[i]>=0) c+=' ans';
+    d+='<button class="'+c+'" onclick="goQ('+i+')">'+(i+1)+'</button>';
   }
-  document.getElementById("dots-row").innerHTML = html;
+  document.getElementById('dots').innerHTML=d;
 
-  /* Field */
-  var fieldHtml;
-  if (q.type === "textarea") {
-    fieldHtml =
-      '<div class="q-hint">Развёрнутый ответ:</div>' +
-      '<textarea class="ans-input" id="ans-field" rows="7" placeholder="' + (q.placeholder||"") + '">' +
-      (answers[currentQ]||"") + '</textarea>';
-  } else {
-    fieldHtml =
-      '<div class="q-hint">Ваш ответ:</div>' +
-      '<input type="text" class="ans-input" id="ans-field" placeholder="' + (q.placeholder||"") + '" value="' + (answers[currentQ]||"") + '" />';
-  }
-
-  document.getElementById("question-card").innerHTML =
-    '<div class="q-tag">' + q.tag + '</div>' +
-    '<div class="q-text">' + q.text + '</div>' +
-    fieldHtml;
-
-  document.getElementById("ans-field").addEventListener("input", function() {
-    answers[currentQ] = this.value;
-    refreshDots();
+  // Options
+  var opts='';
+  q.opts.forEach(function(o,i){
+    var sel=chosen[cur]===i?' sel':'';
+    opts+='<div class="opt'+sel+'" onclick="selectOpt('+i+')">'+
+      '<span class="opt-letter">'+LETTERS[i]+'</span>'+
+      '<span class="opt-text">'+o+'</span>'+
+    '</div>';
   });
 
-  document.getElementById("btn-prev").disabled = (currentQ === 0);
-  var isLast = (currentQ === QUESTIONS.length - 1);
-  document.getElementById("btn-next").style.display   = isLast ? "none"         : "inline-block";
-  document.getElementById("btn-submit").style.display = isLast ? "inline-block" : "none";
+  document.getElementById('qcard').innerHTML=
+    '<div class="q-tag">'+q.tag+'</div>'+
+    '<div class="q-text">'+q.text+'</div>'+
+    '<div class="options">'+opts+'</div>';
+
+  document.getElementById('bprev').disabled=(cur===0);
+  var last=(cur===questions.length-1);
+  document.getElementById('bnext').style.display=last?'none':'inline-block';
+  document.getElementById('bsub').style.display=last?'inline-block':'none';
 }
 
-function refreshDots() {
-  document.querySelectorAll(".dot").forEach(function(d, i) {
-    d.className = "dot";
-    if (i === currentQ) d.className += " current";
-    else if (answers[i] && answers[i].trim()) d.className += " answered";
+function selectOpt(i){
+  if(submitted) return;
+  chosen[cur]=i;
+  renderQ();
+}
+
+function refreshDots(){
+  document.querySelectorAll('.dot').forEach(function(d,i){
+    d.className='dot';
+    if(i===cur) d.className+=' cur';
+    else if(chosen[i]>=0) d.className+=' ans';
   });
 }
 
-function saveField() {
-  var f = document.getElementById("ans-field");
-  if (f) answers[currentQ] = f.value;
-}
+function prevQ(){ if(cur>0){ cur--; renderQ(); } }
+function nextQ(){ if(cur<questions.length-1){ cur++; renderQ(); } }
+function goQ(i){ cur=i; renderQ(); }
 
-function prevQ() { saveField(); if (currentQ > 0) { currentQ--; renderQ(); } }
-function nextQ() { saveField(); if (currentQ < QUESTIONS.length-1) { currentQ++; renderQ(); } }
-function goToQ(i) { saveField(); currentQ = i; renderQ(); }
-
-/* ══ Timer ══════════════════════════════════════════════════════ */
-function startTimer() {
-  timerInterval = setInterval(function() {
+/* ══ TIMER ═══════════════════════════════════════════════════════ */
+function startTimer(){
+  timerInterval=setInterval(function(){
     timerSecs--;
-    var m = Math.floor(timerSecs/60), s = timerSecs % 60;
-    var el = document.getElementById("timer-display");
-    el.textContent = m + ":" + (s<10?"0":"") + s;
-    if (timerSecs <= 300) el.classList.add("urgent");
-    if (timerSecs <= 0)   doSubmit("timeout");
-  }, 1000);
+    var m=Math.floor(timerSecs/60),s=timerSecs%60;
+    var el=document.getElementById('timer');
+    el.textContent=m+':'+(s<10?'0':'')+s;
+    if(timerSecs<=300) el.classList.add('urgent');
+    if(timerSecs<=0) doSubmit('timeout');
+  },1000);
 }
 
-/* ══ Submit ══════════════════════════════════════════════════════ */
-function confirmSubmit() { saveField(); doSubmit("manual"); }
+/* ══ SUBMIT + SCORE ══════════════════════════════════════════════ */
+function confirmSubmit(){ doSubmit('manual'); }
 
-async function doSubmit(reason) {
-  if (submitted) return;
-  submitted = true;
+async function doSubmit(reason){
+  if(submitted) return;
+  submitted=true;
   clearInterval(timerInterval);
-  if (document.fullscreenElement) document.exitFullscreen().catch(function(){});
-  document.getElementById("submitted-screen").classList.add("show");
+  if(document.fullscreenElement) document.exitFullscreen().catch(function(){});
 
-  var payload = QUESTIONS.map(function(q, i) {
-    return { n: i+1, question: q.text, answer: answers[i] || "" };
+  // Score
+  var correct=0;
+  var results=questions.map(function(q,i){
+    var ok=(chosen[i]===q.ans);
+    if(ok) correct++;
+    return { n:i+1, question:q.text, chosen:chosen[i], answer:q.ans, correct:ok, score:ok?5:0 };
   });
-  var ts = new Date().toLocaleString("ru-KZ", { timeZone: "Asia/Almaty" });
+  var total=correct*5; // 20 × 5 = 100
 
-  try {
-    await fetch(SHEETS_URL, {
-      method: "POST", mode: "no-cors",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        type:      "answers",
-        timestamp: ts,
-        login:     user.login || user.name || "unknown",
-        name:      user.name  || "unknown",
-        subject:   "Mathematics",
-        answers:   payload,
+  showResults(total, correct, results);
+
+  // Save to Sheets
+  var ts=new Date().toLocaleString('ru-KZ',{timeZone:'Asia/Almaty'});
+  try{
+    await fetch(SHEETS_URL,{
+      method:'POST',mode:'no-cors',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        type:'answers',
+        timestamp:ts,
+        login:user.login||'unknown',
+        name:user.name||'unknown',
+        subject:subject,
+        total_score:total,
+        answers:results.map(function(r){
+          return {n:r.n,question:r.question,answer:r.chosen>=0?LETTERS[r.chosen]+') '+questions[r.n-1].opts[r.chosen]:'—',score:r.score};
+        }),
       }),
     });
-    document.getElementById("sub-note").textContent = "Ответы сохранены.";
-  } catch(e) {
-    document.getElementById("sub-note").textContent = "";
+    document.getElementById('snote').textContent='Результаты сохранены.';
+  }catch(e){
+    document.getElementById('snote').textContent='';
   }
 }
 
-/* ══ Visibility ══════════════════════════════════════════════════ */
-document.addEventListener("visibilitychange", function() {
-  if (submitted || document.visibilityState !== "hidden") return;
-  violations++;
-  document.getElementById("warn-title").textContent = "Предупреждение";
-  document.getElementById("warn-body").textContent  =
-    violations >= 2
-      ? "Последнее предупреждение. Следующее нарушение автоматически сдаст вашу работу."
-      : "Вы переключили вкладку или свернули окно. Оставайтесь на этой странице.";
-  document.getElementById("warn-count").textContent =
-    "Нарушение " + violations + " из 2. Третье нарушение сдаст работу автоматически.";
-  document.getElementById("warn-overlay").classList.add("show");
-  if (violations >= 3) setTimeout(function(){ doSubmit("violation"); }, 600);
-});
+function showResults(total, correct, results){
+  document.getElementById('rscreen').classList.add('show');
+  document.getElementById('sbig').textContent=total;
 
-function closeWarn() {
-  document.getElementById("warn-overlay").classList.remove("show");
+  var lv,cls;
+  if(total>=85){lv='Distinction · Отличие';cls='lv-d';}
+  else if(total>=70){lv='Merit · Превосходно';cls='lv-m';}
+  else if(total>=55){lv='Pass · Зачёт';cls='lv-p';}
+  else{lv='Participation · Участие';cls='lv-x';}
+  document.getElementById('lvwrap').innerHTML='<div class="level-badge '+cls+'">'+lv+'</div>';
+
+  var bk='';
+  results.forEach(function(r){
+    bk+='<div class="bk-row">'+
+      '<div class="bk-n">'+r.n+'.</div>'+
+      '<div class="bk-txt">'+questions[r.n-1].text.substring(0,70)+(questions[r.n-1].text.length>70?'…':'')+'</div>'+
+      '<div class="bk-result '+(r.correct?'ok':'ng')+'">'+(r.correct?'✓':'✗')+'</div>'+
+    '</div>';
+  });
+  document.getElementById('bklist').innerHTML=bk;
+
+  window._rd={total:total,correct:correct,lv:lv};
 }
 
-/* ══ Anti-cheat ══════════════════════════════════════════════════ */
-document.addEventListener("contextmenu", function(e){ e.preventDefault(); });
-document.addEventListener("copy",        function(e){ e.preventDefault(); });
-document.addEventListener("keydown",     function(e){
-  if (e.key==="F12"){ e.preventDefault(); return; }
-  if (e.ctrlKey && ["u","U","s","S","p","P"].includes(e.key)) e.preventDefault();
-  if (e.ctrlKey && e.shiftKey && ["i","I","j","J","c","C"].includes(e.key)) e.preventDefault();
+/* ══ CERTIFICATE ══════════════════════════════════════════════════ */
+function showCert(){
+  var d=window._rd||{total:0,correct:0,lv:'Participation'};
+  var certNo='RI-2026-'+Math.floor(10000+Math.random()*90000);
+  var date=new Date().toLocaleDateString('ru-KZ',{day:'2-digit',month:'long',year:'numeric',timeZone:'Asia/Almaty'});
+
+  document.getElementById('cname').textContent=user.name||'Participant';
+  document.getElementById('cname2').textContent=user.name||'Participant';
+  document.getElementById('csubj').textContent=subjDisplay+' Olympiad';
+  document.getElementById('clvval').textContent=d.lv;
+  document.getElementById('cscnum').textContent=d.total;
+  document.getElementById('ccnum').textContent=d.correct+' / 20';
+  document.getElementById('cref').textContent=certNo;
+  document.getElementById('cdate').textContent=date;
+
+  document.getElementById('coverlay').classList.add('show');
+}
+
+/* ══ ANTI-CHEAT ══════════════════════════════════════════════════ */
+document.addEventListener('visibilitychange',function(){
+  if(submitted||document.visibilityState!=='hidden') return;
+  violations++;
+  document.getElementById('wtitle').textContent='Предупреждение';
+  document.getElementById('wbody').textContent=violations>=2
+    ?'Последнее предупреждение. Следующее нарушение автоматически сдаст вашу работу.'
+    :'Вы переключили вкладку или свернули окно.';
+  document.getElementById('wcnt').textContent='Нарушение '+violations+' из 2.';
+  document.getElementById('woverlay').classList.add('show');
+  if(violations>=3) setTimeout(function(){ doSubmit('violation'); },600);
+});
+function closeWarn(){ document.getElementById('woverlay').classList.remove('show'); }
+document.addEventListener('contextmenu',function(e){ e.preventDefault(); });
+document.addEventListener('copy',       function(e){ e.preventDefault(); });
+document.addEventListener('keydown',    function(e){
+  if(e.key==='F12'){ e.preventDefault(); return; }
+  if(e.ctrlKey&&['u','U','s','S','p','P'].includes(e.key)) e.preventDefault();
+  if(e.ctrlKey&&e.shiftKey&&['i','I','j','J','c','C'].includes(e.key)) e.preventDefault();
 });
 
-/* ══ Fullscreen ══════════════════════════════════════════════════ */
+/* ══ BOOT ════════════════════════════════════════════════════════ */
 (function(){
-  var el = document.documentElement;
-  if (el.requestFullscreen)            el.requestFullscreen();
-  else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+  document.getElementById('top-subject').textContent=subjDisplay;
+  document.getElementById('slbl').textContent='Олимпиада · '+subjDisplay;
+  document.title=subjDisplay+' — The Russell Institute';
+  var el=document.documentElement;
+  if(el.requestFullscreen) el.requestFullscreen();
+  else if(el.webkitRequestFullscreen) el.webkitRequestFullscreen();
   renderQ();
   startTimer();
 })();
