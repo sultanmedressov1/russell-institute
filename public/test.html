@@ -23,25 +23,24 @@ body{font-family:'Lora',Georgia,serif;background:#1A2B45;color:#EEE8E0;min-heigh
 .slbl{font-family:'Cormorant SC',serif;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:#C8A87A;}
 .q-num{font-family:'Lora',serif;font-size:.8rem;color:#5A6A7A;margin-top:5px;}
 .dots{display:flex;flex-wrap:wrap;gap:5px;margin:18px 0 22px;}
-.dot{width:28px;height:28px;border:1px solid rgba(200,168,122,.16);background:transparent;color:#5A6A7A;font-family:'Cormorant SC',serif;font-size:.62rem;cursor:pointer;transition:all .18s;display:flex;align-items:center;justify-content:center;}
+.dot{width:26px;height:26px;border:1px solid rgba(200,168,122,.16);background:transparent;color:#5A6A7A;font-family:'Cormorant SC',serif;font-size:.58rem;cursor:pointer;transition:all .18s;display:flex;align-items:center;justify-content:center;}
 .dot.ans{border-color:rgba(200,168,122,.5);color:#C8A87A;}
 .dot.cur{background:#C8A87A;color:#1A2B45;border-color:#C8A87A;}
 .q-card{background:rgba(255,254,249,.04);border:1px solid rgba(200,168,122,.13);padding:36px 42px;margin-bottom:24px;}
 .q-tag{font-family:'Cormorant SC',serif;font-size:.54rem;letter-spacing:.2em;text-transform:uppercase;color:#4A6A8A;margin-bottom:12px;}
-.q-text{font-family:'EB Garamond',serif;font-size:1.2rem;line-height:1.7;color:#EEE8E0;margin-bottom:28px;}
-.options{display:flex;flex-direction:column;gap:10px;}
-.opt{display:flex;align-items:center;gap:14px;padding:13px 18px;border:1px solid rgba(200,168,122,.16);background:rgba(255,254,249,.02);cursor:pointer;transition:all .18s;}
+.q-text{font-family:'EB Garamond',serif;font-size:1.18rem;line-height:1.68;color:#EEE8E0;margin-bottom:26px;}
+.options{display:flex;flex-direction:column;gap:9px;}
+.opt{display:flex;align-items:center;gap:14px;padding:12px 18px;border:1px solid rgba(200,168,122,.16);background:rgba(255,254,249,.02);cursor:pointer;transition:all .18s;}
 .opt:hover{border-color:rgba(200,168,122,.38);background:rgba(200,168,122,.06);}
 .opt.sel{border-color:#C8A87A;background:rgba(200,168,122,.14);}
-.opt-letter{font-family:'Cormorant SC',serif;font-size:.72rem;letter-spacing:.12em;color:#C8A87A;min-width:22px;flex-shrink:0;}
-.opt-text{font-family:'Lora',serif;font-size:.88rem;color:#C8D8E8;line-height:1.45;}
+.opt-letter{font-family:'Cormorant SC',serif;font-size:.7rem;letter-spacing:.12em;color:#C8A87A;min-width:20px;flex-shrink:0;}
+.opt-text{font-family:'Lora',serif;font-size:.86rem;color:#C8D8E8;line-height:1.42;}
 .nav-row{display:flex;justify-content:space-between;align-items:center;gap:12px;}
 .btn-nav{font-family:'Cormorant SC',serif;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;border:1px solid rgba(200,216,240,.16);background:transparent;color:#8AAABE;padding:12px 30px;cursor:pointer;transition:all .22s;}
 .btn-nav:hover:not(:disabled){border-color:#C8A87A;color:#C8A87A;}
 .btn-nav:disabled{opacity:.2;cursor:not-allowed;}
 .btn-submit{font-family:'Cormorant SC',serif;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;border:none;background:#C8A87A;color:#1A2B45;padding:13px 42px;cursor:pointer;transition:all .22s;}
 .btn-submit:hover{background:#EEE8E0;}
-/* Warning */
 .overlay{display:none;position:fixed;inset:0;z-index:500;background:rgba(10,18,28,.92);align-items:center;justify-content:center;padding:24px;}
 .overlay.show{display:flex;}
 .warn-box{background:#F9F7F2;color:#1A2B45;max-width:440px;width:100%;padding:44px;border:2px solid #8B2020;text-align:center;}
@@ -51,7 +50,6 @@ body{font-family:'Lora',Georgia,serif;background:#1A2B45;color:#EEE8E0;min-heigh
 .warn-count{font-family:'Cormorant SC',serif;font-size:.66rem;letter-spacing:.16em;color:#8B2020;margin-bottom:24px;}
 .btn-warn{font-family:'Cormorant SC',serif;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;background:#1A2B45;color:#F9F7F2;border:none;padding:13px 36px;cursor:pointer;}
 .btn-warn:hover{background:#4A0E0E;}
-/* Results */
 .results-screen{display:none;position:fixed;inset:0;z-index:600;background:#0E1620;overflow-y:auto;padding:56px 40px 60px;}
 .results-screen.show{display:block;}
 .res-inner{max-width:640px;margin:0 auto;}
@@ -65,50 +63,48 @@ body{font-family:'Lora',Georgia,serif;background:#1A2B45;color:#EEE8E0;min-heigh
 .lv-p{border:1px solid #C8A87A;color:#C8A87A;}
 .lv-x{border:1px solid rgba(200,216,240,.2);color:#7A9AB8;}
 .bk-title{font-family:'Cormorant SC',serif;font-size:.58rem;letter-spacing:.24em;text-transform:uppercase;color:#C8A87A;margin-bottom:14px;}
-.bk-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
-.bk-n{font-family:'Cormorant SC',serif;font-size:.62rem;color:#5A6A7A;min-width:26px;}
-.bk-txt{font-family:'Lora',serif;font-size:.74rem;color:#8AAABE;flex:1;line-height:1.35;}
-.bk-result{font-family:'EB Garamond',serif;font-size:.9rem;min-width:24px;text-align:center;}
+.bk-row{display:flex;align-items:center;gap:10px;margin-bottom:7px;}
+.bk-n{font-family:'Cormorant SC',serif;font-size:.6rem;color:#5A6A7A;min-width:24px;}
+.bk-txt{font-family:'Lora',serif;font-size:.73rem;color:#8AAABE;flex:1;line-height:1.32;}
+.bk-result{font-family:'EB Garamond',serif;font-size:.9rem;min-width:22px;text-align:center;}
 .bk-result.ok{color:#6AB86A;}
 .bk-result.ng{color:#C84040;}
 .cert-btn{font-family:'Cormorant SC',serif;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;background:#C8A87A;color:#1A2B45;border:none;padding:14px 42px;cursor:pointer;margin-top:36px;transition:background .22s;}
 .cert-btn:hover{background:#EEE8E0;}
 .save-note{font-family:'Lora',serif;font-size:.7rem;color:#4A6A7A;font-style:italic;margin-top:14px;}
-/* Certificate */
-.cert-overlay{display:none;position:fixed;inset:0;z-index:700;background:rgba(10,18,28,.96);align-items:center;justify-content:center;padding:24px;}
+.cert-overlay{display:none;position:fixed;inset:0;z-index:700;background:rgba(10,18,28,.96);align-items:center;justify-content:center;padding:24px;overflow-y:auto;}
 .cert-overlay.show{display:flex;}
-.cert-wrap{}
 .certificate{background:#FDFAF5;color:#1A2B45;width:760px;max-width:100%;padding:52px 60px;position:relative;}
 .cc{position:absolute;width:42px;height:42px;border-color:#C8A87A;border-style:solid;opacity:.45;}
 .cc.tl{top:18px;left:18px;border-width:1.5px 0 0 1.5px;}
 .cc.tr{top:18px;right:18px;border-width:1.5px 1.5px 0 0;}
 .cc.bl{bottom:18px;left:18px;border-width:0 0 1.5px 1.5px;}
 .cc.br{bottom:18px;right:18px;border-width:0 1.5px 1.5px 0;}
-.c-hdr{text-align:center;margin-bottom:28px;padding-bottom:22px;border-bottom:1px solid #D8CEB8;}
+.c-hdr{text-align:center;margin-bottom:26px;padding-bottom:20px;border-bottom:1px solid #D8CEB8;}
 .c-inst{font-family:'Cormorant SC',serif;font-size:.68rem;letter-spacing:.26em;color:#9A8878;margin-bottom:7px;}
 .c-doc{font-family:'EB Garamond',serif;font-size:1.9rem;color:#1A2B45;font-weight:400;margin-bottom:3px;}
 .c-doc-sub{font-family:'Lora',serif;font-size:.74rem;font-style:italic;color:#7A6A58;}
-.gline{height:1.5px;background:linear-gradient(90deg,transparent,#C8A87A 20%,#C8A87A 80%,transparent);margin:18px 0;}
+.gline{height:1.5px;background:linear-gradient(90deg,transparent,#C8A87A 20%,#C8A87A 80%,transparent);margin:16px 0;}
 .c-body{text-align:center;}
-.c-pres{font-family:'Lora',serif;font-size:.8rem;color:#7A6A58;letter-spacing:.06em;margin-bottom:10px;}
-.c-name{font-family:'EB Garamond',serif;font-size:2.3rem;color:#1A2B45;font-weight:400;margin-bottom:10px;}
+.c-pres{font-family:'Lora',serif;font-size:.8rem;color:#7A6A58;letter-spacing:.06em;margin-bottom:8px;}
+.c-name{font-family:'EB Garamond',serif;font-size:2.2rem;color:#1A2B45;font-weight:400;margin-bottom:10px;}
+.c-cand-box{background:#1A2B45;padding:9px 22px;margin-bottom:18px;display:inline-block;}
+.c-cand-lbl{font-family:'Cormorant SC',serif;font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:#7A9AB8;margin-bottom:2px;}
+.c-cand-name{font-family:'EB Garamond',serif;font-size:1.05rem;color:#EEE8E0;}
 .c-ach{font-family:'Lora',serif;font-size:.8rem;color:#5A6A7A;margin-bottom:7px;}
-.c-subj{font-family:'EB Garamond',serif;font-size:1.55rem;color:#1A2B45;margin-bottom:7px;}
-.c-year{font-family:'Cormorant SC',serif;font-size:.68rem;letter-spacing:.18em;color:#7A6A58;margin-bottom:24px;}
-.c-lv-box{display:inline-block;border:1.5px solid #1A2B45;padding:9px 30px;margin-bottom:24px;}
+.c-subj{font-family:'EB Garamond',serif;font-size:1.5rem;color:#1A2B45;margin-bottom:6px;}
+.c-year{font-family:'Cormorant SC',serif;font-size:.68rem;letter-spacing:.18em;color:#7A6A58;margin-bottom:22px;}
+.c-lv-box{display:inline-block;border:1.5px solid #1A2B45;padding:9px 30px;margin-bottom:22px;}
 .c-lv-label{font-family:'Cormorant SC',serif;font-size:.54rem;letter-spacing:.2em;text-transform:uppercase;color:#9A8878;margin-bottom:3px;}
 .c-lv-val{font-family:'EB Garamond',serif;font-size:1.1rem;color:#1A2B45;}
-.c-scores{display:flex;justify-content:center;gap:44px;margin-bottom:28px;}
+.c-scores{display:flex;justify-content:center;gap:40px;margin-bottom:24px;}
 .c-sc{text-align:center;}
-.c-sc-num{font-family:'EB Garamond',serif;font-size:2.1rem;color:#C8A87A;line-height:1;}
+.c-sc-num{font-family:'EB Garamond',serif;font-size:2rem;color:#C8A87A;line-height:1;}
 .c-sc-lbl{font-family:'Cormorant SC',serif;font-size:.52rem;letter-spacing:.16em;color:#9A8878;text-transform:uppercase;margin-top:3px;}
-.c-footer{display:flex;justify-content:space-between;align-items:flex-end;padding-top:22px;border-top:1px solid #D8CEB8;}
+.c-footer{display:flex;justify-content:space-between;align-items:flex-end;padding-top:20px;border-top:1px solid #D8CEB8;}
 .c-sig-svg{display:block;margin-bottom:2px;}
 .c-sig-name{font-family:'EB Garamond',serif;font-size:.84rem;color:#1A2B45;margin-top:2px;}
 .c-sig-title{font-family:'Lora',serif;font-size:.63rem;font-style:italic;color:#7A6A58;margin-top:1px;}
-.c-cand-box{background:#1A2B45;padding:10px 22px;margin-bottom:22px;display:inline-block;}
-.c-cand-lbl{font-family:'Cormorant SC',serif;font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:#7A9AB8;margin-bottom:3px;}
-.c-cand-name{font-family:'EB Garamond',serif;font-size:1.1rem;color:#EEE8E0;}
 .c-ref{text-align:right;}
 .c-ref-lbl{font-family:'Cormorant SC',serif;font-size:.5rem;letter-spacing:.16em;color:#9A8878;margin-bottom:2px;}
 .c-ref-val{font-family:'EB Garamond',serif;font-size:.82rem;color:#1A2B45;}
@@ -122,7 +118,7 @@ body{font-family:'Lora',Georgia,serif;background:#1A2B45;color:#EEE8E0;min-heigh
   .cert-overlay{position:static !important;background:white !important;padding:0 !important;display:flex !important;}
   .c-actions,.results-screen,.topbar,.content{display:none !important;}
 }
-@media(max-width:600px){.topbar{padding:0 14px;}.content{padding:86px 16px 60px;}.q-card{padding:22px 18px;}.timer{font-size:1.4rem;}.certificate{padding:28px 22px;}.c-scores{gap:24px;}}
+@media(max-width:600px){.topbar{padding:0 14px;}.content{padding:86px 16px 60px;}.q-card{padding:22px 18px;}.timer{font-size:1.4rem;}.certificate{padding:28px 22px;}.c-scores{gap:20px;}.dots{gap:4px;}.dot{width:22px;height:22px;font-size:.52rem;}}
 </style>
 </head>
 <body>
@@ -141,7 +137,7 @@ body{font-family:'Lora',Georgia,serif;background:#1A2B45;color:#EEE8E0;min-heigh
 <div class="content">
   <div class="prog-bar"><div class="prog-fill" id="prog" style="width:0%"></div></div>
   <div class="slbl" id="slbl">Олимпиада</div>
-  <div class="q-num" id="qnum">Вопрос 1 из 20</div>
+  <div class="q-num" id="qnum">Вопрос 1 из 40</div>
   <div class="dots" id="dots"></div>
   <div class="q-card" id="qcard"></div>
   <div class="nav-row">
@@ -164,8 +160,8 @@ body{font-family:'Lora',Georgia,serif;background:#1A2B45;color:#EEE8E0;min-heigh
 <div class="results-screen" id="rscreen">
   <div class="res-inner">
     <div class="res-title">Работа сдана</div>
-    <div class="res-sub">Результаты подсчитаны автоматически</div>
-    <div class="score-label">Итоговый балл (каждый верный ответ — 5 баллов)</div>
+    <div class="res-sub" id="res-sub">Результаты подсчитаны</div>
+    <div class="score-label">Итоговый балл</div>
     <div class="score-big" id="sbig">–</div>
     <div id="lvwrap"></div>
     <div class="bk-title">Разбивка по вопросам</div>
@@ -176,7 +172,7 @@ body{font-family:'Lora',Georgia,serif;background:#1A2B45;color:#EEE8E0;min-heigh
 </div>
 
 <div class="cert-overlay" id="coverlay">
-  <div class="cert-wrap">
+  <div>
     <div class="certificate" id="cert">
       <div class="cc tl"></div><div class="cc tr"></div>
       <div class="cc bl"></div><div class="cc br"></div>
@@ -198,24 +194,15 @@ body{font-family:'Lora',Georgia,serif;background:#1A2B45;color:#EEE8E0;min-heigh
           <div class="c-lv-val" id="clvval">–</div>
         </div>
         <div class="c-scores">
-          <div class="c-sc">
-            <div class="c-sc-num" id="cscnum">–</div>
-            <div class="c-sc-lbl">Score · Балл</div>
-          </div>
-          <div class="c-sc">
-            <div class="c-sc-num" id="ccnum">–</div>
-            <div class="c-sc-lbl">Correct · Верных</div>
-          </div>
-          <div class="c-sc">
-            <div class="c-sc-num">20</div>
-            <div class="c-sc-lbl">Total · Всего</div>
-          </div>
+          <div class="c-sc"><div class="c-sc-num" id="cscnum">–</div><div class="c-sc-lbl">Score · Балл</div></div>
+          <div class="c-sc"><div class="c-sc-num" id="ccnum">–</div><div class="c-sc-lbl">Correct · Верных</div></div>
+          <div class="c-sc"><div class="c-sc-num">40</div><div class="c-sc-lbl">Total · Всего</div></div>
         </div>
       </div>
       <div class="gline"></div>
       <div class="c-footer">
         <div>
-          <svg class="c-sig-svg" width="210" height="62" viewBox="0 0 210 62" xmlns="http://www.w3.org/2000/svg">
+          <svg class="c-sig-svg" width="210" height="58" viewBox="0 0 210 58" xmlns="http://www.w3.org/2000/svg">
             <g stroke="#1A2B45" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <path d="M5,44 C9,24 17,17 26,29 C30,36 27,46 22,47 M14,36 L26,34"/>
               <circle cx="33" cy="44" r="1.8" fill="#1A2B45" stroke="none"/>
@@ -244,162 +231,281 @@ body{font-family:'Lora',Georgia,serif;background:#1A2B45;color:#EEE8E0;min-heigh
 </div>
 
 <script>
-/* ══ CONFIG ══════════════════════════════════════════════════════ */
 const SHEETS_URL       = "https://script.google.com/macros/s/AKfycbzgeCUChzdk3qNraq6BlBPFoeiQn2VUe_tlhW5Rvmlah0gUBgml31soRyHsv8Cch29t/exec";
 const DURATION_MINUTES = 90;
 
-/* ══ QUESTIONS — 20 MC per subject ══════════════════════════════
-   answer: index 0-3 (A/B/C/D)
-════════════════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════════
+   40 MC QUESTIONS PER SUBJECT  ·  ans = correct option index (0-3)
+═══════════════════════════════════════════════════════════════ */
 const QUESTIONS = {
 
-Mathematics: [
-  {tag:"Алгебра",text:"Решите уравнение: 3(2x − 4) = 2(x + 6). Чему равно x?",opts:["x = 3","x = 4","x = 5","x = 6"],ans:3},
-  {tag:"Прогрессии",text:"Арифметическая прогрессия: a₁ = 5, d = 3. Найдите сумму первых 10 членов S₁₀.",opts:["175","185","190","200"],ans:1},
-  {tag:"Алгебра",text:"Если 2x = 9 (то есть x = 4.5), найдите значение 2^(6x − 23).",opts:["8","16","32","4"],ans:1},
-  {tag:"Прогрессии",text:"Геометрическая прогрессия: b₁ = 2, q = 3. Найдите пятый член b₅.",opts:["54","81","162","486"],ans:2},
-  {tag:"Функции",text:"Найдите координаты вершины параболы f(x) = x² − 6x + 8.",opts:["(3; 1)","(3; −1)","(−3; −1)","(−3; 1)"],ans:1},
-  {tag:"Логарифмы",text:"Чему равно log₂(32)?",opts:["4","5","6","3"],ans:1},
-  {tag:"Комбинаторика",text:"Чему равно число сочетаний C(10, 3)?",opts:["60","120","90","30"],ans:1},
-  {tag:"Тригонометрия",text:"Вычислите: sin²(30°) + cos²(60°) + tan(45°).",opts:["1","1.5","2","0.5"],ans:1},
-  {tag:"Неравенства",text:"Сколько целых чисел удовлетворяют условию −2 < 2x + 1 ≤ 9?",opts:["4","5","6","7"],ans:2},
-  {tag:"Проценты",text:"Цену снизили на 20%, затем подняли на 25%. Каково итоговое изменение?",opts:["−5%","0%","+5%","+20%"],ans:1},
-  {tag:"Прогрессии",text:"Сумма бесконечной геометрической прогрессии: a₁ = 4, q = ½. Найдите сумму.",opts:["6","8","12","16"],ans:1},
-  {tag:"Тригонометрия",text:"Чему равно tan(135°)?",opts:["1","√2","−1","−√2"],ans:2},
-  {tag:"Системы уравнений",text:"Дано: p + q = 7, q + r = 11, p + q + r = 15. Найдите q.",opts:["1","2","3","4"],ans:2},
-  {tag:"Уравнения с модулем",text:"Решите уравнение |3x − 9| = 6. Сколько корней?",opts:["1 корень: x = 5","1 корень: x = 1","2 корня: x = 1 и x = 5","Нет решений"],ans:2},
-  {tag:"Прогрессии",text:"Арифметическая прогрессия: a₁ = 3, d = 4. Какой по счёту член равен 47?",opts:["10-й","11-й","12-й","13-й"],ans:2},
-  {tag:"Логарифмы",text:"Если log_a(27) = 3, чему равно a?",opts:["9","3","√3","6"],ans:1},
-  {tag:"Комбинаторика",text:"Четыре друга пожали друг другу руки (каждый с каждым один раз). Сколько рукопожатий?",opts:["4","6","8","12"],ans:1},
-  {tag:"Вероятность",text:"P(A) = 0.4, P(B) = 0.3, события независимы. Найдите P(A ∪ B).",opts:["0.70","0.58","0.12","0.50"],ans:1},
-  {tag:"Функции",text:"Парабола y = −2x² + 8x − 3. Укажите верное утверждение.",opts:["Ветви вверх, минимум","Ветви вниз, максимум","Ветви вверх, максимум","Ветви вниз, минимум"],ans:1},
-  {tag:"Степени",text:"Чему равно (3² × 3³) ÷ 3⁴?",opts:["3","9","27","1"],ans:0},
+Mathematics:[
+  {tag:"Алгебра",text:"Корни уравнения x² − 5x + 3 = 0 равны p и q. Найдите p² + q².",opts:["13","16","19","22"],ans:2},
+  {tag:"Алгебра",text:"Решите уравнение: 3(2x − 4) = 2(x + 6). Найдите x.",opts:["3","4","5","6"],ans:3},
+  {tag:"Степени и логарифмы",text:"Если 2x = 9 (то есть x = 4.5), найдите 2^(6x − 23).",opts:["8","16","32","4"],ans:1},
+  {tag:"Логарифмы",text:"log₂(32) + log₂(1/8) = ?",opts:["1","2","3","5"],ans:1},
+  {tag:"Геометрическая прогрессия",text:"Сумма бесконечной геометрической прогрессии: a₁ = 4, q = ½. Найдите S.",opts:["6","8","12","16"],ans:1},
+  {tag:"Прогрессии",text:"Геом. прогрессия: a₃ = 12, a₆ = 96. Найдите знаменатель q.",opts:["√2","2","3","4"],ans:1},
+  {tag:"Арифметическая прогрессия",text:"a₁ = 5, d = 3, S₁₀ = ?",opts:["175","185","190","200"],ans:1},
+  {tag:"Прогрессии",text:"Последовательность 2, 6, 18, 54... Какой по счёту член равен 1458?",opts:["6-й","7-й","8-й","9-й"],ans:1},
+  {tag:"Функции",text:"Вершина параболы f(x) = x² − 6x + 8:",opts:["(3; 1)","(3; −1)","(−3; −1)","(−3; 1)"],ans:1},
+  {tag:"Функции",text:"Наибольшее значение f(x) = −x² + 4x − 1:",opts:["1","2","3","4"],ans:2},
+  {tag:"Функции",text:"f(x) = x/(x+1). Найдите f(f(f(2))).",opts:["2/7","2/9","2/5","1/4"],ans:0},
+  {tag:"Уравнения",text:"4^x − 10·2^x + 16 = 0. Решения:",opts:["x = 1 только","x = 3 только","x = 1 и x = 3","x = 2 и x = 4"],ans:2},
+  {tag:"Уравнения с модулем",text:"|3x − 9| = 6. Сумма корней:",opts:["5","6","8","10"],ans:1},
+  {tag:"Неравенства",text:"(x − 1)(x + 3) > 0. Решение:",opts:["−3 < x < 1","x < −3 или x > 1","x > 1 только","x < −3 только"],ans:1},
+  {tag:"Неравенства",text:"Сколько целых чисел удовлетворяют −2 < 2x + 1 ≤ 9?",opts:["4","5","6","7"],ans:2},
+  {tag:"Тригонометрия",text:"sin²(30°) + cos²(60°) + tan(45°) = ?",opts:["1","1.5","2","0.5"],ans:1},
+  {tag:"Тригонометрия",text:"Если sin(x) + cos(x) = √2/2, найдите sin(x)·cos(x).",opts:["1/4","−1/4","√2/4","−√2/4"],ans:1},
+  {tag:"Тригонометрия",text:"cos(2x) = 1/2. Найдите cos²(x).",opts:["1/4","1/2","3/4","√3/2"],ans:2},
+  {tag:"Тригонометрия",text:"Сколько решений имеет sin(x) = 0.5 на [0°; 360°]?",opts:["1","2","3","4"],ans:1},
+  {tag:"Логарифмы",text:"Если log_a(27) = 3, найдите a.",opts:["9","3","√3","6"],ans:1},
+  {tag:"Логарифмы",text:"log₂(x+1) + log₂(x−1) = 3. Найдите x.",opts:["x = 3","x = ±3","x = 4","x = 2√2"],ans:0},
+  {tag:"Логарифмы",text:"Если log₁₀(2) = a и log₁₀(3) = b, выразите log₁₀(12).",opts:["a + b","2a + b","a + 2b","3a + b"],ans:1},
+  {tag:"Комбинаторика",text:"C(10, 3) = ?",opts:["60","120","90","30"],ans:1},
+  {tag:"Комбинаторика",text:"Способов рассадить 3 мальчика и 3 девочки в ряд, чередуя, = ?",opts:["36","48","72","144"],ans:2},
+  {tag:"Комбинаторика",text:"Комитет из 3 человек из 5 мужчин и 4 женщин, хотя бы 1 женщина. Число вариантов:",opts:["60","70","74","80"],ans:2},
+  {tag:"Вероятность",text:"В коробке 4 красных, 3 синих, 2 зелёных шара. Достают 2 без возврата. P(оба красных) = ?",opts:["1/6","1/9","4/9","2/9"],ans:0},
+  {tag:"Вероятность",text:"P(A) = 0.6, P(B) = 0.5, P(A∩B) = 0.3. Найдите P(A|B).",opts:["0.3","0.5","0.6","0.9"],ans:2},
+  {tag:"Вероятность",text:"P(A) = 0.4, события A и B независимы, P(A∪B) = 0.7. Найдите P(B).",opts:["0.3","0.4","0.5","0.6"],ans:2},
+  {tag:"Теория чисел",text:"Остаток от деления 7^100 на 4:",opts:["0","1","2","3"],ans:1},
+  {tag:"Теория чисел",text:"Сколько нулей в конце числа 20! ?",opts:["2","3","4","5"],ans:2},
+  {tag:"Теория чисел",text:"Двузначное число: сумма цифр = 9, при перестановке цифр число увеличивается на 27. Найдите число.",opts:["27","36","45","63"],ans:1},
+  {tag:"Алгебра",text:"a + b = 4, a² + b² = 10. Найдите ab.",opts:["2","3","4","6"],ans:1},
+  {tag:"Алгебра",text:"x + 1/x = 3. Найдите x² + 1/x².",opts:["5","7","9","11"],ans:1},
+  {tag:"Алгебра",text:"Если 2^a = 3, найдите 4^a − 2^(a+1).",opts:["1","3","5","7"],ans:1},
+  {tag:"Степени",text:"(3² × 3³) ÷ 3⁴ = ?",opts:["3","9","27","1"],ans:0},
+  {tag:"Квадратное уравнение",text:"x² + kx + (k + 3) = 0 имеет равные корни. Значения k:",opts:["6 только","−2 только","6 или −2","Нет решений"],ans:2},
+  {tag:"Функции",text:"f(x) = 2x + 1, g(x) = x². Найдите f(g(3)).",opts:["49","25","19","13"],ans:2},
+  {tag:"Прогрессии",text:"3 + 7 + 11 + ... + 99 = ?",opts:["1200","1250","1275","1300"],ans:2},
+  {tag:"Прогрессии",text:"a₅ = 17, a₈ = 26 (арифм. прогрессия). Найдите a₁.",opts:["3","5","7","11"],ans:1},
+  {tag:"Проценты",text:"Цена снижена на 20%, затем повышена на 25%. Итоговое изменение:",opts:["−5%","0%","+5%","+25%"],ans:1},
 ],
 
-Physics: [
-  {tag:"Механика",text:"Тело брошено вертикально вверх со скоростью 20 м/с. Максимальная высота подъёма (g = 10 м/с²)?",opts:["10 м","20 м","40 м","4 м"],ans:1},
-  {tag:"Волны",text:"Волна: частота 200 Гц, длина волны 1.7 м. Скорость волны?",opts:["200 м/с","1.7 м/с","340 м/с","117 м/с"],ans:2},
-  {tag:"Термодинамика",text:"КПД цикла Карно при T₁ = 500 К и T₂ = 300 К?",opts:["30%","40%","50%","60%"],ans:1},
-  {tag:"Квантовая физика",text:"Фотон с энергией 4 эВ выбивает электрон (работа выхода 1.5 эВ). Кинетическая энергия электрона?",opts:["5.5 эВ","2.5 эВ","4 эВ","1.5 эВ"],ans:1},
-  {tag:"Механика",text:"При абсолютно упругом столкновении сохраняются:",opts:["Только кинетическая энергия","Только импульс","Обе величины","Ни одна из них"],ans:2},
-  {tag:"Электричество",text:"Два резистора R₁ = 100 Ω соединены последовательно. Общее сопротивление?",opts:["50 Ω","100 Ω","200 Ω","400 Ω"],ans:2},
-  {tag:"Электричество",text:"Закон Ома: V = 12 В, R = 4 Ω. Ток в цепи?",opts:["48 А","8 А","3 А","0.33 А"],ans:2},
-  {tag:"Газовые законы",text:"Газ сжимается при постоянной температуре (изотермический процесс). Давление...",opts:["Уменьшается","Остаётся прежним","Увеличивается","Становится нулём"],ans:2},
-  {tag:"Механика",text:"Тело m = 2 кг, скорость v = 5 м/с. Импульс тела?",opts:["2.5 кг·м/с","7 кг·м/с","10 кг·м/с","25 кг·м/с"],ans:2},
-  {tag:"Кинематика",text:"Тело падает с высоты 80 м. Время падения (g = 10 м/с²)?",opts:["2 с","4 с","8 с","√8 с"],ans:1},
-  {tag:"Механика",text:"Кинетическая энергия тела 100 Дж, масса 2 кг. Скорость тела?",opts:["5 м/с","10 м/с","20 м/с","50 м/с"],ans:1},
-  {tag:"Электричество",text:"Два резистора R₁ = 6 Ω и R₂ = 3 Ω соединены параллельно. Общее сопротивление?",opts:["2 Ω","3 Ω","9 Ω","18 Ω"],ans:0},
-  {tag:"Оптика",text:"Скорость света в вакууме приблизительно равна...",opts:["3×10⁶ м/с","3×10⁸ м/с","3×10¹⁰ м/с","3×10⁵ м/с"],ans:1},
-  {tag:"Колебания",text:"Период колебаний T = 0.5 с. Чему равна частота колебаний?",opts:["0.5 Гц","1 Гц","2 Гц","5 Гц"],ans:2},
-  {tag:"Ядерная физика",text:"Какой процесс является источником энергии Солнца?",opts:["Ядерное деление","Ядерный синтез","Оба процесса","Ни один из них"],ans:1},
-  {tag:"Упругость",text:"Закон Гука: жёсткость пружины k = 200 Н/м, удлинение x = 0.05 м. Сила?",opts:["4000 Н","10 Н","0.25 Н","4 Н"],ans:1},
-  {tag:"Тепловое расширение",text:"При нагревании одинаковых масс вещества какое состояние расширяется больше?",opts:["Твёрдое","Жидкое","Газообразное","Все одинаково"],ans:2},
-  {tag:"Электричество",text:"Какой знак заряда у электрона?",opts:["Положительный","Отрицательный","Нейтральный","Зависит от условий"],ans:1},
-  {tag:"Энергия",text:"Сколько джоулей в 1 кВт·ч?",opts:["3.6×10³ Дж","3.6×10⁶ Дж","3.6×10⁹ Дж","1000 Дж"],ans:1},
-  {tag:"Гидростатика",text:"Сила Архимеда (выталкивающая сила) равна...",opts:["Весу тела","Весу вытесненной жидкости","Массе тела","Объёму тела"],ans:1},
+Physics:[
+  {tag:"Кинематика",text:"Тело брошено горизонтально со скоростью 20 м/с с высоты 80 м. Горизонтальная дальность? (g = 10)",opts:["40 м","80 м","120 м","160 м"],ans:1},
+  {tag:"Динамика",text:"Два блока m₁=2 кг и m₂=3 кг соединены нитью на гладкой поверхности. F=10 Н. Ускорение:",opts:["1 м/с²","2 м/с²","3 м/с²","5 м/с²"],ans:1},
+  {tag:"Оптика",text:"Длина волны света λ=500 нм. Частота? (c=3×10⁸ м/с)",opts:["6×10¹⁴ Гц","6×10¹² Гц","1.5×10³ Гц","6×10⁸ Гц"],ans:0},
+  {tag:"Термодинамика",text:"КПД цикла Карно: T₁=500 К, T₂=300 К, Q_горяч=1000 Дж. Работа?",opts:["250 Дж","400 Дж","500 Дж","600 Дж"],ans:1},
+  {tag:"Электростатика",text:"Два заряда q=1 мкКл, r=0.1 м. Сила? (k=9×10⁹)",opts:["0.09 Н","0.9 Н","9 Н","90 Н"],ans:1},
+  {tag:"Электричество",text:"Конденсатор: V=100 В, d=0.01 м. Напряжённость поля?",opts:["1 В/м","100 В/м","1000 В/м","10000 В/м"],ans:3},
+  {tag:"Волны",text:"Струна L=1 м, v=100 м/с. Основная частота колебаний?",opts:["25 Гц","50 Гц","100 Гц","200 Гц"],ans:1},
+  {tag:"Ядерная физика",text:"²³⁸₉₂U после α-распада превращается в:",opts:["²³⁴₉₀Th","²³⁴₉₂U","²³⁸₉₀Th","²³⁰₈₈Ra"],ans:0},
+  {tag:"Оптика",text:"Линза f=20 см, предмет на расстоянии 60 см. Положение изображения?",opts:["15 см","20 см","30 см","60 см"],ans:2},
+  {tag:"Электричество",text:"R=10 Ом, I=2 А. Мощность цепи?",opts:["5 Вт","20 Вт","40 Вт","200 Вт"],ans:2},
+  {tag:"Механика",text:"Маятник: L=1 м, g=10 м/с², π²≈10. Период колебаний?",opts:["0.5 с","1 с","2 с","4 с"],ans:2},
+  {tag:"Термодинамика",text:"Q=mcΔT: m=2 кг, c=4200 Дж/(кг·°C), ΔT=5°C. Энергия?",opts:["4.2 кДж","8.4 кДж","21 кДж","42 кДж"],ans:3},
+  {tag:"Квантовая физика",text:"Де Бройль: m=9.11×10⁻³¹ кг, v=10⁶ м/с, h=6.63×10⁻³⁴. λ=?",opts:["7.3×10⁻¹² м","7.3×10⁻¹⁰ м","7.3×10⁻⁸ м","7.3×10⁻⁶ м"],ans:1},
+  {tag:"Гравитация",text:"На высоте r=2R_Земли от центра, g (на поверхности=10 м/с²) равно:",opts:["5 м/с²","2.5 м/с²","1.25 м/с²","10 м/с²"],ans:1},
+  {tag:"Механика",text:"m₁=2 кг, v=4 м/с; m₂=4 кг в покое. Абсолютно неупругий удар. Скорость после?",opts:["4/3 м/с","2 м/с","8/3 м/с","4 м/с"],ans:0},
+  {tag:"Акустика",text:"Интенсивность удвоилась. Изменение уровня шума (log₁₀2≈0.3)?",opts:["2 дБ","3 дБ","6 дБ","10 дБ"],ans:1},
+  {tag:"Оптика",text:"Закон Снеллиуса: n₁=1.5, θ₁=30°, n₂=1.0. Угол θ₂ примерно:",opts:["20°","30°","45°","49°"],ans:3},
+  {tag:"Ядерная физика",text:"Период полураспада 10 лет. Через 30 лет остаток:",opts:["1/2","1/4","1/6","1/8"],ans:3},
+  {tag:"Термодинамика",text:"Идеальный газ: давление удвоено, температура (К) удвоена. Объём:",opts:["Уменьшился вдвое","Удвоился","Не изменился","Учетверился"],ans:2},
+  {tag:"Электромагнетизм",text:"Сила на заряд q=2×10⁻⁶ Кл в поле E=5×10⁴ В/м:",opts:["0.01 Н","0.1 Н","1 Н","10 Н"],ans:1},
+  {tag:"Оптика",text:"Дифракция Юнга: λ удвоена, d уменьшена вдвое. Расстояние между полосами?",opts:["×2","×4","то же","×1/4"],ans:1},
+  {tag:"Квантовая физика",text:"Чёрное тело: P∝T⁴ (Стефан-Больцман). Температура удвоена. Мощность:",opts:["×2","×4","×8","×16"],ans:3},
+  {tag:"Кинематика",text:"Тело движется по окружности с постоянной скоростью. Что остаётся постоянным?",opts:["Вектор скорости","Ускорение","Модуль скорости","Вектор силы"],ans:2},
+  {tag:"Электростатика",text:"Потенциал V=kq/r. При удвоении r потенциал:",opts:["Уменьшится в 4 раза","Уменьшится в 2 раза","Не изменится","Удвоится"],ans:1},
+  {tag:"Оптика",text:"Эффект Комптона: длина волны рентгеновского фотона при столкновении с электроном...",opts:["Уменьшается","Не изменяется","Увеличивается","Становится нулём"],ans:2},
+  {tag:"Термодинамика",text:"Температура газа (в К) увеличена в 4 раза. Средняя кинетическая энергия молекул:",opts:["×2","×4","×8","×16"],ans:1},
+  {tag:"Электромагнетизм",text:"LC-контур: f∝1/√(LC). Ёмкость C удвоена. Частота меняется в:",opts:["×2","×√2","×1/√2","×1/2"],ans:2},
+  {tag:"Механика",text:"KE=100 Дж, m=2 кг. Скорость тела:",opts:["5 м/с","10 м/с","20 м/с","50 м/с"],ans:1},
+  {tag:"Механика",text:"Сила пружины: k=200 Н/м, x=0.05 м. F=?",opts:["4000 Н","10 Н","0.25 Н","4 Н"],ans:1},
+  {tag:"Ядерная физика",text:"Ядерный синтез как источник энергии используется в:",opts:["Атомных электростанциях","Ядерных бомбах","Солнце","Ядерных реакторах подводных лодок"],ans:2},
+  {tag:"Оптика",text:"При интерференции двух волн с амплитудами A₁=3 и A₂=4, синфазных. Результирующая амплитуда:",opts:["1","5","7","25"],ans:2},
+  {tag:"Фотоэффект",text:"Фотон 4 эВ, работа выхода 1.5 эВ. Кинетическая энергия электрона:",opts:["5.5 эВ","2.5 эВ","4 эВ","1.5 эВ"],ans:1},
+  {tag:"Термодинамика",text:"Расширение при нагреве одинаковой массы: больше всего расширяется...",opts:["Твёрдое тело","Жидкость","Газ","Все одинаково"],ans:2},
+  {tag:"Механика",text:"Импульс: m=2 кг, v=5 м/с. p=?",opts:["2.5","7","10","25"],ans:2},
+  {tag:"Электричество",text:"Параллельное соединение R₁=6 Ом и R₂=3 Ом. Общее сопротивление:",opts:["2 Ом","3 Ом","9 Ом","18 Ом"],ans:0},
+  {tag:"Механика",text:"Спутник на круговой орбите. Орбитальная скорость v_орб относительно первой космической v_1:",opts:["v_орб = v_1","v_орб = v_1/√2","v_орб = v_1×√2","Не связаны"],ans:0},
+  {tag:"Оптика",text:"Угол полного внутреннего отражения: зависит от...",opts:["Только от длины волны","Только от поляризации","Соотношения показателей преломления","Интенсивности света"],ans:2},
+  {tag:"Термодинамика",text:"Идеальный газ нагрели при постоянном давлении. Согласно закону Шарля, что утроилось?",opts:["Давление","Объём","Масса","Скорость молекул"],ans:1},
+  {tag:"Кинематика",text:"Тело падает с высоты 80 м (g=10 м/с²). Время падения:",opts:["2 с","4 с","8 с","√8 с"],ans:1},
+  {tag:"Электродинамика",text:"Сила Лоренца на заряд q, движущийся со скоростью v перпендикулярно полю B:",opts:["q/vB","qvB","qv/B","q + v + B"],ans:1},
 ],
 
-"Computer Science": [
-  {tag:"Системы счисления",text:"Переведите число 42 из десятичной системы в двоичную.",opts:["101010","110010","101100","100110"],ans:0},
-  {tag:"Алгоритмы",text:"Временная сложность алгоритма сортировки слиянием (Merge Sort) в худшем случае:",opts:["O(n)","O(n²)","O(n log n)","O(log n)"],ans:2},
-  {tag:"Структуры данных",text:"Стек: push(1), push(2), push(3), pop(). Какое значение возвращает pop()?",opts:["1","2","3","Ошибка"],ans:2},
-  {tag:"Булева алгебра",text:"Вычислите: NOT (True AND False).",opts:["True","False","Null","Ошибка"],ans:0},
-  {tag:"Базы данных",text:"В таблице оценки: [6, 9, 7, 10, 8, 9, 10]. Сколько строк вернёт SELECT COUNT(*) FROM t WHERE grade >= 9?",opts:["3","4","5","2"],ans:1},
-  {tag:"Алгоритмы",text:"Временная сложность бинарного поиска в отсортированном массиве?",opts:["O(1)","O(log n)","O(n)","O(n log n)"],ans:1},
-  {tag:"Сети",text:"Какой HTTP-метод используется для отправки данных формы на сервер?",opts:["GET","PUT","POST","DELETE"],ans:2},
-  {tag:"Архитектура",text:"Какая память является энергозависимой (теряет данные при отключении питания)?",opts:["RAM","ROM","Оба","Ни один"],ans:0},
-  {tag:"Структуры данных",text:"Очередь: enqueue(A), enqueue(B), enqueue(C), dequeue(). Что возвращает dequeue()?",opts:["A","B","C","Ошибка"],ans:0},
-  {tag:"Сети",text:"Что означает аббревиатура DNS?",opts:["Data Network Service","Dynamic Name Server","Domain Name System","Digital Network System"],ans:2},
-  {tag:"Математика",text:"Какое следующее число в последовательности Фибоначчи: 1, 1, 2, 3, 5, 8, ...?",opts:["10","12","13","15"],ans:2},
-  {tag:"Архитектура",text:"Сколько бит содержится в 1 байте?",opts:["4","8","16","32"],ans:1},
-  {tag:"Алгоритмы",text:"Рекурсия — это:",opts:["Разновидность цикла","Функция, вызывающая саму себя","Ошибка программы","Алгоритм сортировки"],ans:1},
-  {tag:"Алгоритмы",text:"Какой алгоритм сортировки имеет лучшую среднюю временную сложность?",opts:["Пузырьком O(n²)","Вставками O(n²)","Быстрая O(n log n) avg","Выбором O(n²)"],ans:2},
-  {tag:"Базы данных",text:"Какой тип JOIN возвращает все строки из обеих таблиц, включая несовпадающие?",opts:["INNER JOIN","LEFT JOIN","RIGHT JOIN","FULL OUTER JOIN"],ans:3},
-  {tag:"ООП",text:"Какой принцип ООП означает «один интерфейс — множество реализаций»?",opts:["Инкапсуляция","Наследование","Полиморфизм","Абстракция"],ans:2},
-  {tag:"Сети",text:"Сколько бит в адресе IPv4?",opts:["16","32","64","128"],ans:1},
-  {tag:"Сети",text:"Расшифруйте аббревиатуру HTTP.",opts:["HyperText Transfer Protocol","High Transfer Text Protocol","Hyper Transport Protocol","Home Text Transfer Protocol"],ans:0},
-  {tag:"Программирование",text:"В Python: что вернёт выражение len([1, 2, 3, 4])?",opts:["3","4","5","Ошибка"],ans:1},
-  {tag:"Машинное обучение",text:"Модель машинного обучения, обученная на размеченных данных с правильными ответами, называется:",opts:["Обучение без учителя","Обучение с учителем","Обучение с подкреплением","Трансферное обучение"],ans:1},
+"Computer Science":[
+  {tag:"Системы счисления",text:"42 в двоичной системе:",opts:["101010","110010","101100","100110"],ans:0},
+  {tag:"Алгоритмы",text:"Наихудшая сложность QuickSort:",opts:["O(n)","O(n log n)","O(n²)","O(n³)"],ans:2},
+  {tag:"Графы",text:"Алгоритм BFS использует структуру данных:",opts:["Стек","Очередь","Приоритетная очередь","Массив"],ans:1},
+  {tag:"Графы",text:"Алгоритм DFS использует структуру данных:",opts:["Стек","Очередь","Приоритетная очередь","Хеш-таблицу"],ans:0},
+  {tag:"Графы",text:"Алгоритм Дейкстры применяется для нахождения:",opts:["Сортировки вершин","Минимального остовного дерева","Кратчайшего пути (неотриц. веса)","Максимального потока"],ans:2},
+  {tag:"Структуры данных",text:"Двоичное дерево высоты h. Максимальное число узлов:",opts:["2h","h²","2^h","2^(h+1)−1"],ans:3},
+  {tag:"Структуры данных",text:"Среднее время поиска в хеш-таблице:",opts:["O(1)","O(log n)","O(n)","O(n log n)"],ans:0},
+  {tag:"Базы данных",text:"ACID: расшифровка?",opts:["Accuracy, Consistency, Integrity, Durability","Atomicity, Consistency, Isolation, Durability","Atomicity, Completeness, Isolation, Design","Accuracy, Completeness, Integrity, Design"],ans:1},
+  {tag:"Базы данных",text:"3NF означает отсутствие:",opts:["Неопределённых первичных ключей","Частичных зависимостей","Транзитивных зависимостей","Null-значений"],ans:2},
+  {tag:"Системы счисления",text:"Дополнительный код 8-бит числа −1:",opts:["10000001","11111110","11111111","00000001"],ans:2},
+  {tag:"ОС",text:"Условия взаимоблокировки (Коффмана) — 4 условия, среди которых НЕТ:",opts:["Взаимного исключения","Удержания и ожидания","Вытеснения","Кругового ожидания"],ans:2},
+  {tag:"Программирование",text:"Замыкание (closure) в программировании — это:",opts:["Функция без параметров","Класс с приватными методами","Функция, захватывающая переменные из внешней области видимости","Завершённая функция"],ans:2},
+  {tag:"Криптография",text:"Алгоритм RSA основан на сложности:",opts:["Дискретного логарифмирования","Факторизации произведения больших простых чисел","Эллиптических кривых","Симметричного ключа AES"],ans:1},
+  {tag:"Сети",text:"Уровень модели OSI, отвечающий за маршрутизацию между сетями:",opts:["Канальный (2)","Сетевой (3)","Транспортный (4)","Сеансовый (5)"],ans:1},
+  {tag:"Алгоритмы",text:"Время построения кучи из n элементов (heapify):",opts:["O(log n)","O(n)","O(n log n)","O(n²)"],ans:1},
+  {tag:"Программирование",text:"[x**2 for x in range(5)] в Python возвращает:",opts:["[0,1,2,3,4]","[1,4,9,16,25]","[0,1,4,9,16]","[0,2,4,6,8]"],ans:2},
+  {tag:"Структуры данных",text:"Время поиска в сбалансированном двоичном дереве (BST):",opts:["O(1)","O(log n)","O(n)","O(n log n)"],ans:1},
+  {tag:"Сети",text:"IPv4 /24: количество адресов хостов:",opts:["254","255","256","512"],ans:0},
+  {tag:"ОС",text:"Что решает мьютекс?",opts:["Утечки памяти","Состояние гонки","Взаимоблокировки","Переполнение стека"],ans:1},
+  {tag:"Паттерны",text:"Паттерн Singleton гарантирует:",opts:["Класс нельзя унаследовать","Существует только один экземпляр","Все методы статичны","Объект неизменяем"],ans:1},
+  {tag:"Алгоритмы",text:"Динамическое программирование — это:",opts:["Программирование с динамической типизацией","Разбиение на перекрывающиеся подзадачи с мемоизацией","Случайные алгоритмы","Программирование во время выполнения"],ans:1},
+  {tag:"Сети",text:"Контроль перегрузки в TCP использует:",opts:["Round Robin","Token Bucket","Slow Start + AIMD","FIFO"],ans:2},
+  {tag:"Криптография",text:"Вы шифруете сообщение для получателя с помощью его...",opts:["Закрытого ключа","Открытого ключа","Симметричного ключа","Сессионного ключа"],ans:1},
+  {tag:"Web",text:"HTTP-код ответа 404 означает:",opts:["Успех","Перенаправление","Отказ в доступе","Ресурс не найден"],ans:3},
+  {tag:"Алгоритмы",text:"Сложность поиска max и min в массиве n элементов (оптимальный алгоритм):",opts:["n−1","2n−2","≈3n/2","n log n"],ans:2},
+  {tag:"Базы данных",text:"Внешний ключ (foreign key) — это:",opts:["Первичный ключ текущей таблицы","Ссылка на первичный ключ другой таблицы","Ключ для шифрования","Ключ, допускающий NULL"],ans:1},
+  {tag:"ОС",text:"Сборщик мусора (garbage collection) делает:",opts:["Удаляет временные файлы","Автоматически освобождает неиспользуемую память","Сортирует данные","Обрабатывает исключения"],ans:1},
+  {tag:"Сети",text:"HTTP-код 401 означает:",opts:["Bad Request","Unauthorized","Forbidden","Not Found"],ans:1},
+  {tag:"Структуры данных",text:"Граф V вершин, E рёбер. Матрица смежности занимает:",opts:["O(V)","O(E)","O(V+E)","O(V²)"],ans:3},
+  {tag:"ОС",text:"Ключевое отличие процесса от потока:",opts:["Процессы быстрее","Потоки имеют отдельную память; процессы — общую","Процессы имеют отдельную память; потоки делят её","Нет разницы"],ans:2},
+  {tag:"Алгоритмы",text:"Fibonacci с мемоизацией vs. наивная рекурсия: улучшение сложности:",opts:["O(n²) → O(n)","O(2^n) → O(n)","O(n log n) → O(log n)","O(n) → O(1)"],ans:1},
+  {tag:"Алгоритмы",text:"Стабильная сортировка с гарантированным O(n log n) в худшем случае:",opts:["QuickSort","HeapSort","MergeSort","SelectionSort"],ans:2},
+  {tag:"Безопасность",text:"XSS (Cross-Site Scripting) — это:",opts:["SQL-инъекция","DDoS-атака","Внедрение вредоносных скриптов в веб-страницы","Brute-force атака"],ans:2},
+  {tag:"Сети",text:"TCP трёхстороннее рукопожатие — правильная последовательность:",opts:["ACK→SYN→SYN-ACK","SYN→SYN-ACK→ACK","SYN-ACK→ACK→SYN","SYN→ACK→SYN-ACK"],ans:1},
+  {tag:"ML",text:"Переобучение (overfitting) означает:",opts:["Модель слишком простая","Модель хорошо работает на обучении, но плохо на новых данных","Мало параметров","Недостаточно данных"],ans:1},
+  {tag:"Распределённые системы",text:"Теорема CAP утверждает: из Consistency, Availability, Partition tolerance можно гарантировать одновременно...",opts:["Все три","Только одно","Только два","Зависит от архитектуры"],ans:2},
+  {tag:"Структуры данных",text:"Deque — это структура данных, позволяющая O(1) push/pop:",opts:["Только с одного конца","Только с двух концов","С двух концов","В произвольном месте"],ans:2},
+  {tag:"Конкурентность",text:"Состояние гонки (race condition) — это когда:",opts:["Программа работает слишком быстро","Результат зависит от непредсказуемого порядка событий","Бесконечный цикл","Переполнение памяти"],ans:1},
+  {tag:"Теория вычислений",text:"NP-полные задачи: что известно?",opts:["Решаются за O(log n)","Вообще не решаются","Не имеют полиномиального решения, но ответ проверяется полиномиально","Эквивалентны линейным задачам"],ans:2},
+  {tag:"Структуры данных",text:"Сбалансированное BST vs несбалансированное: главное преимущество?",opts:["Меньше памяти","Гарантированный O(log n) для поиска/вставки/удаления","Проще реализовать","Быстрее для сортировки"],ans:1},
 ],
 
-Biology: [
-  {tag:"Клеточная биология",text:"В какой органелле клетки синтезируется большинство молекул АТФ?",opts:["Ядро","Рибосома","Митохондрия","Аппарат Гольджи"],ans:2},
-  {tag:"Молекулярная биология",text:"С каким азотистым основанием спаривается аденин в молекуле ДНК?",opts:["Гуанин","Цитозин","Урацил","Тимин"],ans:3},
-  {tag:"Генетика",text:"Сколько хромосом содержится в гаплоидной клетке человека?",opts:["23","46","44","48"],ans:0},
-  {tag:"Клеточная биология",text:"Какая органелла отвечает за синтез белков?",opts:["Митохондрия","Рибосома","Вакуоль","Лизосома"],ans:1},
-  {tag:"Биотехнологии",text:"Белок Cas9 в системе CRISPR выполняет роль:",opts:["Направляющей РНК","Молекулярных ножниц","ДНК-полимеразы","Промотора"],ans:1},
-  {tag:"Деление клетки",text:"Сколько дочерних клеток образуется в результате митоза?",opts:["2","4","3","1"],ans:0},
-  {tag:"Деление клетки",text:"Мейоз происходит при образовании:",opts:["Клеток роста и регенерации","При бесполом размножении","Гамет","Молекул АТФ"],ans:2},
-  {tag:"Молекулярная биология",text:"Какое основание присутствует в РНК, но отсутствует в ДНК?",opts:["Аденин","Гуанин","Тимин","Урацил"],ans:3},
-  {tag:"Эволюция",text:"Естественный отбор действует непосредственно на...",opts:["Только генотип","Фенотип","ДНК напрямую","Только РНК"],ans:1},
-  {tag:"Генетика",text:"Оба родителя гетерозиготны (Aa). Вероятность рождения ребёнка с голубыми глазами (aa)?",opts:["75%","50%","25%","0%"],ans:2},
-  {tag:"Фотосинтез",text:"В какой органелле происходит фотосинтез?",opts:["Митохондрия","Ядро","Хлоропласт","Рибосома"],ans:2},
-  {tag:"Иммунология",text:"Какая группа крови является универсальным донором эритроцитов?",opts:["A+","AB+","O−","B+"],ans:2},
-  {tag:"Эволюция",text:"Устойчивость бактерий к антибиотикам возникает главным образом через:",opts:["Намеренные мутации","Естественный отбор","Иммунный ответ","Вирусное заражение"],ans:1},
-  {tag:"Клеточная биология",text:"Клеточная мембрана состоит главным образом из:",opts:["Белкового слоя","Фосфолипидного бислоя","Углеводной сетки","Целлюлозной стенки"],ans:1},
-  {tag:"Физиология",text:"Какой гормон снижает уровень глюкозы в крови?",opts:["Глюкагон","Адреналин","Инсулин","Кортизол"],ans:2},
-  {tag:"Эволюция",text:"По теории Дарвина, организмы, лучше всего приспособленные к среде...",opts:["Живут вечно","Не мутируют","Выживают и размножаются","Становятся хищниками"],ans:2},
-  {tag:"Молекулярная биология",text:"Процесс синтеза мРНК на матрице ДНК называется:",opts:["Трансляция","Транскрипция","Репликация","Дупликация"],ans:1},
-  {tag:"Биохимия",text:"Ферменты по химической природе являются:",opts:["Липидами","Углеводами","Белками","ДНК"],ans:2},
-  {tag:"Физиология",text:"Нормальная температура тела человека (°C)?",opts:["35 °C","37 °C","39 °C","40 °C"],ans:1},
-  {tag:"Экология",text:"Первичными продуцентами в экосистеме являются:",opts:["Плотоядные","Травоядные","Растения/автотрофы","Редуценты"],ans:2},
+Biology:[
+  {tag:"Биохимия",text:"Цикл Кребса происходит в:",opts:["Наружной мембране митохондрии","Внутренней мембране","Межмембранном пространстве","Матриксе митохондрии"],ans:3},
+  {tag:"Молекулярная биология",text:"Какой фермент раскручивает двойную спираль ДНК при репликации?",opts:["ДНК-полимераза","Хеликаза","Лигаза","Праймаза"],ans:1},
+  {tag:"Иммунология",text:"Антигенпредставляющие клетки представляют антигены на молекулах:",opts:["TCR","BCR","МНС","IgG"],ans:2},
+  {tag:"Генетика популяций",text:"Харди-Вайнберг: p²+2pq+q²=1. При q=0.3 частота гетерозигот:",opts:["0.09","0.21","0.42","0.49"],ans:2},
+  {tag:"Молекулярная биология",text:"Трансляция происходит на:",opts:["Ядре","Митохондриях","Рибосомах","Аппарате Гольджи"],ans:2},
+  {tag:"Биохимия",text:"Какой процесс производит наибольшее количество АТФ из одной молекулы глюкозы?",opts:["Гликолиз","Цикл Кребса","Пируватдекарбоксилирование","Окислительное фосфорилирование"],ans:3},
+  {tag:"Нейробиология",text:"Реполяризация потенциала действия нейрона вызвана:",opts:["Притоком Na⁺","Притоком K⁺","Оттоком K⁺","Притоком Cl⁻"],ans:2},
+  {tag:"Биохимия",text:"Сколько молекул АТФ образуется при полном окислении 1 молекулы глюкозы (современная оценка)?",opts:["2","8","~30","100"],ans:2},
+  {tag:"Физиология",text:"Инсулин вырабатывается клетками поджелудочной железы:",opts:["Альфа-клетками","Бета-клетками","Дельта-клетками","Клетками ацинуса"],ans:1},
+  {tag:"Молекулярная биология",text:"Альтернативный сплайсинг позволяет одному гену производить несколько белков. Где это происходит?",opts:["Трансляция","Репликация ДНК","Процессинг пре-мРНК","Посттрансляционная модификация"],ans:2},
+  {tag:"Клеточная биология",text:"Теломераза восстанавливает теломеры в стволовых клетках. Что такое теломераза?",opts:["Хеликаза","Фермент — обратная транскриптаза","Лигаза","Топоизомераза"],ans:1},
+  {tag:"Иммунология",text:"Моноклональные антитела производятся:",opts:["Т-лимфоцитами","NK-клетками","Гибридомными клетками","Макрофагами"],ans:2},
+  {tag:"Метаболизм",text:"ФКУ (фенилкетонурия) вызвана нарушением обмена:",opts:["Глюкозы","Фенилаланина","Допамина","Серотонина"],ans:1},
+  {tag:"Фотосинтез",text:"В световых реакциях фотосинтеза окисляется:",opts:["CO₂","Глюкоза","НАДФН","Вода (H₂O → O₂)"],ans:3},
+  {tag:"Физиология растений",text:"Какой растительный гормон стимулирует удлинение стебля?",opts:["Ауксин","Цитокинин","Гиббереллин","Абсцизовая кислота"],ans:2},
+  {tag:"Биотехнология",text:"Рестриктазы разрезают ДНК. Они были обнаружены в:",opts:["Вирусах","Дрожжах","Бактериях","Клетках человека"],ans:2},
+  {tag:"Клеточная биология",text:"Апоптоз — это:",opts:["Клеточное деление","Запрограммированная гибель клетки","Набухание клетки","Вирусное заражение"],ans:1},
+  {tag:"Молекулярная биология",text:"Какая РНК доставляет аминокислоты к рибосоме?",opts:["мРНК","рРНК","тРНК","мяРНК"],ans:2},
+  {tag:"Иммунология",text:"ВИЧ поражает преимущественно:",opts:["B-лимфоциты","CD4+ Т-хелперы","NK-клетки","Нейтрофилы"],ans:1},
+  {tag:"Генетика",text:"Точечная мутация, не изменяющая аминокислоту, называется:",opts:["Миссенс","Нонсенс","Сдвиг рамки","Молчащая"],ans:3},
+  {tag:"Эпигенетика",text:"Эпигенетика изучает:",opts:["Генетические мутации","Наследуемые изменения экспрессии генов без изменения последовательности ДНК","Горизонтальный перенос генов","Повреждения ДНК"],ans:1},
+  {tag:"Биохимия",text:"Конкурентный ингибитор фермента связывается с:",opts:["Аллостерическим сайтом","Активным центром","Продуктом реакции","Кофактором"],ans:1},
+  {tag:"Деление клетки",text:"Кроссинговер (рекомбинация) происходит в:",opts:["Митозе","Профазе II","Профазе I","Метафазе I"],ans:2},
+  {tag:"Клеточная биология",text:"Роль аппарата Гольджи:",opts:["Синтез белков","Производство энергии","Процессинг и упаковка белков","Репликация ДНК"],ans:2},
+  {tag:"Гематология",text:"Зрелые эритроциты не имеют:",opts:["Гемоглобина","Мембраны","Ядра","Ферментов"],ans:2},
+  {tag:"Иммунология",text:"Клетки иммунологической памяти обеспечивают:",opts:["Немедленное производство антител","Активацию NK-клеток","Быстрый ответ при повторном контакте с антигеном","Инициацию воспаления"],ans:2},
+  {tag:"Биотехнология",text:"ПЦР (PCR) амплифицирует ДНК с помощью:",opts:["Клонирования в бактериях","Электрофореза","Повторных циклов: денатурация-отжиг-элонгация","ЭКО"],ans:2},
+  {tag:"Экология",text:"K-стратеги (в отличие от r-стратегов) имеют:",opts:["Больше потомков, меньше заботы","Меньше потомков, больше родительской заботы","Одинаковую стратегию размножения","Более короткую жизнь"],ans:1},
+  {tag:"Молекулярная биология",text:"Удаление интронов из пре-мРНК — это процесс:",opts:["Трансляции","Транскрипции","Сплайсинга","Репликации"],ans:2},
+  {tag:"Иммунология",text:"Порог коллективного иммунитета: 1−1/R₀. При R₀=5 порог равен:",opts:["60%","75%","80%","95%"],ans:2},
+  {tag:"Фотосинтез",text:"Синтез АТФ за счёт световой энергии в хлоропластах — это:",opts:["Гликолиз","Цикл Кребса","Фотофосфорилирование","Цикл Кальвина"],ans:2},
+  {tag:"Эпигенетика",text:"Ацетилирование гистонов, как правило:",opts:["Снижает экспрессию генов","Увеличивает экспрессию генов","Вызывает метилирование ДНК","Конденсирует хромосомы"],ans:1},
+  {tag:"Молекулярная биология",text:"Ретровирусы (например, ВИЧ) несут генетическую информацию в виде:",opts:["Двухцепочечной ДНК","Одноцепочечной РНК","Двухцепочечной РНК","Модифицированной ДНК"],ans:1},
+  {tag:"Экология",text:"Комменсализм в экологии: выгоду получает...",opts:["Оба вида","Один вид; другой не затронут","Один вид; другой страдает","Ни один из видов"],ans:1},
+  {tag:"Эволюция",text:"Хардi-Вайнберговское равновесие нарушается при:",opts:["Большой популяции","Случайном скрещивании","Естественном отборе","Отсутствии мутаций"],ans:2},
+  {tag:"Клеточная биология",text:"Протеасома отвечает за:",opts:["Синтез белков","Транспорт белков","Деградацию неправильно свёрнутых белков","Производство АТФ"],ans:2},
+  {tag:"Онкология",text:"Онкогены и гены-супрессоры опухолей: главное различие?",opts:["Оба стимулируют рост","Онкогены стимулируют; супрессоры тормозят деление","Оба мутируют в здоровых клетках","Супрессоры стимулируют; онкогены тормозят"],ans:1},
+  {tag:"Генетика",text:"Сколько молекул АТФ используется при активации одной аминокислоты для синтеза белка?",opts:["1","2","3","4"],ans:1},
+  {tag:"Иммунология",text:"Вакцины формируют иммунологическую память через:",opts:["Прямое уничтожение патогена","Активацию NK-клеток","Продукцию антител и клеток памяти","Стимуляцию воспаления"],ans:2},
+  {tag:"Экология",text:"Биомагнификация (биологическое усиление) — это накопление токсинов по мере:",opts:["Разложения органики","Продвижения по пищевой цепочке вверх","Фотосинтеза","Аэробного дыхания"],ans:1},
 ],
 
-Economics: [
-  {tag:"Эластичность",text:"Цена: 500→600 тг, спрос: 200→160 ед. Коэффициент ценовой эластичности спроса (PED)?",opts:["−2","−1","−0.5","−0.25"],ans:1},
-  {tag:"Макроэкономика",text:"ВВП измеряет...",opts:["Совокупный экспорт","Совокупную стоимость произведённых товаров и услуг","Государственные расходы","Совокупный доход граждан"],ans:1},
-  {tag:"Инфляция",text:"Инфляция означает...",opts:["Падение цен","Укрепление валюты","Общий рост цен","Рост безработицы"],ans:2},
-  {tag:"Монетарная политика",text:"Монетарную политику в стране проводит...",opts:["Парламент","Президент","Центральный банк","Коммерческие банки"],ans:2},
-  {tag:"Процентные ставки",text:"Если ЦБ повышает ключевую ставку, кредиты становятся...",opts:["Дешевле","Дороже","Бесплатными","Недоступными"],ans:1},
-  {tag:"Международная торговля",text:"Страна А: 100 ед. пшеницы OR 50 ед. ткани. Страна Б: 60 OR 60. Кто имеет сравнительное преимущество в производстве ткани?",opts:["Страна А","Страна Б","Обе","Ни одна"],ans:1},
-  {tag:"Провалы рынка",text:"«Провал рынка» означает, что рынок...",opts:["Устанавливает слишком высокие цены","Неэффективно распределяет ресурсы","Контролируется государством","Приносит убытки всем фирмам"],ans:1},
-  {tag:"Микроэкономика",text:"Кривая спроса фирмы в условиях совершенной конкуренции является...",opts:["Убывающей","Возрастающей","Горизонтальной","Вертикальной"],ans:2},
-  {tag:"Макроэкономика",text:"ВВП на душу населения = ?",opts:["ВВП × Население","ВВП − Налоги","ВВП / Население","ВВП + Экспорт"],ans:2},
-  {tag:"Международная торговля",text:"Тариф — это налог на...",opts:["Экспортируемые товары","Отечественные товары","Импортируемые товары","Все товары"],ans:2},
-  {tag:"Эластичность",text:"PED для предметов роскоши, как правило...",opts:["Неэластичный |PED|<1","Эластичный |PED|>1","Единичная эластичность","Нулевой"],ans:1},
-  {tag:"Макроэкономика",text:"Реальный ВВП отличается от номинального тем, что...",opts:["Реальный включает госрасходы","Реальный скорректирован на инфляцию","Номинальный всегда выше","Они идентичны"],ans:1},
-  {tag:"Микроэкономика",text:"Альтернативная стоимость (opportunity cost) поступления в университет — это...",opts:["Только плата за обучение","Упущенная зарплата при работе","Расходы на жильё","Плата за обучение + упущенная зарплата"],ans:3},
-  {tag:"Общественные блага",text:"Общественное благо характеризуется как...",opts:["Продаётся государством","Неисключаемое и несоперничающее","Очень дорогостоящее","Жизненно необходимое"],ans:1},
-  {tag:"Микроэкономика",text:"Если спрос превышает предложение при текущей цене, цена будет...",opts:["Падать","Расти","Оставаться неизменной","Устанавливаться государством"],ans:1},
-  {tag:"Фискальная политика",text:"Фискальная политика предполагает изменение...",opts:["Процентных ставок","Денежной массы","Госрасходов и налогов","Валютного курса"],ans:2},
-  {tag:"Микроэкономика",text:"Кривая производственных возможностей (КПВ) показывает...",opts:["Кривую спроса","Кривую предложения","Максимально возможные комбинации производства двух товаров","Кривую Лаффера"],ans:2},
-  {tag:"Инфляция",text:"Гиперинфляция означает темп инфляции...",opts:["5–10%","10–20%","20–50%","Чрезвычайно высокий (сотни и более %)"],ans:3},
-  {tag:"Макроэкономика",text:"Если MPC = 0.8, фискальный мультипликатор равен...",opts:["2","4","5","8"],ans:2},
-  {tag:"Микроэкономика",text:"По сравнению с совершенной конкуренцией, монополия устанавливает...",opts:["Более низкую цену при бо́льшем объёме","Более высокую цену при меньшем объёме","Такую же цену при том же объёме","Более низкую цену при меньшем объёме"],ans:1},
+Economics:[
+  {tag:"Макроэкономика",text:"MPC = 0.75. Мультипликатор расходов равен:",opts:["3","4","5","6"],ans:1},
+  {tag:"Монополия",text:"Мёртвый груз (deadweight loss) при монополии возникает из-за:",opts:["Избыточного производства","Цены ниже MC","Цены выше MC при объёме ниже конкурентного","Государственного налога"],ans:2},
+  {tag:"Макроэкономика",text:"Дефлятор ВВП отличается от ИПЦ тем, что:",opts:["ИПЦ измеряет только услуги","Дефлятор использует текущую корзину; ИПЦ — фиксированную базовую","Они идентичны","ИПЦ охватывает больше товаров"],ans:1},
+  {tag:"Фискальная политика",text:"Эффект вытеснения (crowding out) означает:",opts:["Снижение налогов","Рост государственных займов → рост ставок → снижение частных инвестиций","Рост занятости","Снижение инфляции"],ans:1},
+  {tag:"Микроэкономика",text:"В долгосрочном равновесии совершенной конкуренции фирмы получают:",opts:["Положительную экономическую прибыль","Отрицательную экономическую прибыль","Нулевую экономическую прибыль","Максимальную выручку"],ans:2},
+  {tag:"Монополия",text:"Ценовая дискриминация 3-й степени требует:",opts:["Одинаковых потребителей","Сегментации рынка и невозможности перепродажи","Конкурентного рынка","Разрешения государства"],ans:1},
+  {tag:"Неравенство",text:"Коэффициент Джини = 0 означает:",opts:["Абсолютное неравенство","Абсолютное равенство","Нет дохода","Нет данных"],ans:1},
+  {tag:"Макроэкономика",text:"Кривая IS отражает равновесие на рынке:",opts:["Денег","Товаров","Труда","Валюты"],ans:1},
+  {tag:"Международная торговля",text:"Паритет покупательной способности (ППС) утверждает, что обменные курсы:",opts:["Уравнивают процентные ставки","Уравнивают уровни цен между странами","Стабилизируют торговый баланс","Уравнивают ВВП на душу населения"],ans:1},
+  {tag:"Микроэкономика",text:"Ломаная кривая спроса характерна для:",opts:["Совершенной конкуренции","Монополистической конкуренции","Олигополии","Монополии"],ans:2},
+  {tag:"Государственная политика",text:"Налог Пигу корректирует:",opts:["Недостаточное производство общественных благ","Отрицательные внешние эффекты","Неравенство доходов","Бюджетный дефицит"],ans:1},
+  {tag:"Макроэкономика",text:"Дефицит счёта текущих операций означает:",opts:["Правительство тратит больше, чем получает","Импорт товаров/услуг превышает экспорт","Высокая инфляция","Внешний долг равен нулю"],ans:1},
+  {tag:"Налогообложение",text:"Кривая Лаффера отражает зависимость между:",opts:["Инфляцией и безработицей","Ставкой налога и налоговыми поступлениями","Спросом и предложением","ВВП и инвестициями"],ans:1},
+  {tag:"Макроэкономика",text:"Реальная процентная ставка = ?",opts:["Номинальная − инфляция","Номинальная × инфляция","Инфляция − номинальная","Номинальная + инфляция"],ans:0},
+  {tag:"Теория игр",text:"В дилемме заключённого (олигополия) равновесие Нэша предполагает, что фирмы:",opts:["Кооперируются для максимизации совместной прибыли","Обе нарушают договорённость, получая меньшую прибыль","Поочерёдно лидируют","Всегда устанавливают одинаковые цены"],ans:1},
+  {tag:"Инфляция",text:"Гиперинфляция обычно вызвана:",opts:["Высокими налогами","Чрезмерным ростом денежной массы","Торговым дефицитом","Высокими процентными ставками"],ans:1},
+  {tag:"Платёжный баланс",text:"Профицит счёта капитала означает:",opts:["Торговый профицит","Профицит госбюджета","Чистый приток финансового капитала","Положительный рост ВВП"],ans:2},
+  {tag:"Теория игр",text:"Доминирующая стратегия в теории игр — это:",opts:["Лучший ответ на лучший ход соперника","Лучшая стратегия вне зависимости от действий соперника","Стратегия, максимизирующая совместный выигрыш","Случайная смешанная стратегия"],ans:1},
+  {tag:"Безработица",text:"Циклическая безработица возникает вследствие:",opts:["Фрикционных причин","Структурных изменений","Экономических спадов","Сезонных факторов"],ans:2},
+  {tag:"Монетарная теория",text:"MV = PY. Рост M на 10%, рост Y на 2%. Инфляция ≈",opts:["2%","5%","8%","12%"],ans:2},
+  {tag:"Микроэкономика",text:"Экономия от масштаба означает, что при росте выпуска средние издержки:",opts:["Растут","Не изменяются","Снижаются","Непредсказуемы"],ans:2},
+  {tag:"Микроэкономика",text:"Излишек потребителя = ?",opts:["Выручка минус затраты","Готовность платить минус фактическая цена","Цена минус затраты","Спрос минус предложение"],ans:1},
+  {tag:"Международная торговля",text:"Теория Хекшера-Олина утверждает, что страны экспортируют товары:",opts:["Которые сами потребляют больше всего","Исходя из абсолютного преимущества","Трудоёмкие по обильному фактору","Любые"],ans:2},
+  {tag:"Монетарная политика",text:"«Ловушка ликвидности» возникает, когда:",opts:["У банков избыток ликвидности","Монетарная политика неэффективна при ставках около нуля","Потребители мало сберегают","Инфляция очень высокая"],ans:1},
+  {tag:"Информационная асимметрия",text:"Моральный риск (moral hazard) — это:",opts:["Противоправное поведение","Рост склонности к риску при ограждении от последствий","Сокрытие информации","Иррациональное поведение"],ans:1},
+  {tag:"Безработица",text:"Естественный уровень безработицы включает:",opts:["Все виды безработицы","Только фрикционную","Фрикционную + структурную","Только циклическую"],ans:2},
+  {tag:"Макроэкономика",text:"«Опережающий» экономический индикатор (leading indicator):",opts:["ВВП","Уровень безработицы","Индекс потребительских цен","Фондовый рынок / разрешения на строительство"],ans:3},
+  {tag:"Информационная асимметрия",text:"Неблагоприятный отбор (adverse selection) возникает из-за:",opts:["Скрытых действий","Информационной асимметрии до сделки","Государственного регулирования","Монопольной власти"],ans:1},
+  {tag:"Микроэкономика",text:"Закон убывающей предельной производительности: добавление труда при постоянном капитале...",opts:["Увеличивает производительность оба фактора","Каждая единица труда добавляет меньше выпуска","Снижает цены","Увеличивает постоянные затраты"],ans:1},
+  {tag:"Валютный рынок",text:"Курс USD/KZT растёт (больше тенге за доллар). Казахстанский экспорт становится...",opts:["Дороже для иностранцев","Дешевле для иностранцев","Не меняется","Запрещён"],ans:1},
+  {tag:"Микроэкономика",text:"Изокванта показывает:",opts:["Все комбинации затрат при одинаковом выпуске","Все комбинации факторов, дающие одинаковый выпуск","Кривую безразличия потребителя","Ценовое соотношение"],ans:1},
+  {tag:"Макроэкономика",text:"Стагфляция трудно лечится, потому что:",opts:["Она никогда не происходит","Налоговые льготы всегда работают","Политика борьбы с инфляцией ухудшает спад; борьбы со спадом — усиливает инфляцию","У центробанков нет инструментов"],ans:2},
+  {tag:"Микроэкономика",text:"Альтернативная стоимость хранения денег (не инвестирования):",opts:["Амортизация","Транзакционные издержки","Упущенные проценты/доходность","Инфляция"],ans:2},
+  {tag:"Макроэкономика",text:"«Парадокс бережливости» (Кейнс) утверждает:",opts:["Сбережения вредны для отдельного человека","Коллективный рост сбережений снижает ВВП, несмотря на пользу для каждого","Бережливость иррациональна","Сбережения всегда равны инвестициям"],ans:1},
+  {tag:"Микроэкономика",text:"В монополистической конкуренции в долгосрочном периоде экономическая прибыль:",opts:["Положительна","Отрицательна","Нулевая","Максимальна"],ans:2},
+  {tag:"Фискальная политика",text:"«Вытеснение» в фискальной политике означает, что госрасходы...",opts:["Нанимают частных работников","Заменяют частные блага государственными","Повышают ставки, вытесняя частные инвестиции","Снижают потребление"],ans:2},
+  {tag:"Международная торговля",text:"Страна А имеет более низкие альтернативные издержки в производстве X. Она должна:",opts:["Производить оба товара поровну","Специализироваться на X и импортировать Y","Избегать торговли","Копировать страну B"],ans:1},
+  {tag:"История экономической мысли",text:"«Невидимая рука» Адама Смита символизирует:",opts:["Государственное регулирование","Центральное планирование","Ценовой механизм, координирующий эгоистичные действия на благо общества","Профсоюзы"],ans:2},
+  {tag:"Макроэкономика",text:"Отрицательный шок предложения — это внезапный рост:",opts:["Совокупного спроса","Издержек производства (например, рост нефти), снижающий предложение","Государственных расходов","Курса валюты"],ans:1},
+  {tag:"Статистика",text:"Кривая Лоренца измеряет:",opts:["Экономический рост во времени","Динамику инфляции","Неравенство распределения доходов","Торговый баланс"],ans:2},
 ],
 
-Humanities: [
-  {tag:"Вторая мировая война",text:"В каком году закончилась Вторая мировая война?",opts:["1943","1944","1945","1946"],ans:2},
-  {tag:"История Казахстана",text:"В каком году Казахстан провозгласил независимость?",opts:["1989","1990","1991","1992"],ans:2},
-  {tag:"Международные организации",text:"Сколько постоянных членов насчитывает Совет Безопасности ООН?",opts:["3","5","7","10"],ans:1},
-  {tag:"Права человека",text:"В каком году была принята Всеобщая декларация прав человека?",opts:["1945","1948","1950","1956"],ans:1},
-  {tag:"Философия",text:"Кто написал трактат «Левиафан» об общественном договоре и природе государства?",opts:["Джон Локк","Жан-Жак Руссо","Томас Гоббс","Иммануил Кант"],ans:2},
-  {tag:"Устойчивое развитие",text:"Сколько Целей устойчивого развития (ЦУР) ООН приняла в 2015 году?",opts:["8","12","15","17"],ans:3},
-  {tag:"Холодная война",text:"Холодная война (1947–1991) — это прежде всего противостояние между...",opts:["США и Китаем","США и СССР","СССР и Европой","Великобританией и Россией"],ans:1},
-  {tag:"Политическая философия",text:"Теория общественного договора утверждает, что власть государства...",opts:["Дана королям Богом","Исходит от военной силы","Основана на согласии граждан","Определяется религиозными законами"],ans:2},
-  {tag:"Первая мировая война",text:"Непосредственным поводом к началу Первой мировой войны послужило...",opts:["Приход Гитлера к власти","Убийство эрцгерцога Франца Фердинанда на фоне системы альянсов","Русская революция","Великая депрессия"],ans:1},
-  {tag:"Права человека",text:"Всеобщая декларация прав человека состоит из...",opts:["20 статей","25 статей","30 статей","50 статей"],ans:2},
-  {tag:"Философия",text:"Кто написал «Государство» («Республику») — трактат об идеальном государстве?",opts:["Аристотель","Сократ","Платон","Декарт"],ans:2},
-  {tag:"Этика",text:"Утилитаризм считает, что правильное действие — то, которое...",opts:["Всегда следует моральным правилам","Максимизирует общую пользу и счастье","Защищает права личности","Соответствует религиозному закону"],ans:1},
-  {tag:"История Казахстана",text:"Казахстан был принят в ООН в...",opts:["1991","1992","1993","1995"],ans:1},
-  {tag:"Политология",text:"Принцип «сдержек и противовесов» означает, что...",opts:["Правительство контролирует СМИ","Суды управляют экономикой","Ветви власти ограничивают полномочия друг друга","Армия следит за выборами"],ans:2},
-  {tag:"История",text:"Холокост — это...",opts:["Газовые атаки Первой мировой","Нацистский геноцид ~6 миллионов евреев","Советские репрессии","Атомная бомбардировка Японии"],ans:1},
-  {tag:"Этика",text:"Деонтологическая этика (Кант) сосредоточена на...",opts:["Результатах и последствиях","Социальных нормах","Следовании моральным правилам и долгу","Мнении большинства"],ans:2},
-  {tag:"История СССР",text:"Гласность и Перестройка — политика периода правления...",opts:["Сталина","Хрущёва","Брежнева","Горбачёва"],ans:3},
-  {tag:"История Казахстана",text:"Казахское ханство было основано приблизительно в...",opts:["1000 г.","1200 г.","1465 г.","1700 г."],ans:2},
-  {tag:"Этика",text:"«Задача о вагонетке» — известный мысленный эксперимент в области...",opts:["Экономики","Физики","Этики","Политологии"],ans:2},
-  {tag:"Международные отношения",text:"«Мягкая сила» (soft power) в международных отношениях — это влияние через...",opts:["Военную силу","Экономические санкции","Культуру, ценности и дипломатию","Ядерное сдерживание"],ans:2},
+Humanities:[
+  {tag:"История ХХ века",text:"Версальский договор (1919): какое положение больше всего унизило Германию?",opts:["Раздел Германии","Статья 231 — «вина за войну» и репарации","Потеря флота","Оккупация Берлина"],ans:1},
+  {tag:"Холодная война",text:"Доктрина Трумэна (1947) обязалась:",opts:["Восстановить Европу","Сдерживать коммунизм и советское влияние","Создать НАТО","Завершить войну в Корее"],ans:1},
+  {tag:"Международные организации",text:"ООН основана в:",opts:["1919","1944","1945","1948"],ans:2},
+  {tag:"Деколонизация",text:"Большинство африканских стран получили независимость в:",opts:["1920-е–1930-е","1940-е–1950-е","1950-е–1960-е","1970-е–1980-е"],ans:2},
+  {tag:"Международные отношения",text:"«Баланс сил» в международных отношениях означает:",opts:["Равное экономическое развитие","Союзы государств для предотвращения гегемонии одного из них","Военное равенство","Совместное ядерное оружие"],ans:1},
+  {tag:"Политическая философия",text:"«Завеса неведения» Ролза спрашивает: какие принципы выбрали бы разумные люди, не зная своего положения в обществе?",opts:["Законы, угодные Богу","Принципы без знания о своём социальном положении","Как максимизировать ВВП","Что предпочтут тираны"],ans:1},
+  {tag:"История",text:"Организация, предшествовавшая ООН:",opts:["Европейский концерт","Гаагская конвенция","Лига Наций","Международный суд"],ans:2},
+  {tag:"Этика",text:"Категорический императив Канта: «Поступай только согласно такой максиме, которую ты мог бы...»",opts:["Применить к своим врагам","Сделать всеобщим законом","Игнорировать без наказания","Максимизировать своё счастье"],ans:1},
+  {tag:"История ХХ века",text:"Карибский кризис (1962) был разрешён путём:",opts:["Вторжения США на Кубу","Вывода советских ракет с Кубы + обязательства США не вторгаться","Ядерного обмена","Военной силы ООН"],ans:1},
+  {tag:"Философия науки",text:"Принцип фальсифицируемости Поппера: теория должна быть...",opts:["Абсолютно верной","Потенциально опровергаемой","Доказанной экспериментом","Согласованной с этикой"],ans:1},
+  {tag:"Философия",text:"«Чистый лист» (tabula rasa) — идея кого из философов?",opts:["Декарта","Платона","Юма","Локка"],ans:3},
+  {tag:"История ХХ века",text:"План Маршалла (1948) был направлен на:",opts:["Сдерживание советской армии","Восстановление экономики Западной Европы","Создание НАТО","Основание ООН"],ans:1},
+  {tag:"История Китая",text:"Культурная революция в Китае (1966–1976) проводилась при:",opts:["Дэн Сяопине","Чжоу Эньлае","Мао Цзэдуне","Чан Кайши"],ans:2},
+  {tag:"История",text:"Соглашение Сайкс-Пико (1916) разграничило:",opts:["Условия окончания Первой мировой","Британскую и французскую зоны влияния на Ближнем Востоке","Границы после Русской революции","Реформы Османской империи"],ans:1},
+  {tag:"Международные отношения",text:"«Реальполитик» означает:",opts:["Демократическую внешнюю политику","Практическую политику, основанную на силе, без оглядки на идеологию","Дипломатию в сфере прав человека","Экономическую интеграцию"],ans:1},
+  {tag:"Философия",text:"«Существование предшествует сущности» (Сартр) означает:",opts:["Бог определяет человеческую цель","Люди сами создают смысл; нет предопределённой цели","Биология определяет судьбу","Общество определяет личность"],ans:1},
+  {tag:"История",text:"Magna Carta (1215) установила:",opts:["Парламентскую демократию","Ограничение королевской власти и правовые права","Конец феодализма","Всеобщее избирательное право"],ans:1},
+  {tag:"Международные отношения",text:"Движение неприсоединения в годы холодной войны объединяло:",opts:["Антикоммунистические государства","Просоветские государства","Страны, не вступившие в американский или советский блок","Только африканские нации"],ans:2},
+  {tag:"Этика",text:"Основатель утилитаризма:",opts:["Иммануил Кант","Джон Локк","Иеремия Бентам","Жан-Поль Сартр"],ans:2},
+  {tag:"История",text:"Бреттон-Вудская конференция (1944) создала:",opts:["ООН","НАТО","МВФ, Всемирный банк и золото-долларовый стандарт","Европейский союз"],ans:2},
+  {tag:"Политическая философия",text:"«Банальность зла» Ханны Арендт описывает:",opts:["Зло в фэнтезийном мире","Как обычные люди совершают злодеяния, следуя бюрократическому подчинению","Только чудовища способны на зло","Зло всегда преднамеренно"],ans:1},
+  {tag:"Политическая философия",text:"«Исторический материализм» Маркса утверждает, что историю движут:",opts:["Идеи великих людей","Великие личности","Экономические силы (базис) → общественные структуры (надстройка)","Географические факторы"],ans:2},
+  {tag:"История",text:"Геноцид в Руанде (1994): приблизительное число жертв?",opts:["~10 000","~100 000","~500 000","~800 000"],ans:3},
+  {tag:"Политическая философия",text:"Вклад Монтескьё в политическую философию:",opts:["Теория общественного договора","Разделение властей","Экономическая свобода","Национализм"],ans:1},
+  {tag:"Международное право",text:"Нюрнбергские процессы (1945–46) установили принцип:",opts:["Международного торгового права","Индивидуальной ответственности за военные преступления","Запрета ядерного оружия","Механизма репараций"],ans:1},
+  {tag:"Культурология",text:"Постколониальная теория критикует:",opts:["Только современный империализм","Только историю Европы","Наследие колониализма в культуре и идентичности постколониальных стран","Только глобализацию"],ans:2},
+  {tag:"Политическая социология",text:"«Харизматическое господство» по Веберу — это власть, основанная на:",opts:["Традиции и обычае","Законных правилах","Исключительных личных качествах лидера","Экономическом авторитете"],ans:2},
+  {tag:"Международное право",text:"Концепция R2P (Ответственность по защите) в международном праве:",opts:["Права на ядерное оружие","Государства защищают мирных жителей; международное сообщество вмешивается при провале","Права в сфере торговли","Права беженцев"],ans:1},
+  {tag:"Философия",text:"«Аллегория пещеры» Платона иллюстрирует:",opts:["Превосходство демократии","Разницу между видимостью и подлинным знанием","Ненужность образования","Военное правление"],ans:1},
+  {tag:"История",text:"«Пражская весна» (1968) — это:",opts:["Воссоединение Германии","Польская «Солидарность»","Либерализация в Чехословакии, подавленная СССР","Независимость Югославии"],ans:2},
+  {tag:"Международные отношения",text:"Концепцию «мягкой силы» разработал:",opts:["Генри Киссинджер","Джозеф Най","Ганс Моргентау","Сэмюэл Хантингтон"],ans:1},
+  {tag:"ООН",text:"Цели устойчивого развития ООН (ЦУР) пришли на смену:",opts:["Вашингтонскому консенсусу","Киотскому протоколу","Целям развития тысячелетия (ЦРТ)","Бреттон-Вудским соглашениям"],ans:2},
+  {tag:"Философия",text:"Диалектика Гегеля включает:",opts:["Действие + Реакцию","Тезис + Антитезис → Синтез","Проблема + Решение","Спрос + Предложение"],ans:1},
+  {tag:"История",text:"Резня в Сребренице (1995) произошла во время:",opts:["Косовской войны","Чеченской войны","Боснийской войны","Войны в Персидском заливе"],ans:2},
+  {tag:"Международные отношения",text:"Теория «демократического мира» утверждает, что:",opts:["Демократии никогда не воюют","Либеральные демократии крайне редко воюют друг с другом","Демократия распространяется через войну","Мир требует авторитаризма"],ans:1},
+  {tag:"История Казахстана",text:"Программа «Болашак» направлена на:",opts:["Строительство местных университетов","Привлечение иностранных студентов","Отправку казахстанских студентов в ведущие зарубежные вузы","Финансирование научных исследований"],ans:2},
+  {tag:"Философия",text:"Проблема «должного» Юма (is-ought problem) утверждает:",opts:["Наука доказывает мораль","Моральные суждения следуют из фактов","Из фактических утверждений нельзя логически вывести моральные","Этика невозможна"],ans:2},
+  {tag:"Политическая социология",text:"«Структурное насилие» (Галтунг) — это вред, причиняемый:",opts:["Военной агрессией","Социальными структурами и институтами, а не прямой силой","Психологическим давлением","Организованной преступностью"],ans:1},
+  {tag:"Международные отношения",text:"«Демократический дефицит» глобального управления означает:",opts:["В бедных странах нет демократии","Международные институты лишены демократической подотчётности","Выборы проводятся слишком редко","Слишком много демократий"],ans:1},
+  {tag:"Философия",text:"Конфуцианство акцентирует внимание на:",opts:["Индивидуальной свободе","Социальной гармонии, сыновней почтительности, уважении к иерархии","Демократическом управлении","Экономической конкуренции"],ans:1},
+  {tag:"История",text:"«Доктрина Монро» (1823) заявляла о:",opts:["Европейском праве на колонии","Недопустимости новой европейской колонизации в Западном полушарии","Нейтралитете США в мировых делах","Расширении США на запад"],ans:1},
 ],
 };
 
-/* ══ STATE ═══════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════════
+   STATE
+═══════════════════════════════════════════════════════════════ */
 const subject   = sessionStorage.getItem('ri_subject') || 'Mathematics';
 const questions = QUESTIONS[subject] || QUESTIONS['Mathematics'];
-const chosen    = new Array(questions.length).fill(-1); // -1 = unanswered
-let cur         = 0;
-let violations  = 0;
-let submitted   = false;
-let timerSecs   = DURATION_MINUTES * 60;
+const chosen    = new Array(questions.length).fill(-1);
+let cur         = 0, violations = 0, submitted = false, timerSecs = DURATION_MINUTES * 60;
 let timerInterval;
 
 const userRaw = sessionStorage.getItem('ri_user');
@@ -409,187 +515,155 @@ const SN_RU = {Mathematics:'Математика',Physics:'Физика','Comput
 const subjDisplay = SN_RU[subject] || subject;
 const LETTERS = ['A','B','C','D'];
 
-/* ══ RENDER ══════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════════
+   RENDER
+═══════════════════════════════════════════════════════════════ */
 function renderQ(){
-  var q   = questions[cur];
-  var pct = ((cur+1)/questions.length*100).toFixed(1);
-  document.getElementById('prog').style.width = pct+'%';
-  document.getElementById('qnum').textContent = 'Вопрос '+(cur+1)+' из '+questions.length;
+  const q   = questions[cur];
+  const pct = ((cur+1)/questions.length*100).toFixed(1);
+  document.getElementById('prog').style.width=pct+'%';
+  document.getElementById('qnum').textContent='Вопрос '+(cur+1)+' из '+questions.length;
 
-  // Dots
-  var d='';
-  for(var i=0;i<questions.length;i++){
-    var c='dot';
+  let d='';
+  for(let i=0;i<questions.length;i++){
+    let c='dot';
     if(i===cur) c+=' cur';
     else if(chosen[i]>=0) c+=' ans';
     d+='<button class="'+c+'" onclick="goQ('+i+')">'+(i+1)+'</button>';
   }
   document.getElementById('dots').innerHTML=d;
 
-  // Options
-  var opts='';
-  q.opts.forEach(function(o,i){
-    var sel=chosen[cur]===i?' sel':'';
-    opts+='<div class="opt'+sel+'" onclick="selectOpt('+i+')">'+
-      '<span class="opt-letter">'+LETTERS[i]+'</span>'+
-      '<span class="opt-text">'+o+'</span>'+
-    '</div>';
+  let opts='';
+  q.opts.forEach((o,i)=>{
+    const sel=chosen[cur]===i?' sel':'';
+    opts+='<div class="opt'+sel+'" onclick="selectOpt('+i+')"><span class="opt-letter">'+LETTERS[i]+'</span><span class="opt-text">'+o+'</span></div>';
   });
-
-  document.getElementById('qcard').innerHTML=
-    '<div class="q-tag">'+q.tag+'</div>'+
-    '<div class="q-text">'+q.text+'</div>'+
-    '<div class="options">'+opts+'</div>';
+  document.getElementById('qcard').innerHTML='<div class="q-tag">'+q.tag+'</div><div class="q-text">'+q.text+'</div><div class="options">'+opts+'</div>';
 
   document.getElementById('bprev').disabled=(cur===0);
-  var last=(cur===questions.length-1);
+  const last=(cur===questions.length-1);
   document.getElementById('bnext').style.display=last?'none':'inline-block';
   document.getElementById('bsub').style.display=last?'inline-block':'none';
 }
 
-function selectOpt(i){
-  if(submitted) return;
-  chosen[cur]=i;
-  renderQ();
-}
-
-function refreshDots(){
-  document.querySelectorAll('.dot').forEach(function(d,i){
-    d.className='dot';
-    if(i===cur) d.className+=' cur';
-    else if(chosen[i]>=0) d.className+=' ans';
-  });
-}
-
+function selectOpt(i){ if(submitted) return; chosen[cur]=i; renderQ(); }
 function prevQ(){ if(cur>0){ cur--; renderQ(); } }
 function nextQ(){ if(cur<questions.length-1){ cur++; renderQ(); } }
 function goQ(i){ cur=i; renderQ(); }
 
-/* ══ TIMER ═══════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════════
+   TIMER
+═══════════════════════════════════════════════════════════════ */
 function startTimer(){
-  timerInterval=setInterval(function(){
+  timerInterval=setInterval(()=>{
     timerSecs--;
-    var m=Math.floor(timerSecs/60),s=timerSecs%60;
-    var el=document.getElementById('timer');
+    const m=Math.floor(timerSecs/60),s=timerSecs%60;
+    const el=document.getElementById('timer');
     el.textContent=m+':'+(s<10?'0':'')+s;
     if(timerSecs<=300) el.classList.add('urgent');
     if(timerSecs<=0) doSubmit('timeout');
   },1000);
 }
 
-/* ══ SUBMIT + SCORE ══════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════════
+   SUBMIT + SCORE
+═══════════════════════════════════════════════════════════════ */
 function confirmSubmit(){ doSubmit('manual'); }
 
 async function doSubmit(reason){
   if(submitted) return;
   submitted=true;
   clearInterval(timerInterval);
-  if(document.fullscreenElement) document.exitFullscreen().catch(function(){});
+  if(document.fullscreenElement) document.exitFullscreen().catch(()=>{});
 
-  // Score
-  var correct=0;
-  var results=questions.map(function(q,i){
-    var ok=(chosen[i]===q.ans);
+  let correct=0;
+  const results=questions.map((q,i)=>{
+    const ok=(chosen[i]===q.ans);
     if(ok) correct++;
-    return { n:i+1, question:q.text, chosen:chosen[i], answer:q.ans, correct:ok, score:ok?5:0 };
+    return {n:i+1,question:q.text,chosen:chosen[i],answer:q.ans,correct:ok};
   });
-  var total=correct*5; // 20 × 5 = 100
+  const total=Math.round(correct/questions.length*100);
 
-  showResults(total, correct, results);
+  showResults(total,correct,results);
 
-  // Save to Sheets
-  var ts=new Date().toLocaleString('ru-KZ',{timeZone:'Asia/Almaty'});
+  const ts=new Date().toLocaleString('ru-KZ',{timeZone:'Asia/Almaty'});
   try{
-    await fetch(SHEETS_URL,{
-      method:'POST',mode:'no-cors',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-        type:'answers',
-        timestamp:ts,
-        login:user.login||'unknown',
-        name:user.name||'unknown',
-        subject:subject,
-        total_score:total,
-        answers:results.map(function(r){
-          return {n:r.n,question:r.question,answer:r.chosen>=0?LETTERS[r.chosen]+') '+questions[r.n-1].opts[r.chosen]:'—',score:r.score};
-        }),
-      }),
-    });
+    await fetch(SHEETS_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({type:'answers',timestamp:ts,login:user.login||'unknown',name:user.name||'unknown',subject,total_score:total,
+        answers:results.map(r=>({n:r.n,question:r.question,answer:r.chosen>=0?LETTERS[r.chosen]+') '+questions[r.n-1].opts[r.chosen]:'—',score:r.correct?1:0}))})});
     document.getElementById('snote').textContent='Результаты сохранены.';
-  }catch(e){
-    document.getElementById('snote').textContent='';
-  }
+  }catch(e){ document.getElementById('snote').textContent=''; }
 }
 
-function showResults(total, correct, results){
+function showResults(total,correct,results){
   document.getElementById('rscreen').classList.add('show');
   document.getElementById('sbig').textContent=total;
+  document.getElementById('res-sub').textContent='Верных ответов: '+correct+' из '+questions.length;
 
-  var lv,cls;
+  let lv,cls;
   if(total>=85){lv='Distinction · Отличие';cls='lv-d';}
   else if(total>=70){lv='Merit · Превосходно';cls='lv-m';}
   else if(total>=55){lv='Pass · Зачёт';cls='lv-p';}
   else{lv='Participation · Участие';cls='lv-x';}
   document.getElementById('lvwrap').innerHTML='<div class="level-badge '+cls+'">'+lv+'</div>';
 
-  var bk='';
-  results.forEach(function(r){
-    bk+='<div class="bk-row">'+
-      '<div class="bk-n">'+r.n+'.</div>'+
-      '<div class="bk-txt">'+questions[r.n-1].text.substring(0,70)+(questions[r.n-1].text.length>70?'…':'')+'</div>'+
-      '<div class="bk-result '+(r.correct?'ok':'ng')+'">'+(r.correct?'✓':'✗')+'</div>'+
-    '</div>';
+  let bk='';
+  results.forEach(r=>{
+    bk+='<div class="bk-row"><div class="bk-n">'+r.n+'.</div>'+
+      '<div class="bk-txt">'+questions[r.n-1].text.substring(0,65)+(questions[r.n-1].text.length>65?'…':'')+'</div>'+
+      '<div class="bk-result '+(r.correct?'ok':'ng')+'">'+(r.correct?'✓':'✗')+'</div></div>';
   });
   document.getElementById('bklist').innerHTML=bk;
-
-  window._rd={total:total,correct:correct,lv:lv};
+  window._rd={total,correct,lv};
 }
 
-/* ══ CERTIFICATE ══════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════════
+   CERTIFICATE
+═══════════════════════════════════════════════════════════════ */
 function showCert(){
-  var d=window._rd||{total:0,correct:0,lv:'Participation'};
-  var certNo='RI-2026-'+Math.floor(10000+Math.random()*90000);
-  var date=new Date().toLocaleDateString('ru-KZ',{day:'2-digit',month:'long',year:'numeric',timeZone:'Asia/Almaty'});
-
+  const d=window._rd||{total:0,correct:0,lv:'Participation'};
+  const certNo='RI-2026-'+Math.floor(10000+Math.random()*90000);
+  const date=new Date().toLocaleDateString('ru-KZ',{day:'2-digit',month:'long',year:'numeric',timeZone:'Asia/Almaty'});
   document.getElementById('cname').textContent=user.name||'Participant';
   document.getElementById('cname2').textContent=user.name||'Participant';
   document.getElementById('csubj').textContent=subjDisplay+' Olympiad';
   document.getElementById('clvval').textContent=d.lv;
   document.getElementById('cscnum').textContent=d.total;
-  document.getElementById('ccnum').textContent=d.correct+' / 20';
+  document.getElementById('ccnum').textContent=d.correct+' / '+questions.length;
   document.getElementById('cref').textContent=certNo;
   document.getElementById('cdate').textContent=date;
-
   document.getElementById('coverlay').classList.add('show');
 }
 
-/* ══ ANTI-CHEAT ══════════════════════════════════════════════════ */
-document.addEventListener('visibilitychange',function(){
+/* ═══════════════════════════════════════════════════════════════
+   ANTI-CHEAT
+═══════════════════════════════════════════════════════════════ */
+document.addEventListener('visibilitychange',()=>{
   if(submitted||document.visibilityState!=='hidden') return;
   violations++;
   document.getElementById('wtitle').textContent='Предупреждение';
-  document.getElementById('wbody').textContent=violations>=2
-    ?'Последнее предупреждение. Следующее нарушение автоматически сдаст вашу работу.'
-    :'Вы переключили вкладку или свернули окно.';
+  document.getElementById('wbody').textContent=violations>=2?'Последнее предупреждение. Следующее нарушение автоматически сдаст вашу работу.':'Вы переключили вкладку или свернули окно.';
   document.getElementById('wcnt').textContent='Нарушение '+violations+' из 2.';
   document.getElementById('woverlay').classList.add('show');
-  if(violations>=3) setTimeout(function(){ doSubmit('violation'); },600);
+  if(violations>=3) setTimeout(()=>doSubmit('violation'),600);
 });
 function closeWarn(){ document.getElementById('woverlay').classList.remove('show'); }
-document.addEventListener('contextmenu',function(e){ e.preventDefault(); });
-document.addEventListener('copy',       function(e){ e.preventDefault(); });
-document.addEventListener('keydown',    function(e){
-  if(e.key==='F12'){ e.preventDefault(); return; }
+document.addEventListener('contextmenu',e=>e.preventDefault());
+document.addEventListener('copy',e=>e.preventDefault());
+document.addEventListener('keydown',e=>{
+  if(e.key==='F12'){e.preventDefault();return;}
   if(e.ctrlKey&&['u','U','s','S','p','P'].includes(e.key)) e.preventDefault();
   if(e.ctrlKey&&e.shiftKey&&['i','I','j','J','c','C'].includes(e.key)) e.preventDefault();
 });
 
-/* ══ BOOT ════════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════════
+   BOOT
+═══════════════════════════════════════════════════════════════ */
 (function(){
   document.getElementById('top-subject').textContent=subjDisplay;
   document.getElementById('slbl').textContent='Олимпиада · '+subjDisplay;
   document.title=subjDisplay+' — The Russell Institute';
-  var el=document.documentElement;
+  const el=document.documentElement;
   if(el.requestFullscreen) el.requestFullscreen();
   else if(el.webkitRequestFullscreen) el.webkitRequestFullscreen();
   renderQ();
